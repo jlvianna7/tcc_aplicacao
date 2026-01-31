@@ -1,0 +1,1318 @@
+
+/* TABELA DE DOMÍNIO DE PORTE DE EMPRESA PESQUISADA */
+CREATE TABLE dm_porte_empresa (id_porte_empresa varchar(4) NOT NULL, ds_porte_empresa varchar(32) NOT NULL, 
+PRIMARY KEY (id_porte_empresa), 
+UNIQUE KEY id_porte_empresa_UNIQUE (id_porte_empresa)) 
+COMMENT='Tamanho da empresa em pesquisada, em quantidade de funcionários.';
+
+/* TABELA DE DOMÍNIO DE MERCADO DE ATUAÇÃO EMPRESA PESQUISADA */
+CREATE TABLE dm_mercado_atuacao (id_merc_atuacao varchar(4) NOT NULL, ds_merc_atuacao varchar(256) DEFAULT NULL, 
+cod_ibge varchar(1) DEFAULT NULL, 
+PRIMARY KEY (id_merc_atuacao), 
+UNIQUE KEY id_merc_atuacao_UNIQUE (id_merc_atuacao)) 
+COMMENT='Marcado de atuação segundo pesquisa CeticBr';
+
+
+
+/*********  ESTRUTURA DAS TABELAS FATO *******/
+
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA B18a */
+CREATE TABLE ft_b18a_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='B18a TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA B18a - Por porte de empresa */
+CREATE TABLE ft_b18a_porte (id_ft_b18a_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_b18a_porte), 
+UNIQUE KEY id_ft_b18a_porte_UNIQUE (id_ft_b18a_porte)) 
+COMMENT='B18a PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA B18a - Por mercado de atuação */
+CREATE TABLE ft_b18a_mercado (id_ft_b18a_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_b18a_mercado), 
+UNIQUE KEY id_ft_b18a_mercado_UNIQUE (id_ft_b18a_mercado)) 
+COMMENT='B18a MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA B18b */
+CREATE TABLE ft_b18b_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='B18b TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA B18b - Por porte de empresa */
+CREATE TABLE ft_b18b_porte (id_ft_b18b_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_b18b_porte), 
+UNIQUE KEY id_ft_b18b_porte_UNIQUE (id_ft_b18b_porte)) 
+COMMENT='B18b PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA B18b - Por mercado de atuação */
+CREATE TABLE ft_b18b_mercado (id_ft_b18b_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_b18b_mercado), 
+UNIQUE KEY id_ft_b18b_mercado_UNIQUE (id_ft_b18b_mercado)) 
+COMMENT='B18b MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA B18c */
+CREATE TABLE ft_b18c_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='B18c TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA B18c - Por porte de empresa */
+CREATE TABLE ft_b18c_porte (id_ft_b18c_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_b18c_porte), 
+UNIQUE KEY id_ft_b18c_porte_UNIQUE (id_ft_b18c_porte)) 
+COMMENT='B18c PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA B18c - Por mercado de atuação */
+CREATE TABLE ft_b18c_mercado (id_ft_b18c_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_b18c_mercado), 
+UNIQUE KEY id_ft_b18c_mercado_UNIQUE (id_ft_b18c_mercado)) 
+COMMENT='B18c MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA B18d */
+CREATE TABLE ft_b18d_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='B18d TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA B18d - Por porte de empresa */
+CREATE TABLE ft_b18d_porte (id_ft_b18d_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_b18d_porte), 
+UNIQUE KEY id_ft_b18d_porte_UNIQUE (id_ft_b18d_porte)) 
+COMMENT='B18d PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA B18d - Por mercado de atuação */
+CREATE TABLE ft_b18d_mercado (id_ft_b18d_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_b18d_mercado), 
+UNIQUE KEY id_ft_b18d_mercado_UNIQUE (id_ft_b18d_mercado)) 
+COMMENT='B18d MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA E1 */
+CREATE TABLE ft_e1_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='E1 TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA E1 - Por porte de empresa */
+CREATE TABLE ft_e1_porte (id_ft_e1_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_e1_porte), 
+UNIQUE KEY id_ft_e1_porte_UNIQUE (id_ft_e1_porte)) 
+COMMENT='E1 PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA E1 - Por mercado de atuação */
+CREATE TABLE ft_e1_mercado (id_ft_e1_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_e1_mercado), 
+UNIQUE KEY id_ft_e1_mercado_UNIQUE (id_ft_e1_mercado)) 
+COMMENT='E1 MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA E2 */
+CREATE TABLE ft_e2_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='E2 TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA E2 - Por porte de empresa */
+CREATE TABLE ft_e2_porte (id_ft_e2_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_e2_porte), 
+UNIQUE KEY id_ft_e2_porte_UNIQUE (id_ft_e2_porte)) 
+COMMENT='E2 PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA E2 - Por mercado de atuação */
+CREATE TABLE ft_e2_mercado (id_ft_e2_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_e2_mercado), 
+UNIQUE KEY id_ft_e2_mercado_UNIQUE (id_ft_e2_mercado)) 
+COMMENT='E2 MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA G2 */
+CREATE TABLE ft_g2_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='G2 TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA G2 - Por porte de empresa */
+CREATE TABLE ft_g2_porte (id_ft_g2_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_g2_porte), 
+UNIQUE KEY id_ft_g2_porte_UNIQUE (id_ft_g2_porte)) 
+COMMENT='G2 PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA G2 - Por mercado de atuação */
+CREATE TABLE ft_g2_mercado (id_ft_g2_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_g2_mercado), 
+UNIQUE KEY id_ft_g2_mercado_UNIQUE (id_ft_g2_mercado)) 
+COMMENT='G2 MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA G3 */
+CREATE TABLE ft_g3_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='G3 TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA G3 - Por porte de empresa */
+CREATE TABLE ft_g3_porte (id_ft_g3_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_g3_porte), 
+UNIQUE KEY id_ft_g3_porte_UNIQUE (id_ft_g3_porte)) 
+COMMENT='G3 PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA G3 - Por mercado de atuação */
+CREATE TABLE ft_g3_mercado (id_ft_g3_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_g3_mercado), 
+UNIQUE KEY id_ft_g3_mercado_UNIQUE (id_ft_g3_mercado)) 
+COMMENT='G3 MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H1Aa */
+CREATE TABLE ft_h1aa_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H1Aa TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H1Aa - Por porte de empresa */
+CREATE TABLE ft_h1aa_porte (id_ft_h1aa_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h1aa_porte), 
+UNIQUE KEY id_ft_h1aa_porte_UNIQUE (id_ft_h1aa_porte)) 
+COMMENT='H1Aa PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H1Aa - Por mercado de atuação */
+CREATE TABLE ft_h1aa_mercado (id_ft_h1aa_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h1aa_mercado), 
+UNIQUE KEY id_ft_h1aa_mercado_UNIQUE (id_ft_h1aa_mercado)) 
+COMMENT='H1Aa MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H1Ab */
+CREATE TABLE ft_h1ab_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H1Ab TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H1Ab - Por porte de empresa */
+CREATE TABLE ft_h1ab_porte (id_ft_h1ab_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h1ab_porte), 
+UNIQUE KEY id_ft_h1ab_porte_UNIQUE (id_ft_h1ab_porte)) 
+COMMENT='H1Ab PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H1Ab - Por mercado de atuação */
+CREATE TABLE ft_h1ab_mercado (id_ft_h1ab_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h1ab_mercado), 
+UNIQUE KEY id_ft_h1ab_mercado_UNIQUE (id_ft_h1ab_mercado)) 
+COMMENT='H1Ab MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H1Ac */
+CREATE TABLE ft_h1ac_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H1Ac TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H1Ac - Por porte de empresa */
+CREATE TABLE ft_h1ac_porte (id_ft_h1ac_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h1ac_porte), 
+UNIQUE KEY id_ft_h1ac_porte_UNIQUE (id_ft_h1ac_porte)) 
+COMMENT='H1Ac PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H1Ac - Por mercado de atuação */
+CREATE TABLE ft_h1ac_mercado (id_ft_h1ac_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h1ac_mercado), 
+UNIQUE KEY id_ft_h1ac_mercado_UNIQUE (id_ft_h1ac_mercado)) 
+COMMENT='H1Ac MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H3 */
+CREATE TABLE ft_h3_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H3 TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H3 - Por porte de empresa */
+CREATE TABLE ft_h3_porte (id_ft_h3_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h3_porte), 
+UNIQUE KEY id_ft_h3_porte_UNIQUE (id_ft_h3_porte)) 
+COMMENT='H3 PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H3 - Por mercado de atuação */
+CREATE TABLE ft_h3_mercado (id_ft_h3_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h3_mercado), 
+UNIQUE KEY id_ft_h3_mercado_UNIQUE (id_ft_h3_mercado)) 
+COMMENT='H3 MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H3A */
+CREATE TABLE ft_h3a_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H3A TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H3A - Por porte de empresa */
+CREATE TABLE ft_h3a_porte (id_ft_h3a_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h3a_porte), 
+UNIQUE KEY id_ft_h3a_porte_UNIQUE (id_ft_h3a_porte)) 
+COMMENT='H3A PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H3A - Por mercado de atuação */
+CREATE TABLE ft_h3a_mercado (id_ft_h3a_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h3a_mercado), 
+UNIQUE KEY id_ft_h3a_mercado_UNIQUE (id_ft_h3a_mercado)) 
+COMMENT='H3A MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H3Ba */
+CREATE TABLE ft_h3ba_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H3Ba TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H3Ba - Por porte de empresa */
+CREATE TABLE ft_h3ba_porte (id_ft_h3ba_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h3ba_porte), 
+UNIQUE KEY id_ft_h3ba_porte_UNIQUE (id_ft_h3ba_porte)) 
+COMMENT='H3Ba PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H3Ba - Por mercado de atuação */
+CREATE TABLE ft_h3ba_mercado (id_ft_h3ba_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h3ba_mercado), 
+UNIQUE KEY id_ft_h3ba_mercado_UNIQUE (id_ft_h3ba_mercado)) 
+COMMENT='H3Ba MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H3Bb */
+CREATE TABLE ft_h3bb_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H3Bb TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H3Bb - Por porte de empresa */
+CREATE TABLE ft_h3bb_porte (id_ft_h3bb_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h3bb_porte), 
+UNIQUE KEY id_ft_h3bb_porte_UNIQUE (id_ft_h3bb_porte)) 
+COMMENT='H3Bb PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H3Bb - Por mercado de atuação */
+CREATE TABLE ft_h3bb_mercado (id_ft_h3bb_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h3bb_mercado), 
+UNIQUE KEY id_ft_h3bb_mercado_UNIQUE (id_ft_h3bb_mercado)) 
+COMMENT='H3Bb MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H3Bc */
+CREATE TABLE ft_h3bc_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H3Bc TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H3Bc - Por porte de empresa */
+CREATE TABLE ft_h3bc_porte (id_ft_h3bc_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h3bc_porte), 
+UNIQUE KEY id_ft_h3bc_porte_UNIQUE (id_ft_h3bc_porte)) 
+COMMENT='H3Bc PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H3Bc - Por mercado de atuação */
+CREATE TABLE ft_h3bc_mercado (id_ft_h3bc_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h3bc_mercado), 
+UNIQUE KEY id_ft_h3bc_mercado_UNIQUE (id_ft_h3bc_mercado)) 
+COMMENT='H3Bc MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H3Bd */
+CREATE TABLE ft_h3bd_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H3Bd TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H3Bd - Por porte de empresa */
+CREATE TABLE ft_h3bd_porte (id_ft_h3bd_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h3bd_porte), 
+UNIQUE KEY id_ft_h3bd_porte_UNIQUE (id_ft_h3bd_porte)) 
+COMMENT='H3Bd PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H3Bd - Por mercado de atuação */
+CREATE TABLE ft_h3bd_mercado (id_ft_h3bd_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h3bd_mercado), 
+UNIQUE KEY id_ft_h3bd_mercado_UNIQUE (id_ft_h3bd_mercado)) 
+COMMENT='H3Bd MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H3Be */
+CREATE TABLE ft_h3be_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H3Be TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H3Be - Por porte de empresa */
+CREATE TABLE ft_h3be_porte (id_ft_h3be_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h3be_porte), 
+UNIQUE KEY id_ft_h3be_porte_UNIQUE (id_ft_h3be_porte)) 
+COMMENT='H3Be PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H3Be - Por mercado de atuação */
+CREATE TABLE ft_h3be_mercado (id_ft_h3be_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h3be_mercado), 
+UNIQUE KEY id_ft_h3be_mercado_UNIQUE (id_ft_h3be_mercado)) 
+COMMENT='H3Be MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H3Bf */
+CREATE TABLE ft_h3bf_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H3Bf TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H3Bf - Por porte de empresa */
+CREATE TABLE ft_h3bf_porte (id_ft_h3bf_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h3bf_porte), 
+UNIQUE KEY id_ft_h3bf_porte_UNIQUE (id_ft_h3bf_porte)) 
+COMMENT='H3Bf PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H3Bf - Por mercado de atuação */
+CREATE TABLE ft_h3bf_mercado (id_ft_h3bf_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h3bf_mercado), 
+UNIQUE KEY id_ft_h3bf_mercado_UNIQUE (id_ft_h3bf_mercado)) 
+COMMENT='H3Bf MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H3Bg */
+CREATE TABLE ft_h3bg_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H3Bg TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H3Bg - Por porte de empresa */
+CREATE TABLE ft_h3bg_porte (id_ft_h3bg_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h3bg_porte), 
+UNIQUE KEY id_ft_h3bg_porte_UNIQUE (id_ft_h3bg_porte)) 
+COMMENT='H3Bg PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H3Bg - Por mercado de atuação */
+CREATE TABLE ft_h3bg_mercado (id_ft_h3bg_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h3bg_mercado), 
+UNIQUE KEY id_ft_h3bg_mercado_UNIQUE (id_ft_h3bg_mercado)) 
+COMMENT='H3Bg MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H4 */
+CREATE TABLE ft_h4_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H4 TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H4 - Por porte de empresa */
+CREATE TABLE ft_h4_porte (id_ft_h4_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h4_porte), 
+UNIQUE KEY id_ft_h4_porte_UNIQUE (id_ft_h4_porte)) 
+COMMENT='H4 PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H4 - Por mercado de atuação */
+CREATE TABLE ft_h4_mercado (id_ft_h4_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h4_mercado), 
+UNIQUE KEY id_ft_h4_mercado_UNIQUE (id_ft_h4_mercado)) 
+COMMENT='H4 MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H8a */
+CREATE TABLE ft_h8a_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H8a TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H8a - Por porte de empresa */
+CREATE TABLE ft_h8a_porte (id_ft_h8a_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h8a_porte), 
+UNIQUE KEY id_ft_h8a_porte_UNIQUE (id_ft_h8a_porte)) 
+COMMENT='H8a PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H8a - Por mercado de atuação */
+CREATE TABLE ft_h8a_mercado (id_ft_h8a_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h8a_mercado), 
+UNIQUE KEY id_ft_h8a_mercado_UNIQUE (id_ft_h8a_mercado)) 
+COMMENT='H8a MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H8b */
+CREATE TABLE ft_h8b_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H8b TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H8b - Por porte de empresa */
+CREATE TABLE ft_h8b_porte (id_ft_h8b_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h8b_porte), 
+UNIQUE KEY id_ft_h8b_porte_UNIQUE (id_ft_h8b_porte)) 
+COMMENT='H8b PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H8b - Por mercado de atuação */
+CREATE TABLE ft_h8b_mercado (id_ft_h8b_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h8b_mercado), 
+UNIQUE KEY id_ft_h8b_mercado_UNIQUE (id_ft_h8b_mercado)) 
+COMMENT='H8b MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H8c */
+CREATE TABLE ft_h8c_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H8c TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H8c - Por porte de empresa */
+CREATE TABLE ft_h8c_porte (id_ft_h8c_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h8c_porte), 
+UNIQUE KEY id_ft_h8c_porte_UNIQUE (id_ft_h8c_porte)) 
+COMMENT='H8c PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H8c - Por mercado de atuação */
+CREATE TABLE ft_h8c_mercado (id_ft_h8c_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h8c_mercado), 
+UNIQUE KEY id_ft_h8c_mercado_UNIQUE (id_ft_h8c_mercado)) 
+COMMENT='H8c MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H8d */
+CREATE TABLE ft_h8d_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H8d TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H8d - Por porte de empresa */
+CREATE TABLE ft_h8d_porte (id_ft_h8d_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h8d_porte), 
+UNIQUE KEY id_ft_h8d_porte_UNIQUE (id_ft_h8d_porte)) 
+COMMENT='H8d PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H8d - Por mercado de atuação */
+CREATE TABLE ft_h8d_mercado (id_ft_h8d_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h8d_mercado), 
+UNIQUE KEY id_ft_h8d_mercado_UNIQUE (id_ft_h8d_mercado)) 
+COMMENT='H8d MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H8e */
+CREATE TABLE ft_h8e_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H8e TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H8e - Por porte de empresa */
+CREATE TABLE ft_h8e_porte (id_ft_h8e_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h8e_porte), 
+UNIQUE KEY id_ft_h8e_porte_UNIQUE (id_ft_h8e_porte)) 
+COMMENT='H8e PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H8e - Por mercado de atuação */
+CREATE TABLE ft_h8e_mercado (id_ft_h8e_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h8e_mercado), 
+UNIQUE KEY id_ft_h8e_mercado_UNIQUE (id_ft_h8e_mercado)) 
+COMMENT='H8e MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H8f */
+CREATE TABLE ft_h8f_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H8f TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H8f - Por porte de empresa */
+CREATE TABLE ft_h8f_porte (id_ft_h8f_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h8f_porte), 
+UNIQUE KEY id_ft_h8f_porte_UNIQUE (id_ft_h8f_porte)) 
+COMMENT='H8f PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H8f - Por mercado de atuação */
+CREATE TABLE ft_h8f_mercado (id_ft_h8f_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h8f_mercado), 
+UNIQUE KEY id_ft_h8f_mercado_UNIQUE (id_ft_h8f_mercado)) 
+COMMENT='H8f MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H9Aa */
+CREATE TABLE ft_h9aa_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H9Aa TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H9Aa - Por porte de empresa */
+CREATE TABLE ft_h9aa_porte (id_ft_h9aa_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h9aa_porte), 
+UNIQUE KEY id_ft_h9aa_porte_UNIQUE (id_ft_h9aa_porte)) 
+COMMENT='H9Aa PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H9Aa - Por mercado de atuação */
+CREATE TABLE ft_h9aa_mercado (id_ft_h9aa_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h9aa_mercado), 
+UNIQUE KEY id_ft_h9aa_mercado_UNIQUE (id_ft_h9aa_mercado)) 
+COMMENT='H9Aa MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H9Ab */
+CREATE TABLE ft_h9ab_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H9Ab TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H9Ab - Por porte de empresa */
+CREATE TABLE ft_h9ab_porte (id_ft_h9ab_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h9ab_porte), 
+UNIQUE KEY id_ft_h9ab_porte_UNIQUE (id_ft_h9ab_porte)) 
+COMMENT='H9Ab PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H9Ab - Por mercado de atuação */
+CREATE TABLE ft_h9ab_mercado (id_ft_h9ab_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h9ab_mercado), 
+UNIQUE KEY id_ft_h9ab_mercado_UNIQUE (id_ft_h9ab_mercado)) 
+COMMENT='H9Ab MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H9Ac */
+CREATE TABLE ft_h9ac_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H9Ac TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H9Ac - Por porte de empresa */
+CREATE TABLE ft_h9ac_porte (id_ft_h9ac_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h9ac_porte), 
+UNIQUE KEY id_ft_h9ac_porte_UNIQUE (id_ft_h9ac_porte)) 
+COMMENT='H9Ac PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H9Ac - Por mercado de atuação */
+CREATE TABLE ft_h9ac_mercado (id_ft_h9ac_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h9ac_mercado), 
+UNIQUE KEY id_ft_h9ac_mercado_UNIQUE (id_ft_h9ac_mercado)) 
+COMMENT='H9Ac MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H9Ad */
+CREATE TABLE ft_h9ad_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H9Ad TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H9Ad - Por porte de empresa */
+CREATE TABLE ft_h9ad_porte (id_ft_h9ad_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h9ad_porte), 
+UNIQUE KEY id_ft_h9ad_porte_UNIQUE (id_ft_h9ad_porte)) 
+COMMENT='H9Ad PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H9Ad - Por mercado de atuação */
+CREATE TABLE ft_h9ad_mercado (id_ft_h9ad_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h9ad_mercado), 
+UNIQUE KEY id_ft_h9ad_mercado_UNIQUE (id_ft_h9ad_mercado)) 
+COMMENT='H9Ad MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H9Ae */
+CREATE TABLE ft_h9ae_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H9Ae TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H9Ae - Por porte de empresa */
+CREATE TABLE ft_h9ae_porte (id_ft_h9ae_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h9ae_porte), 
+UNIQUE KEY id_ft_h9ae_porte_UNIQUE (id_ft_h9ae_porte)) 
+COMMENT='H9Ae PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H9Ae - Por mercado de atuação */
+CREATE TABLE ft_h9ae_mercado (id_ft_h9ae_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h9ae_mercado), 
+UNIQUE KEY id_ft_h9ae_mercado_UNIQUE (id_ft_h9ae_mercado)) 
+COMMENT='H9Ae MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H9Af */
+CREATE TABLE ft_h9af_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H9Af TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H9Af - Por porte de empresa */
+CREATE TABLE ft_h9af_porte (id_ft_h9af_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h9af_porte), 
+UNIQUE KEY id_ft_h9af_porte_UNIQUE (id_ft_h9af_porte)) 
+COMMENT='H9Af PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H9Af - Por mercado de atuação */
+CREATE TABLE ft_h9af_mercado (id_ft_h9af_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h9af_mercado), 
+UNIQUE KEY id_ft_h9af_mercado_UNIQUE (id_ft_h9af_mercado)) 
+COMMENT='H9Af MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H9Ag */
+CREATE TABLE ft_h9ag_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H9Ag TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H9Ag - Por porte de empresa */
+CREATE TABLE ft_h9ag_porte (id_ft_h9ag_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h9ag_porte), 
+UNIQUE KEY id_ft_h9ag_porte_UNIQUE (id_ft_h9ag_porte)) 
+COMMENT='H9Ag PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H9Ag - Por mercado de atuação */
+CREATE TABLE ft_h9ag_mercado (id_ft_h9ag_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h9ag_mercado), 
+UNIQUE KEY id_ft_h9ag_mercado_UNIQUE (id_ft_h9ag_mercado)) 
+COMMENT='H9Ag MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H10a */
+CREATE TABLE ft_h10a_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H10a TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H10a - Por porte de empresa */
+CREATE TABLE ft_h10a_porte (id_ft_h10a_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h10a_porte), 
+UNIQUE KEY id_ft_h10a_porte_UNIQUE (id_ft_h10a_porte)) 
+COMMENT='H10a PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H10a - Por mercado de atuação */
+CREATE TABLE ft_h10a_mercado (id_ft_h10a_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h10a_mercado), 
+UNIQUE KEY id_ft_h10a_mercado_UNIQUE (id_ft_h10a_mercado)) 
+COMMENT='H10a MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H10b */
+CREATE TABLE ft_h10b_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H10b TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H10b - Por porte de empresa */
+CREATE TABLE ft_h10b_porte (id_ft_h10b_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h10b_porte), 
+UNIQUE KEY id_ft_h10b_porte_UNIQUE (id_ft_h10b_porte)) 
+COMMENT='H10b PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H10b - Por mercado de atuação */
+CREATE TABLE ft_h10b_mercado (id_ft_h10b_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h10b_mercado), 
+UNIQUE KEY id_ft_h10b_mercado_UNIQUE (id_ft_h10b_mercado)) 
+COMMENT='H10b MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H10c */
+CREATE TABLE ft_h10c_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H10c TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H10c - Por porte de empresa */
+CREATE TABLE ft_h10c_porte (id_ft_h10c_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h10c_porte), 
+UNIQUE KEY id_ft_h10c_porte_UNIQUE (id_ft_h10c_porte)) 
+COMMENT='H10c PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H10c - Por mercado de atuação */
+CREATE TABLE ft_h10c_mercado (id_ft_h10c_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h10c_mercado), 
+UNIQUE KEY id_ft_h10c_mercado_UNIQUE (id_ft_h10c_mercado)) 
+COMMENT='H10c MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H10d */
+CREATE TABLE ft_h10d_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H10d TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H10d - Por porte de empresa */
+CREATE TABLE ft_h10d_porte (id_ft_h10d_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h10d_porte), 
+UNIQUE KEY id_ft_h10d_porte_UNIQUE (id_ft_h10d_porte)) 
+COMMENT='H10d PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H10d - Por mercado de atuação */
+CREATE TABLE ft_h10d_mercado (id_ft_h10d_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h10d_mercado), 
+UNIQUE KEY id_ft_h10d_mercado_UNIQUE (id_ft_h10d_mercado)) 
+COMMENT='H10d MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H10e */
+CREATE TABLE ft_h10e_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H10e TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H10e - Por porte de empresa */
+CREATE TABLE ft_h10e_porte (id_ft_h10e_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h10e_porte), 
+UNIQUE KEY id_ft_h10e_porte_UNIQUE (id_ft_h10e_porte)) 
+COMMENT='H10e PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H10e - Por mercado de atuação */
+CREATE TABLE ft_h10e_mercado (id_ft_h10e_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h10e_mercado), 
+UNIQUE KEY id_ft_h10e_mercado_UNIQUE (id_ft_h10e_mercado)) 
+COMMENT='H10e MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H10f */
+CREATE TABLE ft_h10f_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H10f TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H10f - Por porte de empresa */
+CREATE TABLE ft_h10f_porte (id_ft_h10f_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h10f_porte), 
+UNIQUE KEY id_ft_h10f_porte_UNIQUE (id_ft_h10f_porte)) 
+COMMENT='H10f PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H10f - Por mercado de atuação */
+CREATE TABLE ft_h10f_mercado (id_ft_h10f_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h10f_mercado), 
+UNIQUE KEY id_ft_h10f_mercado_UNIQUE (id_ft_h10f_mercado)) 
+COMMENT='H10f MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H10g */
+CREATE TABLE ft_h10g_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H10g TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H10g - Por porte de empresa */
+CREATE TABLE ft_h10g_porte (id_ft_h10g_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h10g_porte), 
+UNIQUE KEY id_ft_h10g_porte_UNIQUE (id_ft_h10g_porte)) 
+COMMENT='H10g PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H10g - Por mercado de atuação */
+CREATE TABLE ft_h10g_mercado (id_ft_h10g_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h10g_mercado), 
+UNIQUE KEY id_ft_h10g_mercado_UNIQUE (id_ft_h10g_mercado)) 
+COMMENT='H10g MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H13a */
+CREATE TABLE ft_h13a_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H13a TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H13a - Por porte de empresa */
+CREATE TABLE ft_h13a_porte (id_ft_h13a_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h13a_porte), 
+UNIQUE KEY id_ft_h13a_porte_UNIQUE (id_ft_h13a_porte)) 
+COMMENT='H13a PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H13a - Por mercado de atuação */
+CREATE TABLE ft_h13a_mercado (id_ft_h13a_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h13a_mercado), 
+UNIQUE KEY id_ft_h13a_mercado_UNIQUE (id_ft_h13a_mercado)) 
+COMMENT='H13a MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H13b */
+CREATE TABLE ft_h13b_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H13b TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H13b - Por porte de empresa */
+CREATE TABLE ft_h13b_porte (id_ft_h13b_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h13b_porte), 
+UNIQUE KEY id_ft_h13b_porte_UNIQUE (id_ft_h13b_porte)) 
+COMMENT='H13b PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H13b - Por mercado de atuação */
+CREATE TABLE ft_h13b_mercado (id_ft_h13b_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h13b_mercado), 
+UNIQUE KEY id_ft_h13b_mercado_UNIQUE (id_ft_h13b_mercado)) 
+COMMENT='H13b MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H13c */
+CREATE TABLE ft_h13c_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H13c TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H13c - Por porte de empresa */
+CREATE TABLE ft_h13c_porte (id_ft_h13c_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h13c_porte), 
+UNIQUE KEY id_ft_h13c_porte_UNIQUE (id_ft_h13c_porte)) 
+COMMENT='H13c PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H13c - Por mercado de atuação */
+CREATE TABLE ft_h13c_mercado (id_ft_h13c_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h13c_mercado), 
+UNIQUE KEY id_ft_h13c_mercado_UNIQUE (id_ft_h13c_mercado)) 
+COMMENT='H13c MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H13d */
+CREATE TABLE ft_h13d_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H13d TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H13d - Por porte de empresa */
+CREATE TABLE ft_h13d_porte (id_ft_h13d_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h13d_porte), 
+UNIQUE KEY id_ft_h13d_porte_UNIQUE (id_ft_h13d_porte)) 
+COMMENT='H13d PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H13d - Por mercado de atuação */
+CREATE TABLE ft_h13d_mercado (id_ft_h13d_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h13d_mercado), 
+UNIQUE KEY id_ft_h13d_mercado_UNIQUE (id_ft_h13d_mercado)) 
+COMMENT='H13d MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H13e */
+CREATE TABLE ft_h13e_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H13e TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H13e - Por porte de empresa */
+CREATE TABLE ft_h13e_porte (id_ft_h13e_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h13e_porte), 
+UNIQUE KEY id_ft_h13e_porte_UNIQUE (id_ft_h13e_porte)) 
+COMMENT='H13e PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H13e - Por mercado de atuação */
+CREATE TABLE ft_h13e_mercado (id_ft_h13e_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h13e_mercado), 
+UNIQUE KEY id_ft_h13e_mercado_UNIQUE (id_ft_h13e_mercado)) 
+COMMENT='H13e MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H13f */
+CREATE TABLE ft_h13f_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H13f TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H13f - Por porte de empresa */
+CREATE TABLE ft_h13f_porte (id_ft_h13f_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h13f_porte), 
+UNIQUE KEY id_ft_h13f_porte_UNIQUE (id_ft_h13f_porte)) 
+COMMENT='H13f PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H13f - Por mercado de atuação */
+CREATE TABLE ft_h13f_mercado (id_ft_h13f_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h13f_mercado), 
+UNIQUE KEY id_ft_h13f_mercado_UNIQUE (id_ft_h13f_mercado)) 
+COMMENT='H13f MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H13g */
+CREATE TABLE ft_h13g_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H13g TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H13g - Por porte de empresa */
+CREATE TABLE ft_h13g_porte (id_ft_h13g_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h13g_porte), 
+UNIQUE KEY id_ft_h13g_porte_UNIQUE (id_ft_h13g_porte)) 
+COMMENT='H13g PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H13g - Por mercado de atuação */
+CREATE TABLE ft_h13g_mercado (id_ft_h13g_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h13g_mercado), 
+UNIQUE KEY id_ft_h13g_mercado_UNIQUE (id_ft_h13g_mercado)) 
+COMMENT='H13g MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H13h */
+CREATE TABLE ft_h13h_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H13h TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H13h - Por porte de empresa */
+CREATE TABLE ft_h13h_porte (id_ft_h13h_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h13h_porte), 
+UNIQUE KEY id_ft_h13h_porte_UNIQUE (id_ft_h13h_porte)) 
+COMMENT='H13h PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H13h - Por mercado de atuação */
+CREATE TABLE ft_h13h_mercado (id_ft_h13h_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h13h_mercado), 
+UNIQUE KEY id_ft_h13h_mercado_UNIQUE (id_ft_h13h_mercado)) 
+COMMENT='H13h MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE TOTAIS DA VARIÁVE PESQUISADA H13i */
+CREATE TABLE ft_h13i_totais (ano_pesquisa varchar(8) NOT NULL, 
+contexto varchar(64) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (ano_pesquisa), 
+UNIQUE KEY ano_pesquisa_UNIQUE (ano_pesquisa)) 
+COMMENT='H13i TOTAIS - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H13i - Por porte de empresa */
+CREATE TABLE ft_h13i_porte (id_ft_h13i_porte int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_porte varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h13i_porte), 
+UNIQUE KEY id_ft_h13i_porte_UNIQUE (id_ft_h13i_porte)) 
+COMMENT='H13i PORTE –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
+
+/* TABELA DE PESQUISA H13i - Por mercado de atuação */
+CREATE TABLE ft_h13i_mercado (id_ft_h13i_mercado int NOT NULL AUTO_INCREMENT, 
+ano_pesquisa varchar(8) NOT NULL, 
+id_mercado varchar(4) NOT NULL, 
+qtd_resposta_sim int DEFAULT NULL, 
+PRIMARY KEY (id_ft_h13i_mercado), 
+UNIQUE KEY id_ft_h13i_mercado_UNIQUE (id_ft_h13i_mercado)) 
+COMMENT='H13i MERCADO –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES'; 
