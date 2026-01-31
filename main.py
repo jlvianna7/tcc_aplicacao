@@ -10,7 +10,7 @@ pages = {
     ],
     ">>> Softwares Corporativos": [
         st.Page("G2 - Uso de Plataformas de ERP.py", title="Uso de plataformas ERP"),
-        st.Page("G3 - Uso de sistemas CRM.py", title="Uso de sistemas CRM"),
+        st.Page("G3_CRM.py", title="Uso de sistemas CRM"),
     ],
     ">>> Novas Tecnologias": [
         st.Page("H1 - BigData.py", title="Análises de Big Data"),
