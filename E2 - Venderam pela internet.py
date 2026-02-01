@@ -54,7 +54,7 @@ col1.table(dfpesq)
 sql = (
     f'SELECT ano_pesquisa "Ano pesquisa", qtd_resposta_sim "% Empresas" '
     f'FROM ft_ceticbr_totais '
-    f'WHERE cd_variavel = "e2" '
+    f'WHERE cd_variavel = "e2" ' 
     f'ORDER BY ano_pesquisa; '
 )
 

@@ -60,7 +60,6 @@ sql = (
     f'order by 1, 2;'
 )
 
-
 bd = f_ConectaBD.conn
 dfl = pd.read_sql(sql, bd)
 
