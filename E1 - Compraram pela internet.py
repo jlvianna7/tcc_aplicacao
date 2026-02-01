@@ -49,7 +49,7 @@ col2.write(' ')
 col3.markdown("**Proporção de empresas que :yellow-background[compraram pela internet]**")
 
 dfpesq = df[["Ano pesquisa", "Amostra"]]
-dfpesq.style.hide(axis='index')
+#dfpesq.style.hide(axis='index')
 col1.table(dfpesq)
 
 sql = (

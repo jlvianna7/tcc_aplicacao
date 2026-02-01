@@ -52,8 +52,8 @@ dfpesq = df[["Ano pesquisa", "Empresas participantes"]]
 col1.table(dfpesq)
 
 sql = (
-    f'SELECT ano_pesquisa "Ano pesquisa", qtd_resposta_sim "% Utilizam ERP" '
-    f'FROM ft_ceticbr_totais '
+    f'SELECT cd_variavel, ano_pesquisa "Ano pesquisa", qtd_resposta_sim "% Utilizam ERP" '
+    f'FROM ft_ceticbr_totais  '
     f'WHERE cd_variavel = "g2" '
     f'ORDER BY ano_pesquisa; '
 )
