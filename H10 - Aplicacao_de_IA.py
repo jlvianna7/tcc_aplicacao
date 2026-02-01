@@ -34,7 +34,7 @@ st.subheader("Evolução da utilização de :yellow-background[Inteligência art
 
 sql = (
     f'SELECT ano_pesquisa "Ano pesquisa", empresas_respondentes "Amostra" '
-    f'FROM usp_dsa.dm_resumo_pesquisa '
+    f'FROM dm_resumo_pesquisa '
     f'order by ano_pesquisa; '
 )
 
@@ -50,31 +50,15 @@ col3.markdown("**Proporção de empresas que utilizam :yellow-background[Intelig
 dfpesq = df[["Ano pesquisa", "Amostra"]]
 col1.table(dfpesq)
 
-###
-###
+
+#####
 sql = (
-    f'SELECT ano_pesquisa "Ano pesquisa", contexto "Aplicação", qtd_resposta_sim "% de Empresas que utilizam" FROM ft_h10a_totais '
-    F'WHERE ANO_PESQUISA > "2015" ' 
-    f'UNION '
-    f'SELECT ano_pesquisa "Ano pesquisa", contexto "Aplicação", qtd_resposta_sim "% de Empresas que utilizam" FROM ft_h10b_totais '
-    F'WHERE ANO_PESQUISA > "2015" ' 
-    f'UNION '
-    f'SELECT ano_pesquisa "Ano pesquisa", contexto "Aplicação", qtd_resposta_sim "% de Empresas que utilizam" FROM ft_h10c_totais '
-    F'WHERE ANO_PESQUISA > "2015" ' 
-    f'UNION '
-    f'SELECT ano_pesquisa "Ano pesquisa", contexto "Aplicação", qtd_resposta_sim "% de Empresas que utilizam" FROM ft_h10d_totais '
-    F'WHERE ANO_PESQUISA > "2015" ' 
-    f'UNION '
-    f'SELECT ano_pesquisa "Ano pesquisa", contexto "Aplicação", qtd_resposta_sim "% de Empresas que utilizam" FROM ft_h10e_totais '
-    F'WHERE ANO_PESQUISA > "2015" ' 
-    f'UNION '
-    f'SELECT ano_pesquisa "Ano pesquisa", contexto "Aplicação", qtd_resposta_sim "% de Empresas que utilizam" FROM ft_h10f_totais '
-    F'WHERE ANO_PESQUISA > "2015" ' 
-    f'UNION '
-    f'SELECT ano_pesquisa "Ano pesquisa", contexto "Aplicação", qtd_resposta_sim "% de Empresas que utilizam" FROM ft_h10g_totais '
-    F'WHERE ANO_PESQUISA > "2015" ' 
-    f'order by "Ano_pesquisa", "Aplicação"; '
+    f'SELECT cd_variavel, ano_pesquisa "Ano pesquisa", contexto "Aplicação", qtd_resposta_sim "% de Empresas que utilizam" ' 
+    f'FROM ft_ceticbr_totais '
+    F'WHERE cd_variavel like "h10%" '  
+    f'order by 1, 2;'
 )
+
 bd = f_ConectaBD.conn
 dfl = pd.read_sql(sql, bd)
 

@@ -82,7 +82,7 @@ col3.markdown('**Evolução cronológica da proporção de empresas que :yellow-
 sql = (
     f'SELECT DISTINCT d.ds_merc_atuacao "Mercado de atuação" ' 
     f'FROM ft_ceticbr_mercado f, dm_mercado_atuacao d '
-    f'WHERE f.id_mercado = d.id_merc_atuacao ' 
+    f'WHERE f.id_dm_mercado = d.id_merc_atuacao ' 
     f'AND f.cd_variavel = "e1" '
     f'ORDER BY d.ds_merc_atuacao ; '
 )
@@ -96,7 +96,7 @@ sql = (
     f"SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_merc_atuacao 'Mercado de atuação', " 
     f"f.qtd_resposta_sim '% Compraram pela internet' "
     f"FROM ft_ceticbr_mercado f, dm_mercado_atuacao d "
-    f"where f.id_mercado = d.id_merc_atuacao "  
+    f"where f.id_dm_mercado = d.id_merc_atuacao "  
     f"AND f.cd_variavel = 'e1' "
     f"order by f.ano_pesquisa; "  
 )
@@ -109,8 +109,9 @@ dfM = dfM[dfM["Mercado de atuação"] == cbox_mercado]
 # %% Evuloção anual por POR PORTE DAS EMPRESAS
 
 sql = (
-    f'SELECT DISTINCT d.ds_porte_empresa "Porte empresa" FROM ft_ceticbr_porte f, dm_porte_empresa d '
-    f'WHERE f.id_porte = d.id_porte_empresa '
+    f'SELECT DISTINCT d.ds_porte_empresa "Porte empresa" ' 
+    f'FROM ft_ceticbr_porte f, dm_porte_empresa d '
+    f'WHERE f.id_dm_porte = d.id_porte_empresa '
     f'AND f.cd_variavel = "e1" '
     f'ORDER BY d.id_porte_empresa; '
 )
@@ -127,7 +128,7 @@ sql = (
     f"SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_porte_empresa 'Porte empresa', "
     f"f.qtd_resposta_sim '% Compraram pela internet' "
     f"from ft_ceticbr_porte f, dm_porte_empresa d "
-    f"where f.id_porte = d.id_porte_empresa "
+    f"where f.id_dm_porte = d.id_porte_empresa "
     f"AND f.cd_variavel = 'e1' "
     f"order by f.ano_pesquisa ; "
 )
@@ -140,7 +141,7 @@ dfP = dfP[dfP["Porte empresa"] == cbox_porte]
 # %% Exibe os gráficos segmentados
 col1.bar_chart(dfM["% Compraram pela internet"].astype(int), color='#CF181F')
 col2.write(' ')
-col3.bar_chart(dfP["% Compraram pela internet"].astype(int), color='#385723')
+col3.bar_chart(dfP["% Compraram pela internet"].astype(int), color='#3282F6')
 
 
 ############################################   BLOCO 3  #############################################
@@ -171,7 +172,7 @@ sql = (
     f"SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_merc_atuacao 'Mercado de atuação', " 
     f"f.qtd_resposta_sim '% Compraram pela internet' "
     f"from ft_ceticbr_mercado f, dm_mercado_atuacao d "
-    f"where f.id_mercado = d.id_merc_atuacao "  
+    f"where f.id_dm_mercado = d.id_merc_atuacao "  
     f"and f.ano_pesquisa = {cbox_AnoPesq} "
     f"and f.cd_variavel = 'e1' "
     f"order by f.qtd_resposta_sim ; "  
@@ -187,7 +188,7 @@ sql = (
     f"SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_porte_empresa 'Porte empresa', "
     f"f.qtd_resposta_sim '% Compraram pela internet' "
     f"from ft_ceticbr_porte f, dm_porte_empresa d "
-    f"where f.id_porte = d.id_porte_empresa "
+    f"where f.id_dm_porte = d.id_porte_empresa "
     f"and f.ano_pesquisa = {cbox_AnoPesq} "
     f"and f.cd_variavel = 'e1' "
     f"order by f.qtd_resposta_sim ; "
@@ -203,7 +204,7 @@ col3.markdown('**% de empresas que :yellow-background[compraram pela internet], 
 
 col1.bar_chart(dfM1["% Compraram pela internet"].astype(int), color='#CF181F')
 col2.write(' ')
-col3.bar_chart(dfP1["% Compraram pela internet"].astype(int), color='#385723')
+col3.bar_chart(dfP1["% Compraram pela internet"].astype(int), color='#3282F6')
 
 
 # %% FIM!

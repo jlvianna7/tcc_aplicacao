@@ -62,7 +62,7 @@ sql = (
 bd = f_ConectaBD.conn
 dfl = pd.read_sql(sql, bd)
 
-col3.line_chart(dfl, x="Ano pesquisa", y="% de Empresas que utilizam", color="Serviço", height=600)
+col3.line_chart(dfl, x="Ano pesquisa", y="% de Empresas que utilizam", color="Serviço", height=400)
 #col3.table(dfl)
 
 

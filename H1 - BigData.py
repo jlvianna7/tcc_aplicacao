@@ -35,7 +35,7 @@ st.subheader("Evolução da utilização de :yellow-background[Big Data]")
 
 sql = (
     f'SELECT ano_pesquisa "Ano pesquisa", empresas_respondentes "Amostra" '
-    f'FROM usp_dsa.dm_resumo_pesquisa '
+    f'FROM dm_resumo_pesquisa '
     f'order by ano_pesquisa; '
 )
 
@@ -50,26 +50,21 @@ col3.markdown("**Proporção de empresas que utilizam :yellow-background[Big Dat
 
 dfpesq = df[["Ano pesquisa", "Amostra"]]
 col1.table(dfpesq)
+
+
 #####
 sql = (
-    f'SELECT ano_pesquisa "Ano pesquisa", contexto "Análise", qtd_resposta_sim "% de Empresas que utilizam" FROM ft_h1aa_totais '
-    F'WHERE ANO_PESQUISA > "2015" ' 
-    f'UNION '
-    f'SELECT ano_pesquisa "Ano pesquisa", contexto "Análise", qtd_resposta_sim "% de Empresas que utilizam" FROM ft_h1ab_totais '
-    F'WHERE ANO_PESQUISA > "2015" ' 
-    f'UNION '
-    f'SELECT ano_pesquisa "Ano pesquisa", contexto "Análise", qtd_resposta_sim "% de Empresas que utilizam" FROM ft_h1ac_totais '
-    F'WHERE ANO_PESQUISA > "2015" ' 
-    f'order by "Ano_pesquisa", "Análise"; '
+    f'SELECT cd_variavel, ano_pesquisa "Ano pesquisa", contexto "Análise", qtd_resposta_sim "% de Empresas que utilizam" ' 
+    f'FROM ft_ceticbr_totais '
+    F'WHERE cd_variavel like "h1a%" '  
+    f'order by 1, 2;'
 )
 bd = f_ConectaBD.conn
 dfl = pd.read_sql(sql, bd)
 
-col3.line_chart(dfl, x="Ano pesquisa", y="% de Empresas que utilizam", color="Análise")
+col3.line_chart(dfl, x="Ano pesquisa", y="% de Empresas que utilizam", color="Análise", height=400)
 
 ############################################   BLOCO 2  #############################################
-
-### GRÁFICOS AUXILIARES
 
 #col1, col2, col3 = st.columns([0.49, 0.02, 0.49])
 
@@ -82,7 +77,7 @@ col3.line_chart(dfl, x="Ano pesquisa", y="% de Empresas que utilizam", color="An
 # Montando a ComboBox para o filtro
 #sql = (
 #    f'SELECT DISTINCT d.ds_merc_atuacao "Mercado de atuação" ' 
-#    f'FROM usp_dsa.ft_h1_mercado f, usp_dsa.dm_mercado_atuacao d '
+#    f'FROM ft_h1_mercado f, dm_mercado_atuacao d '
 #    f'WHERE f.id_mercado = d.id_merc_atuacao '
 #    f'ORDER BY d.ds_merc_atuacao ; '
 #)
@@ -95,7 +90,7 @@ col3.line_chart(dfl, x="Ano pesquisa", y="% de Empresas que utilizam", color="An
 #sql = (
 #    f"SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_merc_atuacao 'Mercado de atuação', " 
 #    f"f.qtd_resposta_sim '% Empresas que utilizam' "
-#    f"from usp_dsa.ft_h1_mercado f, usp_dsa.dm_mercado_atuacao d "
+#    f"from ft_h1_mercado f, dm_mercado_atuacao d "
 #    f"where f.id_mercado = d.id_merc_atuacao "  
 #    f"order by f.ano_pesquisa; "  
 #)
@@ -108,7 +103,7 @@ col3.line_chart(dfl, x="Ano pesquisa", y="% de Empresas que utilizam", color="An
 # %% Evuloção anual por POR PORTE DAS EMPRESAS
 
 #sql = (
-#    f'FROM usp_dsa.ft_h1_porte f, usp_dsa.dm_porte_empresa d '
+#    f'FROM ft_h1_porte f, dm_porte_empresa d '
 #    f'SELECT DISTINCT d.ds_porte_empresa "Porte empresa" ' 
 #    f'WHERE f.id_porte = d.id_porte_empresa; '
 #    f'ORDER BY id_porte_empresa; '
@@ -125,7 +120,7 @@ col3.line_chart(dfl, x="Ano pesquisa", y="% de Empresas que utilizam", color="An
 #sql = (
 #    f"SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_porte_empresa 'Porte empresa', "
 #    f"f.qtd_resposta_sim '% Empresas que utilizam' "
-#    f"from usp_dsa.ft_h1_porte f, usp_dsa.dm_porte_empresa d "
+#    f"from ft_h1_porte f, dm_porte_empresa d "
 #    f"where f.id_porte = d.id_porte_empresa "
 #    f"order by f.ano_pesquisa ; "
 #)
@@ -153,7 +148,7 @@ col3.line_chart(dfl, x="Ano pesquisa", y="% de Empresas que utilizam", color="An
 
 #sql = (
 #    f'SELECT DISTINCT ano_pesquisa "Ano pesquisa" '
-#    f'FROM usp_dsa.ft_h1_totais '
+#    f'FROM ft_h1_totais '
 #    f'order by ano_pesquisa; '
 #)
 
@@ -168,7 +163,7 @@ col3.line_chart(dfl, x="Ano pesquisa", y="% de Empresas que utilizam", color="An
 #sql = (
 #    f"SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_merc_atuacao 'Mercado de atuação', " 
 #    f"f.qtd_resposta_sim '% Empresas que utilizam' "
-#    f"from usp_dsa.ft_h1_mercado f, usp_dsa.dm_mercado_atuacao d "
+#    f"from ft_h1_mercado f, dm_mercado_atuacao d "
 #    f"where f.id_mercado = d.id_merc_atuacao "  
 #    f"and f.ano_pesquisa = {cbox_AnoPesq} "
 #    f"order by f.ano_pesquisa; "  
@@ -183,7 +178,7 @@ col3.line_chart(dfl, x="Ano pesquisa", y="% de Empresas que utilizam", color="An
 #sql = (
 #    f"SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_porte_empresa 'Porte empresa', "
 #    f"f.qtd_resposta_sim '% Empresas que utilizam' "
-#    f"from usp_dsa.ft_h1_porte f, usp_dsa.dm_porte_empresa d "
+#    f"from ft_h1_porte f, dm_porte_empresa d "
 #    f"where f.id_porte = d.id_porte_empresa "
 #    f"and f.ano_pesquisa = {cbox_AnoPesq} "
 #    f"order by f.ano_pesquisa ; "

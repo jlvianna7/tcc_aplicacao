@@ -35,7 +35,7 @@ st.subheader("Evolução da proporção de empresas que :yellow-background[vende
 
 sql = (
     f'SELECT ano_pesquisa "Ano pesquisa", empresas_respondentes "Empresas participantes" '
-    f'FROM usp_dsa.dm_resumo_pesquisa '
+    f'FROM dm_resumo_pesquisa '
     f'order by ano_pesquisa; '
 )
 
@@ -53,7 +53,8 @@ col1.table(dfpesq)
 
 sql = (
     f'SELECT ano_pesquisa "Ano pesquisa", qtd_resposta_sim "% Empresas" '
-    f'FROM usp_dsa.ft_e2_totais '
+    f'FROM ft_ceticbr_totais '
+    f'WHERE cd_variavel = "e2" '
     f'ORDER BY ano_pesquisa; '
 )
 
@@ -79,8 +80,9 @@ col3.markdown('**Evolução cronológica da proporção de empresas que :yellow-
 # Montando a ComboBox para o filtro
 sql = (
     f'SELECT DISTINCT d.ds_merc_atuacao "Mercado de atuação" ' 
-    f'FROM usp_dsa.ft_e2_mercado f, usp_dsa.dm_mercado_atuacao d '
-    f'WHERE f.id_mercado = d.id_merc_atuacao '
+    f'FROM ft_ceticbr_mercado f, dm_mercado_atuacao d '
+    f'WHERE f.id_dm_mercado = d.id_merc_atuacao '
+    f'AND f.cd_variavel = "e2" '
     f'ORDER BY d.ds_merc_atuacao ; '
 )
 bd = f_ConectaBD.conn
@@ -92,8 +94,9 @@ cbox_mercado = col1.selectbox('Selecione o Mercado de atuação a pesquisar', v_
 sql = (
     f"SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_merc_atuacao 'Mercado de atuação', " 
     f"f.qtd_resposta_sim '% Empresas' "
-    f"from usp_dsa.ft_e2_mercado f, usp_dsa.dm_mercado_atuacao d "
-    f"where f.id_mercado = d.id_merc_atuacao "  
+    f"from ft_ceticbr_mercado f, dm_mercado_atuacao d "
+    f"where f.id_dm_mercado = d.id_merc_atuacao "  
+    f'AND f.cd_variavel = "e2" '
     f"order by f.ano_pesquisa; "  
 )
 
@@ -106,8 +109,8 @@ dfM = dfM[dfM["Mercado de atuação"] == cbox_mercado]
 
 sql = (
     f'SELECT DISTINCT d.ds_porte_empresa "Porte empresa" ' 
-    f'FROM usp_dsa.ft_e2_porte f, usp_dsa.dm_porte_empresa d '
-    f'WHERE f.id_porte = d.id_porte_empresa; '
+    f'FROM ft_ceticbr_porte f, dm_porte_empresa d '
+    f'WHERE f.id_dm_porte = d.id_porte_empresa; '
 #    f'ORDER BY id_porte_empresa; '
 )
 bd = f_ConectaBD.conn
@@ -122,8 +125,9 @@ cbox_porte = col3.selectbox('Selecione o porte das empresas', v_porte)
 sql = (
     f"SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_porte_empresa 'Porte empresa', "
     f"f.qtd_resposta_sim '% Empresas' "
-    f"from usp_dsa.ft_e2_porte f, usp_dsa.dm_porte_empresa d "
-    f"where f.id_porte = d.id_porte_empresa "
+    f"from ft_ceticbr_porte f, dm_porte_empresa d "
+    f"where f.id_dm_porte = d.id_porte_empresa "
+    f'AND f.cd_variavel = "e2" '
     f"order by f.ano_pesquisa ; "
 )
 bd = f_ConectaBD.conn
@@ -150,7 +154,7 @@ st.write('')
 
 sql = (
     f'SELECT ano_pesquisa "Ano pesquisa" '
-    f'FROM usp_dsa.dm_resumo_pesquisa '
+    f'FROM dm_resumo_pesquisa '
     f'order by ano_pesquisa; '
 )
 
@@ -165,8 +169,9 @@ col1, col2, col3 = st.columns([0.49, 0.02, 0.49])
 sql = (
     f"SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_merc_atuacao 'Mercado de atuação', " 
     f"f.qtd_resposta_sim '% Empresas' "
-    f"from usp_dsa.ft_e2_mercado f, usp_dsa.dm_mercado_atuacao d "
-    f"where f.id_mercado = d.id_merc_atuacao "  
+    f"from ft_ceticbr_mercado f, dm_mercado_atuacao d "
+    f"where f.id_dm_mercado = d.id_merc_atuacao "  
+    f'and f.cd_variavel = "e2" '
     f"and f.ano_pesquisa = {cbox_AnoPesq} "
     f"order by f.ano_pesquisa; "  
 )
@@ -180,9 +185,10 @@ dfM1.set_index("Mercado de atuação", inplace=True)
 sql = (
     f"SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_porte_empresa 'Porte empresa', "
     f"f.qtd_resposta_sim '% Empresas' "
-    f"from usp_dsa.ft_e2_porte f, usp_dsa.dm_porte_empresa d "
-    f"where f.id_porte = d.id_porte_empresa "
+    f"from ft_ceticbr_porte f, dm_porte_empresa d "
+    f"where f.id_dm_porte = d.id_porte_empresa "
     f"and f.ano_pesquisa = {cbox_AnoPesq} "
+    f'and f.cd_variavel = "e2" '
     f"order by f.ano_pesquisa ; "
 )
 bd = f_ConectaBD.conn

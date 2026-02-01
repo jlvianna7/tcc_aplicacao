@@ -19,7 +19,7 @@ pages = {
 #        st.Page("H4 - Impressao_3D.py", title="Impressão 3D"),
         st.Page("H3B - Uso_de_Robos_Servico.py", title="Uso de robôs de Serviços"),
 #        st.Page("H4 - Impressao_3D.py", title="Uso de Impressão 3D"),
-        st.Page("H7 - Dispositivos_IOT.py", title="Uso de Dispositivos IoT"),
+        st.Page("H8_IOT.py", title="Uso de Dispositivos IoT"),
     ],
 #    ">> Internet das Coisas (IoT)": [
 #        st.Page("H7 - Dispositivos_IOT.py", title="Uso de Dispositivos IoT"),
@@ -36,6 +36,6 @@ pages = {
         st.Page("cma_maiorDesafioTD.py", title="Maior desafio para a TD"),
     ],
 }
-
-pg = st.navigation(pages, expanded=True)
+st.sidebar.markdown(":soccer: Desenvolvido por [Joao Luiz Vianna](mailto:vianna.joaoluiz@gmail.com)")
+pg = st.navigation(pages, expanded=True, position='top')
 pg.run()
