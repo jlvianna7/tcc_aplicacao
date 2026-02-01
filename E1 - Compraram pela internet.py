@@ -27,7 +27,7 @@ st.text('\n\n\n\n\n')
 
 
 st.sidebar.color_picker = "#FF7F27"
-st.sidebar.write("e1 - Compraram pela internet")
+st.sidebar.write("E1 - Compraram pela internet")
 
 # %% Evolução anual, geral do uso de ERPs
 

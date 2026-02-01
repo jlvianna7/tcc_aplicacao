@@ -36,6 +36,6 @@ pages = {
         st.Page("cma_maiorDesafioTD.py", title="Maior desafio para a TD"),
     ],
 }
-st.sidebar.markdown(":soccer: Desenvolvido por [Joao Luiz Vianna](mailto:vianna.joaoluiz@gmail.com)")
+st.sidebar.markdown(":books: Desenvolvido por [Joao Luiz Vianna](mailto:vianna.joaoluiz@gmail.com)")
 pg = st.navigation(pages, expanded=True, position='top')
 pg.run()
