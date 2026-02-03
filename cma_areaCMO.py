@@ -22,9 +22,9 @@ st.header('Pesquisa aplicada sobre transformação digital nas empresas no Brasi
 st.text('\n\n\n\n\n')
 
 
-st.subheader("Pesquisa CMA - Sua organiação tem um CMO?  -  Se sim, a qual área está vinculado?")
-st.markdown("Nesta questão o objetivo foi entender se as empresas estão estruturando **Escritório de Gestão de Mudanças** e,"
-             " como estão estruturados. E para as organizações que não tem um **Change Management Office (CMO)**, quais os principais desafios. ")
+st.subheader("Pesquisa CMA - Sua organização tem um CMO?  -  Se sim, a qual área está vinculado?")
+st.markdown("Nesta questão o objetivo foi entender se as empresas estão estruturando **Escritório de Gestão de Mudanças** e, se estão, "
+             "como estão estruturados. E para as organizações que não tem um **Change Management Office (CMO)**, quais os principais desafios. ")
 st.write(' \n')
 st.write(' \n')
 st.write(' \n')
@@ -72,7 +72,7 @@ df_analise = df_analise.sort_values(by='Frequência (%)', ascending=False)
 
 col2.write(' ')
 df_analise.set_index('Área de vínculo do CMO', inplace=True)
-col3.markdown('**Exitindo, a qual área o CMO está vinculado**\n')
+col3.markdown('**Existindo, a qual área o CMO está vinculado**\n')
 col3.bar_chart(df_analise['Frequência (%)'], color='#3282F6', height=500)
 
 
