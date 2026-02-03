@@ -45,7 +45,7 @@ col1, col2, col3 = st.columns([0.15, 0.02, 0.83])
 
 col1.markdown("\n\n\n**Empresas pesquisadas**")
 col2.write(' ')
-col3.markdown("**Proporção de empresas que utilizam :yellow-background[Serviços de Nuvem] para armazenamento ou Banco de Dados")
+col3.markdown("**Proporção de empresas que utilizam algum :yellow-background[Serviço de Nuvem] pública**")
 
 dfpesq = df[["Ano pesquisa", "Amostragem"]]
 col1.table(dfpesq)
@@ -62,7 +62,7 @@ sql = (
 bd = f_ConectaBD.conn
 dfl = pd.read_sql(sql, bd)
 
-col3.line_chart(dfl, x="Ano pesquisa", y="% de Empresas que utilizam", color="Serviço", height=400)
+col3.line_chart(dfl, x="Ano pesquisa", y="% de Empresas que utilizam", color="Serviço", height=450)
 #col3.table(dfl)
 
 

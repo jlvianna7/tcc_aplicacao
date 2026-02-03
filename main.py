@@ -1,18 +1,18 @@
 import streamlit as st
 
 pages = {
-    ">>> Início": [
+    "🏠 Início": [
         st.Page("Pesquisa Aplicada.py", title="Sobre a pesquisa"),
     ],
-    ">>> Comércio Eletrônico": [
+    "💶 Comércio Eletrônico": [
         st.Page("E1 - Compraram pela internet.py", title="Compraram pela internet"),
         st.Page("E2 - Venderam pela internet.py", title="Venderam pela internet"),
     ],
-    ">>> Softwares Corporativos": [
+    "🏢 Softwares Corporativos  ": [
         st.Page("G2 - Uso de Plataformas de ERP.py", title="Uso de plataformas ERP"),
         st.Page("G3_CRM.py", title="Uso de sistemas CRM"),
     ],
-    ">>> Novas Tecnologias": [
+    "📱 Novas Tecnologias": [
         st.Page("H1 - BigData.py", title="Análises de Big Data"),
         st.Page("B18 - Serv_Nuvem.py", title="Serviços de Nuvem"),
 #        st.Page("H3 - Uso_de_Robos.py", title="Uso de robôs industriais"),
@@ -24,12 +24,12 @@ pages = {
 #    ">> Internet das Coisas (IoT)": [
 #        st.Page("H7 - Dispositivos_IOT.py", title="Uso de Dispositivos IoT"),
 #    ],
-    ">>> Inteligência Artificial": [
+    "🎇 Inteligência Artificial": [
         st.Page("H9 - Uso_de_IA.py", title="Tipo de ferramenta"),
         st.Page("H10 - Aplicacao_de_IA.py", title="Área de aplicação de IA"),
         st.Page("H13 - Barreiras_de_IA.py", title="Barreiras para o uso de IA")
     ],
-    ">>> Pesquisa CMA": [
+    "🌐 Pesquisa CMA": [
         st.Page("main_CMA.py", title="CMA - Resumo da pesquisa"),
         st.Page("cma_tipoMudanca.py", title="Tipos de mudanças"),
         st.Page("cma_areaCMO.py", title="CMO nas organizações"),
