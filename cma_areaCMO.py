@@ -124,13 +124,6 @@ fig = px.bar(df_analise, y='Frequência (%)', text='Frequência (%)', height=600
 st.plotly_chart(fig, col1)
 
 
-
-
-
-
-
-
-
 ############## QUEM CUIDA DE MUDANÇA ONDE NÃO TEM GMO
 
 sql = (
@@ -151,7 +144,7 @@ df_analise['Frequência (%)'] = df_analise['Frequência (%)'].round(2)
 # 3. Ordena do maior para o menor
 df_analise = df_analise.sort_values(by='Frequência (%)', ascending=False)
 
-col1, col2 = st.columns([0.60, 0.40])
+col1, col2 = st.columns([0.70, 0.30])
 
 col1.write(' ')
 col2.write(' ')

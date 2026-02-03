@@ -36,6 +36,21 @@ pages = {
         st.Page("cma_maiorDesafioTD.py", title="Maior desafio para a TD"),
     ],
 }
-st.sidebar.markdown(":books: Desenvolvido por [Joao Luiz Vianna](mailto:vianna.joaoluiz@gmail.com)")
+st.sidebar.markdown("Pesquisa acadêmica - DSA - USP/ESALQ")
+st.sidebar.write(" \n")
+st.sidebar.markdown("Fonte de dados: [Cetic.br](https://cetic.br/pt/)")   
+st.sidebar.markdown("Fonte de dados: [CMA](https://www.change-management-alliance.network/spaces/17724502/page)")   
+st.sidebar.write(" \n")
+st.sidebar.write(" \n")
+st.sidebar.write(" \n")
+st.sidebar.write(" \n")
+st.sidebar.write(" \n")
+st.sidebar.write(" \n")
+st.sidebar.write(" \n")
+st.sidebar.write(" \n")
+st.sidebar.markdown(":books: Desenvolvido por: [Joao Luiz Vianna](mailto:vianna.joaoluiz@gmail.com)")
+st.sidebar.write(" \n")
+st.sidebar.write(" \n")
+st.sidebar.write(" \n")
 pg = st.navigation(pages, expanded=True, position='top')
 pg.run()

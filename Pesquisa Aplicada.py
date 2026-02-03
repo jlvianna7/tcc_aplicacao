@@ -11,7 +11,7 @@ st.set_page_config(
 
 st.header(
     'Pesquisa aplicada sobre transformação digital nas empresas no Brasil', divider=True)
-st.text('\n\n\n\n\n')
+#st.text('\n\n\n\n\n')
 
 st.header("Objetivo.\n\n")
 st.markdown('O objetivo deste trabalho é acadêmico e a ideia foi explorar e entender a **cronologia da :yellow-background[transformação digital] nas organizações brasileiras**,- considerando'
