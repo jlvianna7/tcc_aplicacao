@@ -14,8 +14,8 @@ st.header(
 #st.text('\n\n\n\n\n')
 
 st.header("Objetivo.\n\n")
-st.markdown('O objetivo deste trabalho é acadêmico e a ideia foi explorar e entender a **cronologia da :yellow-background[transformação digital] nas organizações brasileiras**,- considerando'
-            ' empresas privadas, segmentadas por porte e por mercado de atuação -, e verificar em quais áreas da cadeia produtiva estão utilizando '
+st.markdown('O objetivo deste trabalho é acadêmico e a ideia foi explorar e entender a **cronologia da :yellow-background[transformação digital] nas organizações brasileiras** - considerando'
+            ' empresas privadas, segmentadas por porte e por mercado de atuação. Procurou-se verificar ainda em quais áreas da cadeia produtiva estão utilizando '
             '**novas tecnologias**, quais obstáculos enfrentados (se existentes), e quais mecanismos estão sendo utilizados para enfrentá-los, como por '
             'exemplo a estruturação de processos ou áreas de :yellow-background[**Gerenciamento de Mudanças Organizacionais [GMO]**]. Adicionalmente tentou '
             'identificar quais destas organizações estão conseguindo se tornar :yellow-background[**“data-driven”**], ou seja, quantas já conduzem os '
