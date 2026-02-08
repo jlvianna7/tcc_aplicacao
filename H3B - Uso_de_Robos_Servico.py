@@ -49,12 +49,12 @@ bd = f_ConectaBD.conn
 dfl = pd.read_sql(sql, bd)
 
 
-#col1.line_chart(dfl, x="Ano pesquisa", y="% de Empresas que utilizam", color="Tipo de serviço", height=460)
-#col2.write(' ')
-
-fig_L = px.line_3d(dfl, x="Ano pesquisa", y="% de Empresas que utilizam", color="Tipo de serviço", text="% de Empresas que utilizam", height=460)
-col1.plotly_chart(fig_L)
+col1.line_chart(dfl, x="Ano pesquisa", y="% de Empresas que utilizam", color="Tipo de serviço", height=460)
 col2.write(' ')
+
+#fig_L = px.line(dfl, x="Ano pesquisa", y="% de Empresas que utilizam", color="Tipo de serviço", text="% de Empresas que utilizam", height=460)
+#col1.plotly_chart(fig_L)
+#col2.write(' ')
 
 
 
