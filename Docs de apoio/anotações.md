@@ -80,10 +80,12 @@ try:
 except requests.exceptions.RequestException as e:
     print(f"Ocorreu um erro: {e}")
 
-jh
+
 # ALGUNS INDICADORES TEM A MENSAGEM ABAIXO
 ¹Este indicador foi coletado somente entre as empresas que possuem área ou departamento de TI. Para fins de divulgação, são apresentados os resultados pelo total de empresas.
 
+# Executando App no Streamlit
+https://tcc-dsa242.streamlit.app/ 
 
 
 %load_ext autoreload

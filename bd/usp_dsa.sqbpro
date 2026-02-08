@@ -1,9 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="usp_dsa.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="2354"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="dm_mercado_atuacao" custom_title="0" dock_id="1" table="4,18:maindm_mercado_atuacao"/><dock_state state="000000ff00000000fd00000001000000020000000000000000fc0100000001fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000011800ffffff000000000000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1*">select * from ft_ceticbr_totais
-where cd_variavel = 'g3'
-order by ano_pesquisa</sql><sql name="SQL 2*">select f.*, d.ds_porte_empresa 
-from ft_ceticbr_porte f, dm_porte_empresa d
-where f.cd_variavel = 'g3'
-and f.id_dm_porte = d.id_porte_empresa
-order by f.ano_pesquisa, f.id_dm_porte</sql><sql name="SQL 3*">select * from ft_ceticbr_mercado
-where cd_variavel = 'g2'
-order by ano_pesquisa</sql><current_tab id="1"/></tab_sql></sqlb_project>
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="" readonly="0" foreign_keys="" case_sensitive_like="" temp_store="" wal_autocheckpoint="" synchronous=""/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="2354"/><column_width id="4" width="0"/></tab_structure><tab_browse><table title="." custom_title="0" dock_id="2" table="0,0:"/><dock_state state="000000ff00000000fd00000001000000020000000000000000fc0100000002fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500320100000000ffffffff0000011e00ffffff000000000000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1*">SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_merc_atuacao 'Mercado de atuação', 
+f.qtd_resposta_sim '% Empresas que utilizam', q.nm_questao_variavel
+from ft_ceticbr_mercado f, dm_mercado_atuacao d, dm_dicionario_questoes_ceticbr q
+where f.id_dm_mercado = d.id_merc_atuacao  
+and f.cd_variavel like 'h3b%'   
+and f.id_dm_mercado = 2
+and f.cd_variavel = q.cd_questao_ceticbr
+order by 1, 4, 3;  
+</sql><sql name="SQL 2*">SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_merc_atuacao 'Mercado de atuação',  
+f.qtd_resposta_sim '% Empresas que utilizam', q.nm_questao_variavel 'Variável' 
+from ft_ceticbr_mercado f, dm_mercado_atuacao d, dm_dicionario_questoes_ceticbr q 
+where f.id_dm_mercado = d.id_merc_atuacao   
+and f.cd_variavel like 'h3b%'   
+and f.cd_variavel = q.cd_questao_ceticbr 
+order by 1, 4, 3;   
+</sql><current_tab id="1"/></tab_sql></sqlb_project>
