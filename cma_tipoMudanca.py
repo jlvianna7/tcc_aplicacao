@@ -4,6 +4,7 @@
 import numpy as np
 import pandas as pd
 import streamlit as st
+import plotly.express as px
 import seaborn as sns
 
 from backend import f_ConectaBD
@@ -52,9 +53,21 @@ df_analise = df_analise.sort_values(by='Frequência (%)', ascending=False)
 
 col1, col2, col3 = st.columns([0.33, 0.02, 0.65])
 
+col1.write(' \n')
+col1.write(' \n')
+col1.write(' \n')
+col1.write(' \n')
 col1.table(df_analise)
 col2.write(' ')
 df_analise.set_index('Tipos de mudanças', inplace=True)
-col3.bar_chart(df_analise['Frequência (%)'], color='#75FA8D')
+
+
+fig = px.bar(df_analise, y="Frequência (%)", text="Frequência (%)", height=500, color_discrete_sequence=['#75FA8D', '#3282F6', '#FF33A1'])
+fig.update_traces(texttemplate='%{text:.1%:}')
+fig.update_yaxes(showticklabels=False)
+col3.plotly_chart(fig)
+
+
+#col3.bar_chart(df_analise['Frequência (%)'], color='#75FA8D')
 
 #value=f"£{dados_jogador['Value(£)']:,}"

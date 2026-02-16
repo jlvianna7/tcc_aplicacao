@@ -73,7 +73,7 @@ df_analise = df_analise.sort_values(by='Frequência (%)', ascending=False)
 col2.write(' ')
 df_analise.set_index('Área de vínculo do CMO', inplace=True)
 col3.markdown('**Existindo, a qual área o CMO está vinculado**\n')
-col3.bar_chart(df_analise['Frequência (%)'], color='#3282F6', height=500)
+col3.bar_chart(df_analise['Frequência (%)'], color='#3282F6', height=500, y_label="'Frequência (%)'")
 
 
 ############## BLOCO 2 ###############

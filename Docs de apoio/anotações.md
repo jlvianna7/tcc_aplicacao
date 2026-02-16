@@ -17,10 +17,22 @@ Vinho = '#CF181F'
 Barro = '#843C0C'
 Rocho = '#EA3FF7'
 
+# Paletas de cores ('_r' reverte a sequência de cores):
+# viridis
+# inferno
+# magma
+# cividis
+# coolwarm
+# Blues
+# Greens
+# Reds
 
-para executar o streamlit
+
+# para executar o streamlit
 
 streamlit run .\'Pesquisa Aplicada'.py
+
+
 
 # Biblioteca adcional do Streamlit
 https://arnaudmiribel.github.io/streamlit-extras/

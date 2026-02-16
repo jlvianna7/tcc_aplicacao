@@ -49,7 +49,9 @@ col2.write(' ')
 col3.markdown("**Proporção de empresas que utilizam :yellow-background[sistemas CRM]**")
 
 dfpesq = df[["Ano pesquisa", "Empresas participantes"]]
+dfpesq.style.hide(axis='index')
 col1.table(dfpesq)
+
 
 sql = (
     f'SELECT ano_pesquisa "Ano pesquisa", qtd_resposta_sim "% Utilizam CRM" '

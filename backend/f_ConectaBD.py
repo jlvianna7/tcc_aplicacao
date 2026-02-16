@@ -8,7 +8,7 @@ def conectar():
     try:
         if not hasattr(local, 'conn'):
             local.conn = sqlite3.connect('./bd/usp_dsa.db', check_same_thread=False)
-#            print("Conexão ok!")
+            #print("Conexão ok!")
         return local.conn
     except sqlite3.Error as e:
         print("Erro de conexão!", e)

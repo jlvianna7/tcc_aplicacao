@@ -49,12 +49,13 @@ bd = f_ConectaBD.conn
 dfl = pd.read_sql(sql, bd)
 
 
-col1.line_chart(dfl, x="Ano pesquisa", y="% de Empresas que utilizam", color="Tipo de serviço", height=460)
-col2.write(' ')
-
-#fig_L = px.line(dfl, x="Ano pesquisa", y="% de Empresas que utilizam", color="Tipo de serviço", text="% de Empresas que utilizam", height=460)
-#col1.plotly_chart(fig_L)
+#col1.line_chart(dfl, x="Ano pesquisa", y="% de Empresas que utilizam", color="Tipo de serviço", height=460)
 #col2.write(' ')
+
+fig_L = px.line(dfl, x="Ano pesquisa", y="% de Empresas que utilizam", color="Tipo de serviço", height=460)
+fig_L.update_xaxes(dtick="M12",tickformat="%Y")
+col1.plotly_chart(fig_L)
+col2.write(' ')
 
 
 
@@ -106,7 +107,7 @@ col1.markdown('**% :yellow-background[médio] de utilização de :yellow-backgro
 col2.write(' ')
 col3.markdown('**% :yellow-background[médio] de utilização de :yellow-background[Robôs de serviços], por PORTE de empresa**')
 
-fig_m = px.bar(dfM1, y="% Empresas que utilizam", text="% Empresas que utilizam", height=500, color_discrete_sequence=['#CF181F', '#FF5733', '#FF33A1'])
+fig_m = px.bar(dfM1, y="% Empresas que utilizam", text="% Empresas que utilizam", height=500)
 col1.plotly_chart(fig_m)
 
 col2.write(' ')
