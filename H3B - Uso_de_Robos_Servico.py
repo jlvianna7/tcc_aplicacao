@@ -45,6 +45,10 @@ sql = (
     f'WHERE cd_variavel like "h3b%" '  
     f'order by 1, 2;'
 )
+with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/robo_serviço_servico.sql", "w", encoding="utf-8") as arquivo:
+    arquivo.write(sql)
+
+
 bd = f_ConectaBD.conn
 dfl = pd.read_sql(sql, bd)
 
@@ -115,12 +119,6 @@ col2.write(' ')
 fig_p = px.bar(dfP1, y="% Empresas que utilizam", text="% Empresas que utilizam", height=500, color_discrete_sequence=['#3282F6', '#FF33A1', '#33FF57'])
 col3.plotly_chart(fig_p)
 
-col1.write(' \n')
-col2.write(' \n')
-col3.write(' \n')
-col1.write(' \n')
-col2.write(' \n')
-col3.write(' \n')
 col1.write(' \n')
 col2.write(' \n')
 col3.write(' \n')

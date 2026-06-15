@@ -6,6 +6,7 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 import seaborn as sns
+import plotly.express as px
 
 from backend import f_ConectaBD
 
@@ -30,73 +31,140 @@ st.sidebar.markdown("**H13 - Barreiras para utilização de Inteligência artifi
 
 # %% Evolução anual, geral do uso de Inteligência artificial
 
-st.subheader("Barreiras enfrentadas para a utilização de :yellow-background[Inteligência artificial]")
+st.subheader(":yellow-background[Barreiras] enfrentadas por empresas no uso de :yellow-background[Inteligência artificial] em 2024")
 
-sql = (
-    f'SELECT ano_pesquisa "Ano pesquisa", empresas_respondentes "Amostra" '
-    f'FROM dm_resumo_pesquisa '
-    f'order by ano_pesquisa; '
-)
-
-bd = f_ConectaBD.conn
-df = pd.read_sql(sql, bd)
-
-col1, col2 = st.columns([0.98, 0.02])
-
-#col1.markdown("\n\n\n**Empresas pesquisadas**")
-col1.markdown("**Proporção de barreiras mencionadas no uso de :yellow-background[Inteligência artificial]**")
-col2.write(' ')
-
-dfpesq = df[["Ano pesquisa", "Amostra"]]
-#col1.table(dfpesq)
+col1, col2, col3 = st.columns([0.96, 0.02, 0.02])
 
 ###
 ###
 sql = (
-    f'SELECT ano_pesquisa "Ano pesquisa", contexto "Obstáculo", qtd_resposta_sim "% de Empresas que utilizam" '
+    f'SELECT contexto "Obstáculo", qtd_resposta_sim "% de Empresas que utilizam", '
+    f'qtd_resposta_sim || " %" as "valor"  '
     f'FROM ft_ceticbr_totais '
     f'WHERE  cd_variavel like "h13%"  ' 
-    f'order by 3 desc, "Obstáculo"; '
+    f' and ano_pesquisa = 2024 '
+    f'order by 2 desc'
 )
-
+with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/IA_barreiras_totais.sql", "w", encoding="utf-8") as arquivo:
+    arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 dfl = pd.read_sql(sql, bd)
+dfl.set_index("Obstáculo", inplace=True)
+fig_L = px.bar(dfl, y="% de Empresas que utilizam", text="valor", color="% de Empresas que utilizam", height=640, color_continuous_scale='blugrn')
+#fig_L = px.bar(dfl, y="% de Empresas que utilizam", text="valor", color="% de Empresas que utilizam", height=640, color_continuous_scale='agsunset')
+#'viridis', 'plasma', 'cividis' 
 
-#col3.line_chart(dfl, x="Ano pesquisa", y="% de Empresas que utilizam", color="Serviço")
-col1.bar_chart(dfl, x="Ano pesquisa", y="% de Empresas que utilizam", color="Obstáculo", stack=False, height=500)
+#fig_L = px.bar(dfl, y="% de Empresas que utilizam", text="% de Empresas que utilizam", height=640)
+fig_L.update_layout(
+    legend=dict(
+        orientation="h",
+        x=0.5,
+        xanchor="center",
+        y=-0.2,
+        yanchor="top"
+    )
+)
+fig_L.update_layout(margin=dict(t=20, b=240))
+col1.plotly_chart(fig_L)
 col2.write(' ')
+col3.write(' ')
 
-##############  BLOCO 2
 
-st.subheader("Principais obstáculos no uso de :yellow-background[Inteligência artificial] em 2024")
 
+############################################   BLOCO 3  #############################################
+
+# %% Demonstra a Frequencia de utilização, conforme ano selecioando.
+# %% Evuloção anual por POR MERCADO DE ATUAÇÃO
+# Montando a ComboBox para o filtro
+
+
+col1, col2, col3 = st.columns([0.96, 0.02, 0.02])
+col1.subheader(":yellow-background[Barreiras] para utilização de :yellow-background[Inteligência artificial] conforme Ano da Pesquisa")
+col2.write(' ')
+col3.write(' ')
 
 sql = (
-    f'SELECT t1.contexto "Obstáculo", ROUND(t1.qtd_resposta_sim * 100.0 / SUM(t1.qtd_resposta_sim) OVER(),1) AS "Frequência (%)" '
-    f'FROM ft_ceticbr_totais t1 '
-    f'WHERE  cd_variavel like "h13%"  ' 
-    f'GROUP BY t1.contexto '
-    f'ORDER BY 2 DESC; '
+    f'SELECT DISTINCT f.Ano_pesquisa "Ano pesquisa" '
+    f'FROM ft_ceticbr_mercado f '
+    f'WHERE f.Ano_pesquisa = 2024 '
+    f'and f.cd_variavel like "h13%" '
 )
 bd = f_ConectaBD.conn
-df = pd.read_sql(sql, bd)
+dfAnoBox = pd.read_sql(sql, bd)
+
+v_ano = dfAnoBox['Ano pesquisa'].value_counts().index
+cbox_AnoPesq = col1.selectbox('Selecione o ano da pesquisa a observar', v_ano)
+
+col1, col2, col3 = st.columns([0.49, 0.02, 0.49])
+
+sql = (
+    f"SELECT f.ano_pesquisa 'Ano pesquisa', SUBSTR(d.ds_merc_atuacao_abrev, 1, 40) 'Mercado de atuação', " 
+    f"f.qtd_resposta_sim '% de Empresas que utilizam', f.qtd_resposta_sim || ' %' as 'valor'  "
+    f"from ft_ceticbr_mercado f, dm_mercado_atuacao d "
+    f"where f.id_dm_mercado = d.id_merc_atuacao "  
+    f"and f.Ano_pesquisa = 2024 "
+    f'and f.cd_variavel = "h13c" '
+    f"order by f.ano_pesquisa; "  
+)
+with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/IA_barreira_mercado_2.sql", "w", encoding="utf-8") as arquivo:
+    arquivo.write(sql)
+
+bd = f_ConectaBD.conn
+dfM1 = pd.read_sql(sql, bd)
+dfM1.set_index("Mercado de atuação", inplace=True)
 
 
-col1, col2 = st.columns([0.70, 0.30])
+col1, col2, col3 = st.columns([0.98, 0.02, 0.02])
 
-col1.write(' \n')
-col2.write(' \n')
-col1.write(' \n')
-col2.write(' \n')
+col1.write(f'** Proporção de :yellow-background[barreiras] para utilização de :yellow-background[Plataformas de Inteligência artificial] por MERCADO de atuação, no ano de {cbox_AnoPesq} **')
+col2.write(' ')
+col3.write(' ')
 
+# %% Exibe os gráficos segmentados
 
-df.set_index('Obstáculo', inplace=True)
+fig_m = px.bar(dfM1, y="% de Empresas que utilizam", text='valor', color="% de Empresas que utilizam", height=640, color_continuous_scale='blugrn')
+#, color_continuous_scale='viridis'
+col1.plotly_chart(fig_m)
+col2.write(' ')
+col3.write(' ')
+
 col1.write(' ')
 col2.write(' ')
-col1.bar_chart(df['Frequência (%)'], color='#0F3A69',horizontal=True, height=500, stack='layered')
+col3.write(' ')
+col1.write(' ')
 col2.write(' ')
+col3.write(' ')
 
+########  PORTE
+sql = (
+    f"SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_porte_empresa 'Porte empresa', "
+    f"f.qtd_resposta_sim '% de Empresas que utilizam', f.qtd_resposta_sim || ' %' as 'valor'  "
+    f"from ft_ceticbr_porte f, dm_porte_empresa d "
+    f"where f.id_dm_porte = d.id_porte_empresa "
+    f"and f.ano_pesquisa = 2024 "
+    f"and f.cd_variavel = 'h13c' "
+    f"order by 3 ; "
+)
+with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/IA_barreira_porte_2.sql", "w", encoding="utf-8") as arquivo:
+    arquivo.write(sql)
 
+bd = f_ConectaBD.conn
+dfP1 = pd.read_sql(sql, bd)
 
+dfP1.set_index("Porte empresa", inplace=True)
+
+col1, col2, col3 = st.columns([0.98, 0.02, 0.02])
+
+col1.write(f'** Porporção de:yellow-background[barreiras] enfrentadas para % de utilização de :yellow-background[Plataformas de Inteligência artificial] por PORTE de empresa, no ano de {cbox_AnoPesq} **')
+col2.write(' ')
+col3.write(' ')
+
+fig_p = px.bar(dfP1, y="% de Empresas que utilizam", text="valor", height=500, color="% de Empresas que utilizam", color_continuous_scale='blugrn')
+col1.plotly_chart(fig_p)
+col2.write(' ')
+col3.write(' ')
+
+# color_discrete_sequence=['#33FF57', '#3282F6', '#FF33A1']
+#color_continuous_scale=['#33FF57', '#3282F6', '#FF33A1']
 # %% FIM!

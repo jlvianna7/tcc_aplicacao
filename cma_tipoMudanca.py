@@ -5,6 +5,7 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 import plotly.express as px
+import plotly.io as pio
 import seaborn as sns
 
 from backend import f_ConectaBD
@@ -59,14 +60,13 @@ col1.write(' \n')
 col1.write(' \n')
 col1.table(df_analise)
 col2.write(' ')
-df_analise.set_index('Tipos de mudanças', inplace=True)
+#df_analise.set_index('Tipos de mudanças', inplace=True)
 
 
 fig = px.bar(df_analise, y="Frequência (%)", text="Frequência (%)", height=500, color_discrete_sequence=['#75FA8D', '#3282F6', '#FF33A1'])
 fig.update_traces(texttemplate='%{text:.1%:}')
 fig.update_yaxes(showticklabels=False)
 col3.plotly_chart(fig)
-
 
 #col3.bar_chart(df_analise['Frequência (%)'], color='#75FA8D')
 

@@ -46,4 +46,3 @@ INSERT INTO dm_mercado_atuacao (id_merc_atuacao, ds_merc_atuacao, cod_ibge) VALU
 INSERT INTO dm_mercado_atuacao (id_merc_atuacao, ds_merc_atuacao, cod_ibge) VALUES ('7', 'Atividades imobiliárias, Atividades profissionais, científicas e técnicas, Atividades administrativas e serviços complementares','L,M,N'); 
 INSERT INTO dm_mercado_atuacao (id_merc_atuacao, ds_merc_atuacao, cod_ibge) VALUES ('8', 'Artes, cultura, esportes e recreação, Outras atividades de serviços','R,S');
 COMMIT;
-

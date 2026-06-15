@@ -1,16 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="usp_dsa.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="2354"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="8" parent="0"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="dm_dicionario_questoes_ceticbr" custom_title="0" dock_id="2" table="4,30:maindm_dicionario_questoes_ceticbr"/><table title="ft_cma_3DesafiosGMO" custom_title="0" dock_id="4" table="4,19:mainft_cma_3DesafiosGMO"/><dock_state state="000000ff00000000fd00000001000000020000043c00000316fc0100000002fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fc000000000000043c0000012400fffffffa000000010100000002fb000000160064006f0063006b00420072006f00770073006500320100000000ffffffff0000011e00fffffffb000000160064006f0063006b00420072006f00770073006500340100000000ffffffff0000012400ffffff0000043c0000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="dm_dicionario_questoes_ceticbr" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="80"/><column index="2" value="117"/><column index="3" value="300"/><column index="4" value="300"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="ft_cma_3DesafiosGMO" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="106"/><column index="2" value="587"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_merc_atuacao 'Mercado de atuação', 
-f.qtd_resposta_sim '% Empresas que utilizam', q.nm_questao_variavel
-from ft_ceticbr_mercado f, dm_mercado_atuacao d, dm_dicionario_questoes_ceticbr q
-where f.id_dm_mercado = d.id_merc_atuacao  
-and f.cd_variavel like 'h3b%'   
-and f.id_dm_mercado = 2
-and f.cd_variavel = q.cd_questao_ceticbr
-order by 1, 4, 3;  
-</sql><sql name="SQL 2">SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_merc_atuacao 'Mercado de atuação',  
-f.qtd_resposta_sim '% Empresas que utilizam', q.nm_questao_variavel 'Variável' 
-from ft_ceticbr_mercado f, dm_mercado_atuacao d, dm_dicionario_questoes_ceticbr q 
-where f.id_dm_mercado = d.id_merc_atuacao   
-and f.cd_variavel like 'h3b%'   
-and f.cd_variavel = q.cd_questao_ceticbr 
-order by 1, 4, 3;   
-</sql><sql name="SQL 3*">SELECT CMA</sql><current_tab id="2"/></tab_sql></sqlb_project>
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="" readonly="0" foreign_keys="" case_sensitive_like="" temp_store="" wal_autocheckpoint="" synchronous=""/><attached/><window><main_tabs open="structure browser pragmas query" current="1"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="2354"/><column_width id="4" width="0"/></tab_structure><tab_browse><table title="." custom_title="0" dock_id="3" table="0,0:"/><dock_state state="000000ff00000000fd0000000100000002000005bc0000038efc0100000002fc00000000000005bc0000000000fffffffa000000000100000002fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500320100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500330100000000000005bc0000011e00ffffff0000025e0000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1*">/*******************  AJUSTE MERCADO DE ATUACAO *****/
+UPDATE dm_mercado_atuacao SET ds_merc_atuacao_abrev = ds_merc_atuacao;
+
+UPDATE dm_mercado_atuacao SET ds_merc_atuacao_abrev = 'Comércio; reparação de veículos, objetos pessoais e domésticos'
+WHERE cod_ibge = 'G';
+
+UPDATE dm_mercado_atuacao SET ds_merc_atuacao_abrev = 'Atividades administrativas, profissionais, científicas, técnicas e serviços complementares'
+WHERE cod_ibge = 'L,M,N';
+
+UPDATE dm_mercado_atuacao SET ds_merc_atuacao_abrev = 'Artes, cultura, esportes, recreação e outros de serviços'
+WHERE cod_ibge = 'R,S';
+COMMIT;
+</sql><current_tab id="0"/></tab_sql></sqlb_project>

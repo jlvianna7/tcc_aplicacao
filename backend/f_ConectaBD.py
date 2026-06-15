@@ -28,10 +28,9 @@ conn = conectar()
 #    return local.conn
 
 
-# EXEMPLO PARA UTILIZAÇÃO DIRETA DO Banco de Dados
-
+#EXEMPLO PARA UTILIZAÇÃO DIRETA DO Banco de Dados
 #query = 'select * from dm_dicionario_questoes_ceticbr'
 #df = pd.read_sql_query(query, conn)
 #df = pd.read_sql(query, conn)
-# Exibindo o resultado
-##print(df)
+#print('Exibindo o resultado')
+#print(df)

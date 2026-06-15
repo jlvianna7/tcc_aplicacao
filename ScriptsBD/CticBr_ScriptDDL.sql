@@ -12,7 +12,17 @@ PRIMARY KEY (id_merc_atuacao),
 UNIQUE KEY id_merc_atuacao_UNIQUE (id_merc_atuacao)) 
 COMMENT='Marcado de atuação segundo pesquisa CeticBr';
 
-
+/* TABELA DE DICIONÁRIO DAS VARIÁVEIS DA PESQUISA DO CETIC.BR */
+CREATE TABLE "dm_dicionario_questoes_ceticbr" (
+	"id_dicionario"	INTEGER,
+	"cd_questao_ceticbr"	TEXT,
+	"ds_questao_ceticbr"	TEXT,
+	"nm_questao_variavel"	TEXT,
+	"nm_curto_variavel"	    TEXT
+)
+PRIMARY KEY (id_dicionario), 
+UNIQUE KEY id_dicionario_UNIQUE (id_dicionario)) 
+COMMENT='Dicionário das variáveis da pesquisa Cetic.Br';
 
 /*********  ESTRUTURA DAS TABELAS FATO *******/
 

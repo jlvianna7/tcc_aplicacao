@@ -186,3 +186,17 @@ where cd_variavel = 'h13h';
 UPDATE ft_ceticbr_totais SET contexto = 'Falta de conhecimento técnico' 
 where cd_variavel = 'h13i';
 COMMIT;
+
+
+/*******************  AJUSTE MERCADO DE ATUACAO *****/
+UPDATE dm_mercado_atuacao SET ds_merc_atuacao_abrev = ds_merc_atuacao;
+
+UPDATE dm_mercado_atuacao SET ds_merc_atuacao_abrev = 'Comércio e reparação de veículos, objetos pessoais e domésticos'
+WHERE cod_ibge = 'G';
+
+UPDATE dm_mercado_atuacao SET ds_merc_atuacao_abrev = 'Atividades administrativas, profissionais, científicas, técnicas e serviços complementares'
+WHERE cod_ibge = 'L,M,N';
+
+UPDATE dm_mercado_atuacao SET ds_merc_atuacao_abrev = 'Artes, cultura, esportes, recreação e outros de serviços'
+WHERE cod_ibge = 'R,S';
+COMMIT;

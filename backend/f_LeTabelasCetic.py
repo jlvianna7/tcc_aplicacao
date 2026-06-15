@@ -376,7 +376,7 @@ def tabelaCtic_H1A(vpath, ano_pesquisa, cod_tabela):
     df = df.iloc[1:]
 
     # Selecionao as colunas que vou utilizar, neste caso a partir da segunda
-    df = df.iloc[:, 1:9]
+    df = df.iloc[:, 1:11]
     ##print(df.iloc[:, 1:9])
 
     # Mudo o nome da coluna que ficou sem título
@@ -387,6 +387,7 @@ def tabelaCtic_H1A(vpath, ano_pesquisa, cod_tabela):
         'A partir de dados próprios da empresa, provenientes de dispositivos inteligentes ou sensores, como trocas de dados entre máquinas, sensores digitais, etiquetas de identificação por radiofrequência, etc.': 'dados_proprios',
         'A partir de dados de geolocalização provenientes do uso de dispositivos portáteis, como telefone móvel, conexão wireless ou GPS': 'geolocalizacao_mobile',
         'A partir de dados gerados a partir de mídias sociais, como redes sociais, blogs, sites de compartilhamento de conteúdo de multimídia': 'midias_socias',
+        'A partir de outras fontes de dados': 'outras_fontes',
         })
 
     # Incluiíndo o ano da pesquisa
@@ -400,6 +401,8 @@ def tabelaCtic_H1A(vpath, ano_pesquisa, cod_tabela):
         df = df.rename(columns={'geolocalizacao_mobile': 'Sim'})
     elif cod_tabela == 'H1Ac':
         df = df.rename(columns={'midias_socias': 'Sim'})
+    elif cod_tabela == 'H1Ad':
+        df = df.rename(columns={'outras_fontes': 'Sim'})
     #print(df)
     colunas_reorder = ['Ano_pesquisa', 'Contexto', 'Sim']
     df = df[colunas_reorder]
@@ -421,7 +424,7 @@ def tabelaTOTAIS_H1A(vpath, ano_pesquisa, cod_tabela):
     df = df.iloc[:-17]
 
     # Selecionao as colunas que vou utilizar, neste caso a partir da segunda
-    df = df.iloc[:, 1:9]
+    df = df.iloc[:, 1:11]
 
     #if ano_pesquisa != '2015' and ano_pesquisa != '2017':
     #    df = df.drop(0).reset_index(drop=True)
@@ -441,6 +444,7 @@ def tabelaTOTAIS_H1A(vpath, ano_pesquisa, cod_tabela):
         'A partir de dados próprios da empresa, provenientes de dispositivos inteligentes ou sensores, como trocas de dados entre máquinas, sensores digitais, etiquetas de identificação por radiofrequência, etc.': 'dados_proprios',
         'A partir de dados de geolocalização provenientes do uso de dispositivos portáteis, como telefone móvel, conexão wireless ou GPS': 'geolocalizacao_mobile',
         'A partir de dados gerados a partir de mídias sociais, como redes sociais, blogs, sites de compartilhamento de conteúdo de multimídia': 'midias_socias',
+        'A partir de outras fontes de dados': 'outras_fontes',
         })
 
     # Incluiíndo o ano da pesquisa
@@ -454,6 +458,8 @@ def tabelaTOTAIS_H1A(vpath, ano_pesquisa, cod_tabela):
         df = df.rename(columns={'geolocalizacao_mobile': 'Sim'})
     elif cod_tabela == 'H1Ac':
         df = df.rename(columns={'midias_socias': 'Sim'})
+    elif cod_tabela == 'H1Ad':
+        df = df.rename(columns={'outras_fontes': 'Sim'})
     #print(df)
     colunas_reorder = ['Ano_pesquisa', 'Contexto', 'Sim']
     df = df[colunas_reorder]

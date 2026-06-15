@@ -464,6 +464,72 @@ INSERT INTO usp_dsa.ft_h1ac_mercado (ano_pesquisa, id_mercado, qtd_resposta_sim)
 COMMIT; 
 
 
+
+/* POPULA TABELA H1Ad TOTAIS DA TABELA */
+
+INSERT INTO ft_ceticbr_totais (ano_pesquisa, cd_variavel, contexto, qtd_resposta_sim) VALUES ('2019', 'h1ad', 'Outras fontes', 34); 
+INSERT INTO ft_ceticbr_totais (ano_pesquisa, cd_variavel, contexto, qtd_resposta_sim) VALUES ('2021', 'h1ad', 'Outras fontes', 39); 
+INSERT INTO ft_ceticbr_totais (ano_pesquisa, cd_variavel, contexto, qtd_resposta_sim) VALUES ('2023', 'h1ad', 'Outras fontes', 47); 
+INSERT INTO ft_ceticbr_totais (ano_pesquisa, cd_variavel, contexto, qtd_resposta_sim) VALUES ('2024', 'h1ad', 'Outras fontes', 41); 
+COMMIT; 
+
+
+/* POPULA TABELA h1ad POR PORTE DE EMPRESA */
+
+INSERT INTO ft_ceticbr_porte (ano_pesquisa, cd_variavel, id_dm_porte, qtd_resposta_sim) VALUES ('2019', 'h1ad', '2', 34);
+INSERT INTO ft_ceticbr_porte (ano_pesquisa, cd_variavel, id_dm_porte, qtd_resposta_sim) VALUES ('2019', 'h1ad', '3', 34);
+INSERT INTO ft_ceticbr_porte (ano_pesquisa, cd_variavel, id_dm_porte, qtd_resposta_sim) VALUES ('2019', 'h1ad', '4', 42);
+INSERT INTO ft_ceticbr_porte (ano_pesquisa, cd_variavel, id_dm_porte, qtd_resposta_sim) VALUES ('2021', 'h1ad', '2', 34);
+INSERT INTO ft_ceticbr_porte (ano_pesquisa, cd_variavel, id_dm_porte, qtd_resposta_sim) VALUES ('2021', 'h1ad', '3', 41);
+INSERT INTO ft_ceticbr_porte (ano_pesquisa, cd_variavel, id_dm_porte, qtd_resposta_sim) VALUES ('2021', 'h1ad', '4', 46);
+INSERT INTO ft_ceticbr_porte (ano_pesquisa, cd_variavel, id_dm_porte, qtd_resposta_sim) VALUES ('2023', 'h1ad', '2', 47);
+INSERT INTO ft_ceticbr_porte (ano_pesquisa, cd_variavel, id_dm_porte, qtd_resposta_sim) VALUES ('2023', 'h1ad', '3', 49);
+INSERT INTO ft_ceticbr_porte (ano_pesquisa, cd_variavel, id_dm_porte, qtd_resposta_sim) VALUES ('2023', 'h1ad', '4', 43);
+INSERT INTO ft_ceticbr_porte (ano_pesquisa, cd_variavel, id_dm_porte, qtd_resposta_sim) VALUES ('2024', 'h1ad', '2', 37);
+INSERT INTO ft_ceticbr_porte (ano_pesquisa, cd_variavel, id_dm_porte, qtd_resposta_sim) VALUES ('2024', 'h1ad', '3', 52);
+INSERT INTO ft_ceticbr_porte (ano_pesquisa, cd_variavel, id_dm_porte, qtd_resposta_sim) VALUES ('2024', 'h1ad', '4', 44);
+COMMIT; 
+
+
+/* POPULA TABELA h1ad POR MERCADO DE ATUAÇÃO */
+
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2019', 'h1ad', '1', 25);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2019', 'h1ad', '2', 51);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2019', 'h1ad', '3', 32);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2019', 'h1ad', '4', 42);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2019', 'h1ad', '5', 28);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2019', 'h1ad', '6', 45);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2019', 'h1ad', '7', 32);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2019', 'h1ad', '8', 42);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2021', 'h1ad', '1', 33);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2021', 'h1ad', '2', 50);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2021', 'h1ad', '3', 37);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2021', 'h1ad', '4', 50);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2021', 'h1ad', '5', 67);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2021', 'h1ad', '6', 46);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2021', 'h1ad', '7', 27);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2021', 'h1ad', '8', 37);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2023', 'h1ad', '1', 27);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2023', 'h1ad', '2', 58);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2023', 'h1ad', '3', 64);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2023', 'h1ad', '4', 55);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2023', 'h1ad', '5', 36);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2023', 'h1ad', '6', 48);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2023', 'h1ad', '7', 34);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2023', 'h1ad', '8', 39);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2024', 'h1ad', '1', 41);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2024', 'h1ad', '2', 40);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2024', 'h1ad', '3', 42);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2024', 'h1ad', '4', 22);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2024', 'h1ad', '5', 59);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2024', 'h1ad', '6', 49);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2024', 'h1ad', '7', 36);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2024', 'h1ad', '8', 51);
+COMMIT; 
+
+
+
+
 /* POPULA TABELA H3 TOTAIS DA TABELA */
 
 INSERT INTO usp_dsa.ft_h3_totais (ano_pesquisa, contexto, qtd_resposta_sim) VALUES ('2019', 'Valores totais', 4); 
@@ -2492,5 +2558,70 @@ INSERT INTO usp_dsa.ft_h13i_mercado (ano_pesquisa, id_mercado, qtd_resposta_sim)
 INSERT INTO usp_dsa.ft_h13i_mercado (ano_pesquisa, id_mercado, qtd_resposta_sim) VALUES ('2024', '6', 27);
 INSERT INTO usp_dsa.ft_h13i_mercado (ano_pesquisa, id_mercado, qtd_resposta_sim) VALUES ('2024', '7', 18);
 INSERT INTO usp_dsa.ft_h13i_mercado (ano_pesquisa, id_mercado, qtd_resposta_sim) VALUES ('2024', '8', 19);
+COMMIT; 
+
+/*  FORMATO SQLite */
+
+
+/* POPULA TABELA H1Ad TOTAIS DA TABELA */
+
+INSERT INTO ft_ceticbr_totais (ano_pesquisa, cd_variavel, contexto, qtd_resposta_sim) VALUES ('2019', 'h1ad', 'Valores totais', 34); 
+INSERT INTO ft_ceticbr_totais (ano_pesquisa, cd_variavel, contexto, qtd_resposta_sim) VALUES ('2021', 'h1ad', 'Valores totais', 39); 
+INSERT INTO ft_ceticbr_totais (ano_pesquisa, cd_variavel, contexto, qtd_resposta_sim) VALUES ('2023', 'h1ad', 'Valores totais', 47); 
+INSERT INTO ft_ceticbr_totais (ano_pesquisa, cd_variavel, contexto, qtd_resposta_sim) VALUES ('2024', 'h1ad', 'Valores totais', 41); 
+COMMIT; 
+
+
+/* POPULA TABELA h1ad POR PORTE DE EMPRESA */
+
+INSERT INTO ft_ceticbr_porte (ano_pesquisa, cd_variavel, id_dm_porte, qtd_resposta_sim) VALUES ('2019', 'h1ad', '2', 34);
+INSERT INTO ft_ceticbr_porte (ano_pesquisa, cd_variavel, id_dm_porte, qtd_resposta_sim) VALUES ('2019', 'h1ad', '3', 34);
+INSERT INTO ft_ceticbr_porte (ano_pesquisa, cd_variavel, id_dm_porte, qtd_resposta_sim) VALUES ('2019', 'h1ad', '4', 42);
+INSERT INTO ft_ceticbr_porte (ano_pesquisa, cd_variavel, id_dm_porte, qtd_resposta_sim) VALUES ('2021', 'h1ad', '2', 34);
+INSERT INTO ft_ceticbr_porte (ano_pesquisa, cd_variavel, id_dm_porte, qtd_resposta_sim) VALUES ('2021', 'h1ad', '3', 41);
+INSERT INTO ft_ceticbr_porte (ano_pesquisa, cd_variavel, id_dm_porte, qtd_resposta_sim) VALUES ('2021', 'h1ad', '4', 46);
+INSERT INTO ft_ceticbr_porte (ano_pesquisa, cd_variavel, id_dm_porte, qtd_resposta_sim) VALUES ('2023', 'h1ad', '2', 47);
+INSERT INTO ft_ceticbr_porte (ano_pesquisa, cd_variavel, id_dm_porte, qtd_resposta_sim) VALUES ('2023', 'h1ad', '3', 49);
+INSERT INTO ft_ceticbr_porte (ano_pesquisa, cd_variavel, id_dm_porte, qtd_resposta_sim) VALUES ('2023', 'h1ad', '4', 43);
+INSERT INTO ft_ceticbr_porte (ano_pesquisa, cd_variavel, id_dm_porte, qtd_resposta_sim) VALUES ('2024', 'h1ad', '2', 37);
+INSERT INTO ft_ceticbr_porte (ano_pesquisa, cd_variavel, id_dm_porte, qtd_resposta_sim) VALUES ('2024', 'h1ad', '3', 52);
+INSERT INTO ft_ceticbr_porte (ano_pesquisa, cd_variavel, id_dm_porte, qtd_resposta_sim) VALUES ('2024', 'h1ad', '4', 44);
+COMMIT; 
+
+
+/* POPULA TABELA h1ad POR MERCADO DE ATUAÇÃO */
+
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2019', 'h1ad', '1', 25);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2019', 'h1ad', '2', 51);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2019', 'h1ad', '3', 32);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2019', 'h1ad', '4', 42);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2019', 'h1ad', '5', 28);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2019', 'h1ad', '6', 45);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2019', 'h1ad', '7', 32);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2019', 'h1ad', '8', 42);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2021', 'h1ad', '1', 33);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2021', 'h1ad', '2', 50);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2021', 'h1ad', '3', 37);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2021', 'h1ad', '4', 50);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2021', 'h1ad', '5', 67);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2021', 'h1ad', '6', 46);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2021', 'h1ad', '7', 27);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2021', 'h1ad', '8', 37);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2023', 'h1ad', '1', 27);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2023', 'h1ad', '2', 58);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2023', 'h1ad', '3', 64);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2023', 'h1ad', '4', 55);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2023', 'h1ad', '5', 36);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2023', 'h1ad', '6', 48);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2023', 'h1ad', '7', 34);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2023', 'h1ad', '8', 39);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2024', 'h1ad', '1', 41);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2024', 'h1ad', '2', 40);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2024', 'h1ad', '3', 42);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2024', 'h1ad', '4', 22);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2024', 'h1ad', '5', 59);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2024', 'h1ad', '6', 49);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2024', 'h1ad', '7', 36);
+INSERT INTO ft_ceticbr_mercado (ano_pesquisa, cd_variavel, id_dm_mercado, qtd_resposta_sim) VALUES ('2024', 'h1ad', '8', 51);
 COMMIT; 
 

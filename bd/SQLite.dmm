@@ -1,0 +1,1870 @@
+{
+	"tables": {
+		"6990a8a7-2abf-4a92-8f80-3d3c0a898532": {
+			"lines": [],
+			"embeddable": false,
+			"generate": true,
+			"generateCustomCode": true,
+			"id": "6990a8a7-2abf-4a92-8f80-3d3c0a898532",
+			"name": "dm_resumo_pesquisa",
+			"desc": "",
+			"cols": [
+				{
+					"id": "fd211c61-9f14-4f50-bbe5-6810f9cbe3de",
+					"name": "ano_pesquisa",
+					"datatype": "TEXT",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "ea401102-19a8-4073-a87c-c0e445cfe4a0",
+					"name": "amostra_planejada",
+					"datatype": "INTEGER",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "null",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "393d7b4f-32db-4fe8-bd9b-3c5549cd7b32",
+					"name": "empresas_respondentes",
+					"datatype": "INTEGER",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "4a1f6429-c3a2-42df-8819-c88bb4489fbd",
+					"name": "link_publicacao",
+					"datatype": "TEXT",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				}
+			],
+			"relations": [
+				"0c631906-d9dd-4b17-a06e-105ba534ef8e"
+			],
+			"keys": [
+				{
+					"id": "f89e20f9-64eb-46fe-8adb-68c0226c3407",
+					"isPk": true,
+					"name": "Primary key",
+					"cols": [
+						{
+							"id": "284c5266-d68c-4d8d-8ff3-d7e1e1f01675",
+							"colid": "fd211c61-9f14-4f50-bbe5-6810f9cbe3de"
+						}
+					]
+				}
+			],
+			"indexes": [],
+			"estimatedSize": "",
+			"sqlite": {
+				"withoutrowid": false,
+				"strict": false
+			},
+			"visible": true,
+			"customCode": ""
+		},
+		"1f8ab066-4ab4-44a0-8e93-4fd1c60b9740": {
+			"lines": [],
+			"embeddable": false,
+			"generate": true,
+			"generateCustomCode": true,
+			"id": "1f8ab066-4ab4-44a0-8e93-4fd1c60b9740",
+			"name": "dm_resposta_sn",
+			"desc": "",
+			"cols": [
+				{
+					"id": "8078c0a7-c17a-493e-976c-78511d663370",
+					"name": "id_resposta_sn",
+					"datatype": "INTEGER",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "131b27e2-0892-4848-b155-79da19b0fa99",
+					"name": "ds_resposta_sn",
+					"datatype": "TEXT",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				}
+			],
+			"relations": [],
+			"keys": [
+				{
+					"id": "bc1339ee-83df-4e35-bd36-7c3526c7a05b",
+					"isPk": true,
+					"name": "Primary key",
+					"cols": [
+						{
+							"id": "7be2faed-6bdc-4acd-85f3-348727b8506c",
+							"colid": "8078c0a7-c17a-493e-976c-78511d663370"
+						}
+					]
+				}
+			],
+			"indexes": [],
+			"estimatedSize": "",
+			"sqlite": {
+				"withoutrowid": false,
+				"strict": false
+			},
+			"visible": true,
+			"customCode": ""
+		},
+		"b1a1493b-dadd-4d4f-b50a-3304befaa074": {
+			"lines": [],
+			"embeddable": false,
+			"generate": true,
+			"generateCustomCode": true,
+			"id": "b1a1493b-dadd-4d4f-b50a-3304befaa074",
+			"name": "dm_porte_empresa",
+			"desc": "",
+			"cols": [
+				{
+					"id": "db1afeec-aaf5-495f-8153-d3c23ef7f48f",
+					"name": "id_porte_empresa",
+					"datatype": "TEXT",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "a365c746-5d6a-4089-8995-05ffbed63ff0",
+					"name": "ds_porte_empresa",
+					"datatype": "TEXT",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				}
+			],
+			"relations": [
+				"4b0d8296-e6f8-4013-a489-17ecbe900776"
+			],
+			"keys": [
+				{
+					"id": "e1bec5d0-8173-402a-82a4-13a28868a283",
+					"isPk": true,
+					"name": "Primary key",
+					"cols": [
+						{
+							"id": "bf08cb91-b6bf-4943-99e8-9e75fdd089a6",
+							"colid": "db1afeec-aaf5-495f-8153-d3c23ef7f48f"
+						}
+					]
+				}
+			],
+			"indexes": [],
+			"estimatedSize": "",
+			"sqlite": {
+				"withoutrowid": false,
+				"strict": false
+			},
+			"visible": true,
+			"customCode": ""
+		},
+		"ff8a4a99-7a9b-4af8-ba36-969efd2ef7cf": {
+			"lines": [],
+			"embeddable": false,
+			"generate": true,
+			"generateCustomCode": true,
+			"id": "ff8a4a99-7a9b-4af8-ba36-969efd2ef7cf",
+			"name": "dm_mercado_atuacao",
+			"desc": "",
+			"cols": [
+				{
+					"id": "d818435c-5453-49a5-a9be-9e69b2a6e983",
+					"name": "id_merc_atuacao",
+					"datatype": "TEXT",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "a5931a76-6baf-4b8d-b370-577308cc9fe6",
+					"name": "ds_merc_atuacao",
+					"datatype": "TEXT",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "'null'",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "be4f5394-3830-426d-9fc3-6992f30998fa",
+					"name": "cod_ibge",
+					"datatype": "TEXT",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "'null'",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				}
+			],
+			"relations": [
+				"6252f426-e157-4d9b-9a27-156644dc8711"
+			],
+			"keys": [
+				{
+					"id": "47305516-e0bc-4abf-8ff2-6afdce80e499",
+					"isPk": true,
+					"name": "Primary key",
+					"cols": [
+						{
+							"id": "cad86eb1-424a-499b-8393-70dc60c13838",
+							"colid": "d818435c-5453-49a5-a9be-9e69b2a6e983"
+						}
+					]
+				}
+			],
+			"indexes": [],
+			"estimatedSize": "",
+			"sqlite": {
+				"withoutrowid": false,
+				"strict": false
+			},
+			"visible": true,
+			"customCode": ""
+		},
+		"b803411e-552b-4808-af28-686477000a64": {
+			"lines": [],
+			"embeddable": false,
+			"generate": true,
+			"generateCustomCode": true,
+			"id": "b803411e-552b-4808-af28-686477000a64",
+			"name": "ft_ceticbr_totais",
+			"desc": "",
+			"cols": [
+				{
+					"id": "be5c36ac-d089-4504-9654-eca512e08953",
+					"name": "id_totais",
+					"datatype": "INTEGER",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "c256effd-8b8d-43ed-91eb-abb315e87507",
+					"name": "ano_pesquisa",
+					"datatype": "TEXT",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": true,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "7378c525-0e85-487e-b23b-3455c7109b73",
+					"name": "cd_variavel",
+					"datatype": "TEXT",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "43dee5f7-6be8-4716-975b-7ec987d2330e",
+					"name": "contexto",
+					"datatype": "TEXT",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "d8e3cacd-c8da-484e-a52a-35e022a9d677",
+					"name": "qtd_resposta_sim",
+					"datatype": "INTEGER",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "null",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				}
+			],
+			"relations": [
+				"0c631906-d9dd-4b17-a06e-105ba534ef8e"
+			],
+			"keys": [
+				{
+					"id": "d76441ae-a1c6-4c8e-830b-8db49422f172",
+					"isPk": true,
+					"name": "Primary key",
+					"cols": [
+						{
+							"id": "4de2d582-6835-4b7f-b0e6-e552afa757ce",
+							"colid": "be5c36ac-d089-4504-9654-eca512e08953"
+						}
+					]
+				}
+			],
+			"indexes": [],
+			"estimatedSize": "",
+			"sqlite": {
+				"withoutrowid": false,
+				"strict": false
+			},
+			"visible": true,
+			"customCode": ""
+		},
+		"51a2b192-5486-4c4f-bf25-5c59ec7ce378": {
+			"lines": [],
+			"embeddable": false,
+			"generate": true,
+			"generateCustomCode": true,
+			"id": "51a2b192-5486-4c4f-bf25-5c59ec7ce378",
+			"name": "ft_ceticbr_porte",
+			"desc": "",
+			"cols": [
+				{
+					"id": "ba4f4fb2-c0eb-42e4-95ef-c8a2c72521ba",
+					"name": "id_porte",
+					"datatype": "INTEGER",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "f46c530b-adb7-4b9e-b83e-1e04ee859dff",
+					"name": "ano_pesquisa",
+					"datatype": "TEXT",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "70d4acc0-9d19-4260-bc45-c14a2ca2c101",
+					"name": "cd_variavel",
+					"datatype": "TEXT",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "6bf1e845-2eba-47af-97a4-229e66da4664",
+					"name": "id_dm_porte",
+					"datatype": "TEXT",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": true,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "450ff552-bca2-4b81-b138-6d4e024658f9",
+					"name": "qtd_resposta_sim",
+					"datatype": "INTEGER",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "null",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				}
+			],
+			"relations": [
+				"4b0d8296-e6f8-4013-a489-17ecbe900776"
+			],
+			"keys": [
+				{
+					"id": "04fac228-76f4-4af7-b07c-699518111a93",
+					"isPk": true,
+					"name": "Primary key",
+					"cols": [
+						{
+							"id": "f5eaa368-7feb-4762-a81a-2ab456fe13f6",
+							"colid": "ba4f4fb2-c0eb-42e4-95ef-c8a2c72521ba"
+						}
+					]
+				}
+			],
+			"indexes": [],
+			"estimatedSize": "",
+			"sqlite": {
+				"withoutrowid": false,
+				"strict": false
+			},
+			"visible": true,
+			"customCode": ""
+		},
+		"7ef6cb59-2073-4543-9374-2963f433db88": {
+			"lines": [],
+			"embeddable": false,
+			"generate": true,
+			"generateCustomCode": true,
+			"id": "7ef6cb59-2073-4543-9374-2963f433db88",
+			"name": "ft_ceticbr_mercado",
+			"desc": "",
+			"cols": [
+				{
+					"id": "fca4782b-8065-45f3-a02a-3ca9f920482b",
+					"name": "id_mercado",
+					"datatype": "INTEGER",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "5afd840f-2f5b-42c3-980a-ca8e0b02dd6d",
+					"name": "ano_pesquisa",
+					"datatype": "TEXT",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "8c50b799-96b2-4c46-9b78-af9960bf97d7",
+					"name": "cd_variavel",
+					"datatype": "TEXT",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "b1e9c044-a547-407b-8eda-4a80e5b2fc5b",
+					"name": "id_dm_mercado",
+					"datatype": "TEXT",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": true,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "38afdd7c-a463-4bc4-9544-c26de07d2bbb",
+					"name": "qtd_resposta_sim",
+					"datatype": "INTEGER",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "null",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				}
+			],
+			"relations": [
+				"6252f426-e157-4d9b-9a27-156644dc8711"
+			],
+			"keys": [
+				{
+					"id": "e71c9aee-80fe-497e-9f67-7d20b682b68c",
+					"isPk": true,
+					"name": "Primary key",
+					"cols": [
+						{
+							"id": "0e596492-77fc-403d-8f73-2895ab2ba407",
+							"colid": "fca4782b-8065-45f3-a02a-3ca9f920482b"
+						}
+					]
+				}
+			],
+			"indexes": [],
+			"estimatedSize": "",
+			"sqlite": {
+				"withoutrowid": false,
+				"strict": false
+			},
+			"visible": true,
+			"customCode": ""
+		},
+		"8e00f00f-71f9-4fa9-8a6a-a138b5751230": {
+			"lines": [],
+			"embeddable": false,
+			"generate": true,
+			"generateCustomCode": true,
+			"id": "8e00f00f-71f9-4fa9-8a6a-a138b5751230",
+			"name": "ft_cma_principal",
+			"desc": "",
+			"cols": [
+				{
+					"id": "d805854b-23c7-40fa-bbc3-aece3be7fa93",
+					"name": "id_principal",
+					"datatype": "INTEGER",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "9f75c918-5bb1-4143-a486-cfb3f3d39bc5",
+					"name": "id_original",
+					"datatype": "INTEGER",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "null",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "7a35e1af-f198-47b0-ac99-adc8ecad59b0",
+					"name": "mercado_atuacao",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "09dcbc1a-b8e9-4677-9154-b2d30523209e",
+					"name": "porte_empresa",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "8c8b640b-39a8-4020-930f-152478f950e8",
+					"name": "tem_cmo",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "bcafa2dc-6451-406c-a8f8-d4c71765bfc9",
+					"name": "area_vinculo",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "e9dbe931-bfb7-4f97-af4a-fd0d7521c7c2",
+					"name": "consistencia_engajamento",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "0a6fb023-499e-43bb-a279-81ebad6df7e3",
+					"name": "maturidade_praticas",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "dd0bc0a5-bf7e-4ac5-8314-bfedc6f06a05",
+					"name": "projetos_com_gmo",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "08caa7f3-2e97-460d-98e3-fe101958d06a",
+					"name": "maturidade_gmo_pais",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				}
+			],
+			"relations": [],
+			"keys": [
+				{
+					"id": "280cfb86-74ba-40c9-ae47-d3895a7b0266",
+					"isPk": true,
+					"name": "Primary key",
+					"cols": [
+						{
+							"id": "17fe3c24-9a67-4b23-b485-4fe36835844e",
+							"colid": "d805854b-23c7-40fa-bbc3-aece3be7fa93"
+						}
+					]
+				}
+			],
+			"indexes": [],
+			"estimatedSize": "",
+			"sqlite": {
+				"withoutrowid": false,
+				"strict": false
+			},
+			"visible": true,
+			"customCode": ""
+		},
+		"9251878e-bf93-4bf2-bde4-a9bbccd043eb": {
+			"lines": [],
+			"embeddable": false,
+			"generate": true,
+			"generateCustomCode": true,
+			"id": "9251878e-bf93-4bf2-bde4-a9bbccd043eb",
+			"name": "ft_cma_tipoMudanca",
+			"desc": "",
+			"cols": [
+				{
+					"id": "fec01f84-f30a-475a-8478-1b2b24a7748a",
+					"name": "id_tipomudanca",
+					"datatype": "INTEGER",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "5fca94e3-7a06-4749-9959-f83bad1b173e",
+					"name": "ds_tipomudanca",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				}
+			],
+			"relations": [],
+			"keys": [
+				{
+					"id": "702da874-a55b-461d-b474-4686c169adc2",
+					"isPk": true,
+					"name": "Primary key",
+					"cols": [
+						{
+							"id": "adaee940-cab4-447a-a199-da5312548e3e",
+							"colid": "fec01f84-f30a-475a-8478-1b2b24a7748a"
+						}
+					]
+				}
+			],
+			"indexes": [],
+			"estimatedSize": "",
+			"sqlite": {
+				"withoutrowid": false,
+				"strict": false
+			},
+			"visible": true,
+			"customCode": ""
+		},
+		"2fed0538-5e74-4abc-9357-b086cabb04f2": {
+			"lines": [],
+			"embeddable": false,
+			"generate": true,
+			"generateCustomCode": true,
+			"id": "2fed0538-5e74-4abc-9357-b086cabb04f2",
+			"name": "ft_cma_maiorDesafioTD",
+			"desc": "",
+			"cols": [
+				{
+					"id": "5edfd621-1380-427f-b2dd-26d94639aa9a",
+					"name": "id_maiorDesafioTD",
+					"datatype": "INTEGER",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "cd9ce738-1218-4c8b-87ff-098f66a64914",
+					"name": "ds_maiordesafioTD",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				}
+			],
+			"relations": [],
+			"keys": [
+				{
+					"id": "8bc7e071-9018-45d9-8c2a-71af1f6c2753",
+					"isPk": true,
+					"name": "Primary key",
+					"cols": [
+						{
+							"id": "b8e43672-600d-4734-98ab-24a929027099",
+							"colid": "5edfd621-1380-427f-b2dd-26d94639aa9a"
+						}
+					]
+				}
+			],
+			"indexes": [],
+			"estimatedSize": "",
+			"sqlite": {
+				"withoutrowid": false,
+				"strict": false
+			},
+			"visible": true,
+			"customCode": ""
+		},
+		"5a599301-3c5e-4485-8bbf-cb9d3f7a0f44": {
+			"lines": [],
+			"embeddable": false,
+			"generate": true,
+			"generateCustomCode": true,
+			"id": "5a599301-3c5e-4485-8bbf-cb9d3f7a0f44",
+			"name": "ft_cma_engajamentoTipico",
+			"desc": "",
+			"cols": [
+				{
+					"id": "94f189f1-2f2d-4c6d-a739-4f9e5055c3dc",
+					"name": "id_engajamentoTipico",
+					"datatype": "INTEGER",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "51bf73d7-e6bd-442e-b0f4-635340e4dc80",
+					"name": "ds_engajamentotipico",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				}
+			],
+			"relations": [],
+			"keys": [
+				{
+					"id": "60e4b423-baa4-4c48-844d-d91321825c40",
+					"isPk": true,
+					"name": "Primary key",
+					"cols": [
+						{
+							"id": "e0c8d942-44cc-4eba-8137-fe3857dce023",
+							"colid": "94f189f1-2f2d-4c6d-a739-4f9e5055c3dc"
+						}
+					]
+				}
+			],
+			"indexes": [],
+			"estimatedSize": "",
+			"sqlite": {
+				"withoutrowid": false,
+				"strict": false
+			},
+			"visible": true,
+			"customCode": ""
+		},
+		"43781be3-55a3-4b84-ab7a-b121d707a08b": {
+			"lines": [],
+			"embeddable": false,
+			"generate": true,
+			"generateCustomCode": true,
+			"id": "43781be3-55a3-4b84-ab7a-b121d707a08b",
+			"name": "ft_cma_3DesafiosGMO",
+			"desc": "",
+			"cols": [
+				{
+					"id": "ab1d42b8-ed47-4e23-b8e7-669a01faf636",
+					"name": "id_3DesafiosGMO",
+					"datatype": "INTEGER",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "35aac5cd-7782-4630-be3b-27ce8188fc6d",
+					"name": "ds_3DesafiosGMO",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				}
+			],
+			"relations": [],
+			"keys": [
+				{
+					"id": "fa9a7dcc-eda1-45c3-b9bc-032bfe0fb698",
+					"isPk": true,
+					"name": "Primary key",
+					"cols": [
+						{
+							"id": "dbebf00a-1cdb-41ec-8ab1-06a5153eebe1",
+							"colid": "ab1d42b8-ed47-4e23-b8e7-669a01faf636"
+						}
+					]
+				}
+			],
+			"indexes": [],
+			"estimatedSize": "",
+			"sqlite": {
+				"withoutrowid": false,
+				"strict": false
+			},
+			"visible": true,
+			"customCode": ""
+		},
+		"aaeeeeba-4418-44f2-8366-ca75d7c75599": {
+			"lines": [],
+			"embeddable": false,
+			"generate": true,
+			"generateCustomCode": true,
+			"id": "aaeeeeba-4418-44f2-8366-ca75d7c75599",
+			"name": "dm_dicionario_questoes_ceticbr",
+			"desc": "",
+			"cols": [
+				{
+					"id": "efb944c2-6f55-4484-b88e-c658d6293c9f",
+					"name": "id_dicionario",
+					"datatype": "INTEGER",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "bf879185-2c05-4c34-8e77-fcc9f3399f64",
+					"name": "cd_questao_ceticbr",
+					"datatype": "TEXT",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "fc4fc087-199e-4982-9065-0ba613862a4a",
+					"name": "ds_questao_ceticbr",
+					"datatype": "TEXT",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "3ec7dc2e-6dfa-4409-b77a-b6580aed9db2",
+					"name": "nm_questao_variavel",
+					"datatype": "TEXT",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"defaultvalue": "",
+					"collation": "",
+					"fk": false,
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				}
+			],
+			"relations": [],
+			"keys": [
+				{
+					"id": "fcf6506e-d864-47f1-a53e-ad62ed5bc51a",
+					"isPk": true,
+					"name": "Primary key",
+					"cols": []
+				}
+			],
+			"indexes": [],
+			"estimatedSize": "",
+			"sqlite": {
+				"withoutrowid": false,
+				"strict": false
+			},
+			"visible": true,
+			"customCode": ""
+		}
+	},
+	"relations": {
+		"0c631906-d9dd-4b17-a06e-105ba534ef8e": {
+			"id": "0c631906-d9dd-4b17-a06e-105ba534ef8e",
+			"name": "ano_pesquisa_ano_pesquisa",
+			"desc": "",
+			"type": "identifying",
+			"parent_key": "f89e20f9-64eb-46fe-8adb-68c0226c3407",
+			"parent": "6990a8a7-2abf-4a92-8f80-3d3c0a898532",
+			"child": "b803411e-552b-4808-af28-686477000a64",
+			"c_mp": "true",
+			"c_mch": "true",
+			"c_p": "one",
+			"c_ch": "many",
+			"c_cp": "",
+			"c_cch": "",
+			"cols": [
+				{
+					"id": "8f5510fd-6dbc-4a11-a0d7-cacd8c783788",
+					"parentcol": "fd211c61-9f14-4f50-bbe5-6810f9cbe3de",
+					"childcol": "c256effd-8b8d-43ed-91eb-abb315e87507"
+				}
+			],
+			"generate": true,
+			"generateCustomCode": true,
+			"customCode": ""
+		},
+		"6252f426-e157-4d9b-9a27-156644dc8711": {
+			"id": "6252f426-e157-4d9b-9a27-156644dc8711",
+			"name": "id_merc_atuacao_id_dm_mercado",
+			"desc": "",
+			"type": "identifying",
+			"parent_key": "47305516-e0bc-4abf-8ff2-6afdce80e499",
+			"parent": "ff8a4a99-7a9b-4af8-ba36-969efd2ef7cf",
+			"child": "7ef6cb59-2073-4543-9374-2963f433db88",
+			"c_mp": "true",
+			"c_mch": "true",
+			"c_p": "one",
+			"c_ch": "many",
+			"c_cp": "",
+			"c_cch": "",
+			"cols": [
+				{
+					"id": "ab456a16-18d6-4abe-abbb-9260abcb58b4",
+					"parentcol": "d818435c-5453-49a5-a9be-9e69b2a6e983",
+					"childcol": "b1e9c044-a547-407b-8eda-4a80e5b2fc5b"
+				}
+			],
+			"generate": true,
+			"generateCustomCode": true,
+			"customCode": ""
+		},
+		"4b0d8296-e6f8-4013-a489-17ecbe900776": {
+			"id": "4b0d8296-e6f8-4013-a489-17ecbe900776",
+			"name": "id_porte_empresa_id_dm_porte",
+			"desc": "",
+			"type": "identifying",
+			"parent_key": "e1bec5d0-8173-402a-82a4-13a28868a283",
+			"parent": "b1a1493b-dadd-4d4f-b50a-3304befaa074",
+			"child": "51a2b192-5486-4c4f-bf25-5c59ec7ce378",
+			"c_mp": "true",
+			"c_mch": "true",
+			"c_p": "one",
+			"c_ch": "many",
+			"c_cp": "",
+			"c_cch": "",
+			"cols": [
+				{
+					"id": "1c8130f0-e7f0-4574-bfd9-6edb18775022",
+					"parentcol": "db1afeec-aaf5-495f-8153-d3c23ef7f48f",
+					"childcol": "6bf1e845-2eba-47af-97a4-229e66da4664"
+				}
+			],
+			"generate": true,
+			"generateCustomCode": true,
+			"customCode": ""
+		}
+	},
+	"notes": {},
+	"lines": {},
+	"model": {
+		"connectionId": "6a672167-190d-493b-b48f-182636d5638d",
+		"connectionVersion": "[{\"schema_version\":38}]",
+		"activeDiagram": "944edeb0-361d-4359-bb2a-e6fcae4a8a0d",
+		"caseConvention": "under",
+		"color": "transparent",
+		"def_coltopk": true,
+		"desc": "",
+		"id": "442a65fe-8811-4ff5-8dee-9f2dc381a3ed",
+		"isDirty": true,
+		"name": "SQLite",
+		"parentTableInFkCols": true,
+		"path": "",
+		"replaceSpace": "_",
+		"sideSelections": true,
+		"storedin": {
+			"major": 13,
+			"minor": 0,
+			"extra": 0
+		},
+		"laststoredin": {
+			"major": 13,
+			"minor": 0,
+			"extra": 0
+		},
+		"type": "SQLITE",
+		"appName": "LunaModeler",
+		"subType": "",
+		"version": 1,
+		"lastSaved": "",
+		"sqlSettings": {
+			"wrapLines": true,
+			"wrapOffset": 80,
+			"indent": true,
+			"indentationString": "spaces",
+			"indentationSize": 2,
+			"limitItemsOnLine": true,
+			"maxListItemsOnLine": 3,
+			"statementDelimiter": ";",
+			"routineDelimiter": ";",
+			"keywordCase": "upper",
+			"identiferCase": "original",
+			"quotationExistance": "if_needed"
+		},
+		"writeFileParam": false,
+		"authorName": "",
+		"companyDetails": "",
+		"companyUrl": "",
+		"synchronizationSettings": {
+			"preserveData": "use_temporary_tables",
+			"ignoreSystemDefaults": "yes",
+			"includeWarnings": "yes",
+			"includeCreationSql": "no"
+		},
+		"modelPdfReportPath": "C:\\GitHub\\tcc_aplicacao\\bd\\SQLite.pdf"
+	},
+	"otherObjects": {
+		"9579231b-d635-4e0c-b2b8-abc93d7aa7d3": {
+			"code": "CREATE VIEW vw_b13_2024 AS \r\n\tselect ano_pesquisa, contexto, qtd_resposta_sim \r\n\tfrom ft_ceticbr_totais \r\n    where cd_variavel like 'h13%';\n",
+			"id": "9579231b-d635-4e0c-b2b8-abc93d7aa7d3",
+			"name": "vw_b13_2024",
+			"desc": "",
+			"lines": [],
+			"type": "View",
+			"visible": true,
+			"generateCustomCode": true,
+			"generate": true,
+			"customCode": "",
+			"typeExpression": ""
+		}
+	},
+	"diagrams": {
+		"944edeb0-361d-4359-bb2a-e6fcae4a8a0d": {
+			"id": "944edeb0-361d-4359-bb2a-e6fcae4a8a0d",
+			"lineColor": "transparent",
+			"description": "",
+			"diagramItems": {
+				"6990a8a7-2abf-4a92-8f80-3d3c0a898532": {
+					"x": 71,
+					"y": 63,
+					"gHeight": 99,
+					"gWidth": 278,
+					"background": "#03a9f4",
+					"color": "#ffffff",
+					"referencedItemId": "6990a8a7-2abf-4a92-8f80-3d3c0a898532",
+					"resized": false,
+					"autoExpand": true,
+					"backgroundOpacity": "10",
+					"borderColor": "#666666",
+					"borderStyle": "none",
+					"borderWidth": 2,
+					"assetAspectRatio": "none",
+					"assetTextPosition": "right",
+					"assetShowText": true,
+					"areaHeaderDisplayed": true,
+					"areaHeaderColor": "transparent",
+					"areaHeaderBackground": "transparent",
+					"cardBackground": "transparent"
+				},
+				"1f8ab066-4ab4-44a0-8e93-4fd1c60b9740": {
+					"x": 931,
+					"y": 53,
+					"gHeight": 63,
+					"gWidth": 223,
+					"background": "#03a9f4",
+					"color": "#ffffff",
+					"referencedItemId": "1f8ab066-4ab4-44a0-8e93-4fd1c60b9740",
+					"resized": false,
+					"autoExpand": true,
+					"backgroundOpacity": "10",
+					"borderColor": "#666666",
+					"borderStyle": "none",
+					"borderWidth": 2,
+					"assetAspectRatio": "none",
+					"assetTextPosition": "right",
+					"assetShowText": true,
+					"areaHeaderDisplayed": true,
+					"areaHeaderColor": "transparent",
+					"areaHeaderBackground": "transparent",
+					"cardBackground": "transparent"
+				},
+				"b1a1493b-dadd-4d4f-b50a-3304befaa074": {
+					"x": 819,
+					"y": 224,
+					"gHeight": 63,
+					"gWidth": 223,
+					"background": "#03a9f4",
+					"color": "#ffffff",
+					"referencedItemId": "b1a1493b-dadd-4d4f-b50a-3304befaa074",
+					"resized": false,
+					"autoExpand": true,
+					"backgroundOpacity": "10",
+					"borderColor": "#666666",
+					"borderStyle": "none",
+					"borderWidth": 2,
+					"assetAspectRatio": "none",
+					"assetTextPosition": "right",
+					"assetShowText": true,
+					"areaHeaderDisplayed": true,
+					"areaHeaderColor": "transparent",
+					"areaHeaderBackground": "transparent",
+					"cardBackground": "transparent"
+				},
+				"ff8a4a99-7a9b-4af8-ba36-969efd2ef7cf": {
+					"x": 377,
+					"y": 188,
+					"gHeight": 81,
+					"gWidth": 217,
+					"background": "#03a9f4",
+					"color": "#ffffff",
+					"referencedItemId": "ff8a4a99-7a9b-4af8-ba36-969efd2ef7cf",
+					"resized": false,
+					"autoExpand": true,
+					"backgroundOpacity": "10",
+					"borderColor": "#666666",
+					"borderStyle": "none",
+					"borderWidth": 2,
+					"assetAspectRatio": "none",
+					"assetTextPosition": "right",
+					"assetShowText": true,
+					"areaHeaderDisplayed": true,
+					"areaHeaderColor": "transparent",
+					"areaHeaderBackground": "transparent",
+					"cardBackground": "transparent"
+				},
+				"b803411e-552b-4808-af28-686477000a64": {
+					"x": 77,
+					"y": 273,
+					"gHeight": 212,
+					"gWidth": 218,
+					"background": "#03a9f4",
+					"color": "#ffffff",
+					"referencedItemId": "b803411e-552b-4808-af28-686477000a64",
+					"resized": true,
+					"autoExpand": true,
+					"backgroundOpacity": "10",
+					"borderColor": "#666666",
+					"borderStyle": "none",
+					"borderWidth": 2,
+					"assetAspectRatio": "none",
+					"assetTextPosition": "right",
+					"assetShowText": true,
+					"areaHeaderDisplayed": true,
+					"areaHeaderColor": "transparent",
+					"areaHeaderBackground": "transparent",
+					"cardBackground": "transparent"
+				},
+				"51a2b192-5486-4c4f-bf25-5c59ec7ce378": {
+					"x": 776,
+					"y": 478,
+					"gHeight": 117,
+					"gWidth": 238,
+					"background": "#03a9f4",
+					"color": "#ffffff",
+					"referencedItemId": "51a2b192-5486-4c4f-bf25-5c59ec7ce378",
+					"resized": false,
+					"autoExpand": true,
+					"backgroundOpacity": "10",
+					"borderColor": "#666666",
+					"borderStyle": "none",
+					"borderWidth": 2,
+					"assetAspectRatio": "none",
+					"assetTextPosition": "right",
+					"assetShowText": true,
+					"areaHeaderDisplayed": true,
+					"areaHeaderColor": "transparent",
+					"areaHeaderBackground": "transparent",
+					"cardBackground": "transparent"
+				},
+				"7ef6cb59-2073-4543-9374-2963f433db88": {
+					"x": 361,
+					"y": 337,
+					"gHeight": 117,
+					"gWidth": 238,
+					"background": "#03a9f4",
+					"color": "#ffffff",
+					"referencedItemId": "7ef6cb59-2073-4543-9374-2963f433db88",
+					"resized": false,
+					"autoExpand": true,
+					"backgroundOpacity": "10",
+					"borderColor": "#666666",
+					"borderStyle": "none",
+					"borderWidth": 2,
+					"assetAspectRatio": "none",
+					"assetTextPosition": "right",
+					"assetShowText": true,
+					"areaHeaderDisplayed": true,
+					"areaHeaderColor": "transparent",
+					"areaHeaderBackground": "transparent",
+					"cardBackground": "transparent"
+				},
+				"8e00f00f-71f9-4fa9-8a6a-a138b5751230": {
+					"x": 63,
+					"y": 540,
+					"gHeight": 207,
+					"gWidth": 292,
+					"background": "#03a9f4",
+					"color": "#ffffff",
+					"referencedItemId": "8e00f00f-71f9-4fa9-8a6a-a138b5751230",
+					"resized": false,
+					"autoExpand": true,
+					"backgroundOpacity": "10",
+					"borderColor": "#666666",
+					"borderStyle": "none",
+					"borderWidth": 2,
+					"assetAspectRatio": "none",
+					"assetTextPosition": "right",
+					"assetShowText": true,
+					"areaHeaderDisplayed": true,
+					"areaHeaderColor": "transparent",
+					"areaHeaderBackground": "transparent",
+					"cardBackground": "transparent"
+				},
+				"9251878e-bf93-4bf2-bde4-a9bbccd043eb": {
+					"x": 595,
+					"y": 688,
+					"gHeight": 63,
+					"gWidth": 237,
+					"background": "#03a9f4",
+					"color": "#ffffff",
+					"referencedItemId": "9251878e-bf93-4bf2-bde4-a9bbccd043eb",
+					"resized": false,
+					"autoExpand": true,
+					"backgroundOpacity": "10",
+					"borderColor": "#666666",
+					"borderStyle": "none",
+					"borderWidth": 2,
+					"assetAspectRatio": "none",
+					"assetTextPosition": "right",
+					"assetShowText": true,
+					"areaHeaderDisplayed": true,
+					"areaHeaderColor": "transparent",
+					"areaHeaderBackground": "transparent",
+					"cardBackground": "transparent"
+				},
+				"2fed0538-5e74-4abc-9357-b086cabb04f2": {
+					"x": 873,
+					"y": 730,
+					"gHeight": 63,
+					"gWidth": 252,
+					"background": "#03a9f4",
+					"color": "#ffffff",
+					"referencedItemId": "2fed0538-5e74-4abc-9357-b086cabb04f2",
+					"resized": false,
+					"autoExpand": true,
+					"backgroundOpacity": "10",
+					"borderColor": "#666666",
+					"borderStyle": "none",
+					"borderWidth": 2,
+					"assetAspectRatio": "none",
+					"assetTextPosition": "right",
+					"assetShowText": true,
+					"areaHeaderDisplayed": true,
+					"areaHeaderColor": "transparent",
+					"areaHeaderBackground": "transparent",
+					"cardBackground": "transparent"
+				},
+				"5a599301-3c5e-4485-8bbf-cb9d3f7a0f44": {
+					"x": 422,
+					"y": 568,
+					"gHeight": 63,
+					"gWidth": 267,
+					"background": "#03a9f4",
+					"color": "#ffffff",
+					"referencedItemId": "5a599301-3c5e-4485-8bbf-cb9d3f7a0f44",
+					"resized": false,
+					"autoExpand": true,
+					"backgroundOpacity": "10",
+					"borderColor": "#666666",
+					"borderStyle": "none",
+					"borderWidth": 2,
+					"assetAspectRatio": "none",
+					"assetTextPosition": "right",
+					"assetShowText": true,
+					"areaHeaderDisplayed": true,
+					"areaHeaderColor": "transparent",
+					"areaHeaderBackground": "transparent",
+					"cardBackground": "transparent"
+				},
+				"43781be3-55a3-4b84-ab7a-b121d707a08b": {
+					"x": 334,
+					"y": 762,
+					"gHeight": 63,
+					"gWidth": 247,
+					"background": "#03a9f4",
+					"color": "#ffffff",
+					"referencedItemId": "43781be3-55a3-4b84-ab7a-b121d707a08b",
+					"resized": false,
+					"autoExpand": true,
+					"backgroundOpacity": "10",
+					"borderColor": "#666666",
+					"borderStyle": "none",
+					"borderWidth": 2,
+					"assetAspectRatio": "none",
+					"assetTextPosition": "right",
+					"assetShowText": true,
+					"areaHeaderDisplayed": true,
+					"areaHeaderColor": "transparent",
+					"areaHeaderBackground": "transparent",
+					"cardBackground": "transparent"
+				},
+				"aaeeeeba-4418-44f2-8366-ca75d7c75599": {
+					"x": 568,
+					"y": 59,
+					"gHeight": 99,
+					"gWidth": 265,
+					"background": "#03a9f4",
+					"color": "#ffffff",
+					"referencedItemId": "aaeeeeba-4418-44f2-8366-ca75d7c75599",
+					"resized": false,
+					"autoExpand": true,
+					"backgroundOpacity": "10",
+					"borderColor": "#666666",
+					"borderStyle": "none",
+					"borderWidth": 2,
+					"assetAspectRatio": "none",
+					"assetTextPosition": "right",
+					"assetShowText": true,
+					"areaHeaderDisplayed": true,
+					"areaHeaderColor": "transparent",
+					"areaHeaderBackground": "transparent",
+					"cardBackground": "transparent"
+				},
+				"9579231b-d635-4e0c-b2b8-abc93d7aa7d3": {
+					"x": 694,
+					"y": 366,
+					"gHeight": 44,
+					"gWidth": 150,
+					"background": "#3f51b5",
+					"color": "#eee",
+					"referencedItemId": "9579231b-d635-4e0c-b2b8-abc93d7aa7d3",
+					"resized": false,
+					"autoExpand": true,
+					"backgroundOpacity": "10",
+					"borderColor": "#666666",
+					"borderStyle": "none",
+					"borderWidth": 2,
+					"assetAspectRatio": "none",
+					"assetTextPosition": "right",
+					"assetShowText": true,
+					"areaHeaderDisplayed": true,
+					"areaHeaderColor": "transparent",
+					"areaHeaderBackground": "transparent",
+					"cardBackground": "transparent"
+				}
+			},
+			"diagramLinks": {
+				"0c631906-d9dd-4b17-a06e-105ba534ef8e": {
+					"referencedItemId": "0c631906-d9dd-4b17-a06e-105ba534ef8e",
+					"color": "transparent",
+					"mode": "default",
+					"anchorStart": "default",
+					"anchorEnd": "default",
+					"anchorDetailedStart": "default",
+					"anchorDetailedEnd": "default",
+					"width": 2
+				},
+				"6252f426-e157-4d9b-9a27-156644dc8711": {
+					"referencedItemId": "6252f426-e157-4d9b-9a27-156644dc8711",
+					"color": "transparent",
+					"mode": "default",
+					"anchorStart": "default",
+					"anchorEnd": "default",
+					"anchorDetailedStart": "default",
+					"anchorDetailedEnd": "default",
+					"width": 2
+				},
+				"4b0d8296-e6f8-4013-a489-17ecbe900776": {
+					"referencedItemId": "4b0d8296-e6f8-4013-a489-17ecbe900776",
+					"color": "transparent",
+					"mode": "default",
+					"anchorStart": "default",
+					"anchorEnd": "default",
+					"anchorDetailedStart": "default",
+					"anchorDetailedEnd": "default",
+					"width": 2
+				}
+			},
+			"isOpen": true,
+			"main": true,
+			"name": "Main Diagram",
+			"keysgraphics": true,
+			"linegraphics": "detailed",
+			"zoom": 1,
+			"background": "transparent",
+			"scroll": {
+				"x": 0,
+				"y": 0
+			},
+			"type": "erd",
+			"showEstimatedSize": false,
+			"showSchemaContainer": false,
+			"showEmbeddedInParents": true,
+			"showCardinalityCaptions": false,
+			"showRelationshipNames": false,
+			"showLineCaptions": false,
+			"showDependencyCaptions": false,
+			"showColumns": true,
+			"showColumnDataTypes": true,
+			"showSampleData": false,
+			"showTableIndexes": false,
+			"showTableDescriptions": false,
+			"showRelations": true,
+			"showLines": true,
+			"showDependencies": true,
+			"showHorizontal": false,
+			"showDescriptions": true,
+			"showIndicators": false,
+			"showProgress": false,
+			"showIndicatorCaptions": false,
+			"backgroundImage": "na",
+			"descriptionsColor": "transparent",
+			"boxSize": "0",
+			"boxSpacing": "2",
+			"boxAlign": "center",
+			"lineWidth": "2",
+			"embeddedSpacing": "2",
+			"showLabels": true,
+			"showMainIcon": true,
+			"showCustomizations": false,
+			"showExportDimensions": false,
+			"showCompleted": true,
+			"showAnimations": false
+		}
+	},
+	"diagramsOrder": [],
+	"order": [
+		"aaeeeeba-4418-44f2-8366-ca75d7c75599",
+		"ff8a4a99-7a9b-4af8-ba36-969efd2ef7cf",
+		"b1a1493b-dadd-4d4f-b50a-3304befaa074",
+		"1f8ab066-4ab4-44a0-8e93-4fd1c60b9740",
+		"6990a8a7-2abf-4a92-8f80-3d3c0a898532",
+		"7ef6cb59-2073-4543-9374-2963f433db88",
+		"51a2b192-5486-4c4f-bf25-5c59ec7ce378",
+		"b803411e-552b-4808-af28-686477000a64",
+		"43781be3-55a3-4b84-ab7a-b121d707a08b",
+		"5a599301-3c5e-4485-8bbf-cb9d3f7a0f44",
+		"2fed0538-5e74-4abc-9357-b086cabb04f2",
+		"8e00f00f-71f9-4fa9-8a6a-a138b5751230",
+		"9251878e-bf93-4bf2-bde4-a9bbccd043eb",
+		"0c631906-d9dd-4b17-a06e-105ba534ef8e",
+		"6252f426-e157-4d9b-9a27-156644dc8711",
+		"4b0d8296-e6f8-4013-a489-17ecbe900776",
+		"9579231b-d635-4e0c-b2b8-abc93d7aa7d3"
+	],
+	"collapsedTreeItems": [],
+	"reverseStats": {}
+}

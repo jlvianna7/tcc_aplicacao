@@ -7,6 +7,8 @@ import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
+import plotly.express as px
+
 
 from backend import f_ConectaBD
 
@@ -25,31 +27,12 @@ st.text('\n\n\n\n\n')
 
 # TOTAL PARA O INDICADOR G2 –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES
 
-
 st.sidebar.color_picker = "#FF7F27"
 st.sidebar.write("G2 - Uso de Plataformas ERP")
 
 # %% Evolução anual, geral do uso de ERPs
 
 st.subheader("Evolução da utilização de :yellow-background[plataformas ERP]")
-
-sql = (
-    f'SELECT ano_pesquisa "Ano pesquisa", empresas_respondentes "Empresas participantes" '
-    f'FROM dm_resumo_pesquisa '
-    f'order by ano_pesquisa; '
-)
-
-bd = f_ConectaBD.conn
-df = pd.read_sql(sql, bd)
-
-col1, col2, col3 = st.columns([0.20, 0.02, 0.78])
-
-col1.markdown("\n\n\n**Empresas pesquisadas**")
-col2.write(' ')
-col3.markdown("**Proporção de empresas que utilizam :yellow-background[plataformas ERP]**")
-
-dfpesq = df[["Ano pesquisa", "Empresas participantes"]]
-col1.table(dfpesq)
 
 sql = (
     f'SELECT cd_variavel, ano_pesquisa "Ano pesquisa", qtd_resposta_sim "% Utilizam ERP" '
@@ -61,9 +44,54 @@ sql = (
 bd = f_ConectaBD.conn
 df = pd.read_sql(sql, bd)
 
+col1, col2, col3 = st.columns([0.96, 0.02, 0.02])
+
+fig_L = px.line(df, x="Ano pesquisa", y="% Utilizam ERP", height=540)
+fig_L.update_xaxes(dtick="M12",tickformat="%Y")
+col1.plotly_chart(fig_L)
 col2.write(' ')
-df.set_index("Ano pesquisa", inplace=True)
-col3.line_chart(df["% Utilizam ERP"].astype(float), color='#385723')
+col3.write(' ')
+col1.write('\n')
+col2.write('\n')
+col3.write('\n')
+
+#
+# G2 - Evolução cronológoia de empresas que utilizaram plataformas ERP por Mercado de atuação
+#
+
+sql = (
+    f"SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_merc_atuacao 'Mercado de atuação', " 
+    f"f.qtd_resposta_sim '% Utiliza ERP' "
+    f"from ft_ceticbr_mercado f, dm_mercado_atuacao d "
+    f"where f.id_dm_mercado = d.id_merc_atuacao "  
+    f'and f.cd_variavel = "g2" '
+    f"order by f.ano_pesquisa; "  
+)
+
+bd = f_ConectaBD.conn
+dfM = pd.read_sql(sql, bd)
+dfM.set_index("Ano pesquisa", inplace=True)
+
+col1, col2, col3 = st.columns([0.98, 0.01, 0.01])
+
+fig_L = px.line(dfM, y="% Utiliza ERP", color="Mercado de atuação", height=640, markers=True)
+fig_L.update_layout(
+    legend=dict(
+        orientation="h",
+        x=0.5,
+        xanchor="center",
+        y=-0.2,
+        yanchor="top"
+    )
+)
+fig_L.update_layout(margin=dict(t=20, b=240))
+col1.plotly_chart(fig_L)
+col2.write(' ')
+col3.write(' ')
+
+#col3.line_chart(df["% Utilizam ERP"].astype(float), color='#385723')
+
+
 
 ############################################   BLOCO 2  #############################################
 

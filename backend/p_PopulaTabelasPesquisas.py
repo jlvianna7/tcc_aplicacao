@@ -11,8 +11,9 @@ import f_LeTabelasCetic
 import warnings
 from openpyxl import Workbook
 
-v_pathCtiBr = 'C:/Viery2/BaseDadosTCC/TD-Ctic.br'
-v_pathScripts = 'C:/Viery2/tcc_aplicacao/ScriptsBD'
+
+v_pathCtiBr = 'C:/Viery/BaseDadosTCC/TIC_Empresas-Ctic.br'
+v_pathScripts = 'C:/GitHub/tcc_aplicacao/ScriptsBD'
 
 monta_df = f_LeTabelasCetic
 
@@ -20,7 +21,7 @@ warnings.filterwarnings("ignore", category=UserWarning, module="openpyxl")
 
 # %% seleciona qual tabela (aba excel) a ser lida
 
-v_tabelaCetic = 'H13i'  ###  <<<<<<--------  SELECIONAR A PESQUISA (SHEET)
+v_tabelaCetic = 'H1A'  ###  <<<<<<--------  SELECIONAR A PESQUISA (SHEET)
 v_append_or_write = 'a'  ###  <<<<<<------ SE GERA NOVO SCRIPT OU SE INCLUI NO FINAL
 
 
@@ -104,7 +105,7 @@ if v_tabelaCetic in ['E1', 'E2', 'G2', 'G3', 'B18','B18a','B18b','B18c']:
 
 v_ano = '2019'    # <-- Mudar o ano
 
-if v_tabelaCetic in ['E1', 'E2', 'G2', 'G3', 'H1Aa', 'H1Ab', 'H1Ac', 'H3', 'H3A', 
+if v_tabelaCetic in ['E1', 'E2', 'G2', 'G3', 'H1Aa', 'H1Ab', 'H1Ac', 'H1Ad','H3', 'H3A', 
                      'H3Ba', 'H3Bb', 'H3Bc', 'H3Bd', 'H3Be', 'H3Bf', 'H3Bg', 'H4', 'B18','B18a','B18b','B18c','B18d']:
     if v_tabelaCetic not in ['B18','B18a','B18b','B18c','B18d', 'H1Aa', 'H1Ab', 'H1Ac','H3Ba', 'H3Bb', 'H3Bc', 'H3Bd', 'H3Be', 'H3Bf', 'H3Bg']:
         # Separa a pesquisa para gerar um dataframe separado por TOTAIS
@@ -124,7 +125,7 @@ if v_tabelaCetic in ['E1', 'E2', 'G2', 'G3', 'H1Aa', 'H1Ab', 'H1Ac', 'H3', 'H3A'
         # df_mercado.to_excel('mercado.xlsx')
         df_mercado2019 = df_mercado         # <-- Mudar o ano do Dtaframe
 
-    elif v_tabelaCetic in ['H1Aa', 'H1Ab', 'H1Ac']:
+    elif v_tabelaCetic in ['H1Aa', 'H1Ab', 'H1Ac', 'H1Ad']:
         # Separa a pesquisa para gerar um dataframe separado por TOTAIS
         df_TOTAIS = monta_df.tabelaTOTAIS_H1A(v_pathCtiBr, v_ano, v_tabelaCetic)
         df_TOTAIS2019 = df_TOTAIS             # <-- Mudar o ano do Dtaframe
