@@ -76,15 +76,13 @@ st.write(' \n')
 sql = (
     f'SELECT SUBSTRING(d.ds_merc_atuacao, 1, 25) || "..." as "Mercado de atuação",  '
     f'ROUND(AVG(f.qtd_resposta_sim),1) "% de Empresas que utilizam", '
-    f'ROUND(AVG(f.qtd_resposta_sim),1) || " %" as "valor" '
+    f'f.qtd_resposta_sim || " %" as "valor"  '
     f'from ft_ceticbr_mercado f, dm_mercado_atuacao d '
     f'where f.id_dm_mercado = d.id_merc_atuacao '  
     f'and f.cd_variavel like "h3b%" '  
     f'group by f.id_dm_mercado '
-    f'order by valor desc;  '
+    f'order by f.qtd_resposta_sim desc;  '
 )
-with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/robo_mercado_data.sql", "w", encoding="utf-8") as arquivo:
-    arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 dfM1 = pd.read_sql(sql, bd)
@@ -95,16 +93,13 @@ dfM1.set_index("Mercado de atuação", inplace=True)
 sql = (
     f'SELECT d.ds_porte_empresa "Porte empresa", ROUND(AVG(f.qtd_resposta_sim),1) as "% de Empresas que utilizam", ' 
     f'f.id_dm_porte,  '
-    f'ROUND(AVG(f.qtd_resposta_sim),1) || " %" as "valor"  '
+    f'f.qtd_resposta_sim || " %" as "valor"  '
     f'from ft_ceticbr_porte f, dm_porte_empresa d '
     f'where f.id_dm_porte = d.id_porte_empresa '
     f'and f.cd_variavel like "h3b%"   '
     f'group by f.id_dm_porte '
-    f'order by valor desc; '  
+#    f'order by f.qtd_resposta_sim desc; '  
 )
-with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/robo_porte_data.sql", "w", encoding="utf-8") as arquivo:
-    arquivo.write(sql)
-
 bd = f_ConectaBD.conn
 dfP1 = pd.read_sql(sql, bd)
 dfP1.set_index("Porte empresa", inplace=True)
@@ -120,12 +115,12 @@ col1.markdown('**% :yellow-background[médio] de utilização de :yellow-backgro
 col2.write(' ')
 col3.markdown('**% :yellow-background[médio] de utilização de :yellow-background[Robôs de serviços], por PORTE de empresa**')
 
-fig_m = px.bar(dfM1, y="% de Empresas que utilizam", text="valor", color="% de Empresas que utilizam", height=640, color_continuous_scale='edge')
+fig_m = px.bar(dfM1, y="% de Empresas que utilizam", text="valor", color="% de Empresas que utilizam", height=640, color_continuous_scale='mygbm')
 col1.plotly_chart(fig_m)
 
 col2.write(' ')
 
-fig_p = px.bar(dfP1, y="% de Empresas que utilizam", text="valor", color="% de Empresas que utilizam", height=640, color_continuous_scale='edge')
+fig_p = px.bar(dfP1, y="% de Empresas que utilizam", text="valor", color="% de Empresas que utilizam", height=640, color_continuous_scale='mygbm')
 col3.plotly_chart(fig_p)
 
 col1.write(' \n')

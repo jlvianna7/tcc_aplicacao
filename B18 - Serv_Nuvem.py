@@ -203,7 +203,7 @@ sql = (
     f"where f.id_dm_mercado = d.id_merc_atuacao "  
     f"and f.ano_pesquisa = {cbox_AnoPesq} "
     f'and f.cd_variavel = "b18d" '
-    f"order by f.ano_pesquisa; "  
+    f"order by f.qtd_resposta_sim desc; "  
 )
 #with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/nuvem_mercado_data.sql", "w", encoding="utf-8") as arquivo:
 #    arquivo.write(sql)

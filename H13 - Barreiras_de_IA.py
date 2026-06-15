@@ -52,7 +52,6 @@ bd = f_ConectaBD.conn
 dfl = pd.read_sql(sql, bd)
 dfl.set_index("Obstáculo", inplace=True)
 fig_L = px.bar(dfl, y="% de Empresas que utilizam", text="valor", color="% de Empresas que utilizam", height=640, color_continuous_scale='blugrn')
-#fig_L = px.bar(dfl, y="% de Empresas que utilizam", text="valor", color="% de Empresas que utilizam", height=640, color_continuous_scale='agsunset')
 #'viridis', 'plasma', 'cividis' 
 
 #fig_L = px.bar(dfl, y="% de Empresas que utilizam", text="% de Empresas que utilizam", height=640)

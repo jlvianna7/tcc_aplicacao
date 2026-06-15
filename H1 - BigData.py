@@ -218,8 +218,8 @@ sql = (
     f'and f.cd_variavel = "h1aa" '
     f"order by f.ano_pesquisa; "  
 )
-with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/big_data_mercado_data.sql", "w", encoding="utf-8") as arquivo:
-    arquivo.write(sql)
+#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/big_data_mercado_data.sql", "w", encoding="utf-8") as arquivo:
+ #   arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 dfM1 = pd.read_sql(sql, bd)
