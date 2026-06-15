@@ -74,7 +74,9 @@ st.write(' \n')
 ########  MERCADO
 
 sql = (
-    f'SELECT SUBSTRING(d.ds_merc_atuacao, 1, 25) || "..." as "Mercado de atuação",  ROUND(AVG(f.qtd_resposta_sim),1) "% Empresas que utilizam" '
+    f'SELECT SUBSTRING(d.ds_merc_atuacao, 1, 25) || "..." as "Mercado de atuação",  '
+    f'ROUND(AVG(f.qtd_resposta_sim),1) "% Empresas que utilizam", '
+    f"f.qtd_resposta_sim || ' %' as 'valor'  "
     f'from ft_ceticbr_mercado f, dm_mercado_atuacao d '
     f'where f.id_dm_mercado = d.id_merc_atuacao '  
     f'and f.cd_variavel like "h3b%" '  
@@ -89,7 +91,9 @@ dfM1.set_index("Mercado de atuação", inplace=True)
 
 ########  PORTE
 sql = (
-    f'SELECT d.ds_porte_empresa "Porte empresa", ROUND(AVG(f.qtd_resposta_sim),1) as "% Empresas que utilizam", f.id_dm_porte  '
+    f'SELECT d.ds_porte_empresa "Porte empresa", ROUND(AVG(f.qtd_resposta_sim),1) as "% Empresas que utilizam", ' 
+    f'f.id_dm_porte,  '
+    f'f.qtd_resposta_sim || " %" as "valor"  '
     f'from ft_ceticbr_porte f, dm_porte_empresa d '
     f'where f.id_dm_porte = d.id_porte_empresa '
     f'and f.cd_variavel like "h3b%"   '
@@ -111,12 +115,12 @@ col1.markdown('**% :yellow-background[médio] de utilização de :yellow-backgro
 col2.write(' ')
 col3.markdown('**% :yellow-background[médio] de utilização de :yellow-background[Robôs de serviços], por PORTE de empresa**')
 
-fig_m = px.bar(dfM1, y="% Empresas que utilizam", text="% Empresas que utilizam", height=500)
+fig_m = px.bar(dfM1, y="% Empresas que utilizam", text="valor", height=500)
 col1.plotly_chart(fig_m)
 
 col2.write(' ')
 
-fig_p = px.bar(dfP1, y="% Empresas que utilizam", text="% Empresas que utilizam", height=500, color_discrete_sequence=['#3282F6', '#FF33A1', '#33FF57'])
+fig_p = px.bar(dfP1, y="% Empresas que utilizam", text="valor", height=500, color_discrete_sequence=['#3282F6', '#FF33A1', '#33FF57'])
 col3.plotly_chart(fig_p)
 
 col1.write(' \n')
