@@ -41,8 +41,8 @@ sql = (
     F'WHERE cd_variavel like "h10%" '  
     f'order by 1, 2;'
 )
-with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/IA_aplic_totais.sql", "w", encoding="utf-8") as arquivo:
-    arquivo.write(sql)
+#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/IA_aplic_totais.sql", "w", encoding="utf-8") as arquivo:
+ #   arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 dfl = pd.read_sql(sql, bd)
@@ -101,8 +101,8 @@ sql = (
     f"and f.cd_variavel = dic.cd_questao_ceticbr "
     f"order by f.ano_pesquisa; "  
 )
-with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/IA_aplic_mercado.sql", "w", encoding="utf-8") as arquivo:
-    arquivo.write(sql)
+#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/IA_aplic_mercado.sql", "w", encoding="utf-8") as arquivo:
+ #   arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 dfM = pd.read_sql(sql, bd)
@@ -148,8 +148,8 @@ sql = (
     f"and f.cd_variavel = dic.cd_questao_ceticbr "
     f"order by f.ano_pesquisa; "  
 )
-with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/IA_aplic_porte.sql", "w", encoding="utf-8") as arquivo:
-    arquivo.write(sql)
+#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/IA_aplic_porte.sql", "w", encoding="utf-8") as arquivo:
+ #   arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 dfP = pd.read_sql(sql, bd)
@@ -210,8 +210,8 @@ sql = (
     f'and f.cd_variavel = "h9af" '
     f"order by f.ano_pesquisa; "  
 )
-with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/IA_aplic_mercado_2.sql", "w", encoding="utf-8") as arquivo:
-    arquivo.write(sql)
+#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/IA_aplic_mercado_2.sql", "w", encoding="utf-8") as arquivo:
+ #   arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 dfM1 = pd.read_sql(sql, bd)
@@ -247,8 +247,8 @@ sql = (
     f'and f.cd_variavel = "h9af" '
     f"order by f.ano_pesquisa ; "
 )
-with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/IA_aplic_porte_2.sql", "w", encoding="utf-8") as arquivo:
-    arquivo.write(sql)
+#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/IA_aplic_porte_2.sql", "w", encoding="utf-8") as arquivo:
+ #   arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 dfP1 = pd.read_sql(sql, bd)

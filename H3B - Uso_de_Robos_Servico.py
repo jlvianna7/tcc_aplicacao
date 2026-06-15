@@ -45,8 +45,8 @@ sql = (
     f'WHERE cd_variavel like "h3b%" '  
     f'order by 1, 2;'
 )
-with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/robo_serviço_servico.sql", "w", encoding="utf-8") as arquivo:
-    arquivo.write(sql)
+#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/robo_serviço_servico.sql", "w", encoding="utf-8") as arquivo:
+ #   arquivo.write(sql)
 
 
 bd = f_ConectaBD.conn

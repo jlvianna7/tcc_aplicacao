@@ -49,8 +49,8 @@ sql = (
     F'WHERE cd_variavel like "h8%" '  
     f'order by 1, 2;'
 )
-with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/IOT_totais.sql", "w", encoding="utf-8") as arquivo:
-    arquivo.write(sql)
+#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/IOT_totais.sql", "w", encoding="utf-8") as arquivo:
+ #   arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 dfl = pd.read_sql(sql, bd)
@@ -79,8 +79,8 @@ sql = (
     f'WHERE f.cd_variavel = dic.cd_questao_ceticbr '
     f'AND f.cd_variavel like "h8%" '
 )
-with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/IOT_combo_box.sql", "w", encoding="utf-8") as arquivo:
-    arquivo.write(sql)
+#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/IOT_combo_box.sql", "w", encoding="utf-8") as arquivo:
+ #   arquivo.write(sql)
 
 
 bd = f_ConectaBD.conn
@@ -97,8 +97,8 @@ sql = (
     f"and f.cd_variavel = dic.cd_questao_ceticbr "
     f"order by f.ano_pesquisa; "  
 )
-with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/iot_mercado.sql", "w", encoding="utf-8") as arquivo:
-    arquivo.write(sql)
+#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/iot_mercado.sql", "w", encoding="utf-8") as arquivo:
+ #   arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 dfM = pd.read_sql(sql, bd)
@@ -144,8 +144,8 @@ sql = (
     f"and f.cd_variavel = dic.cd_questao_ceticbr "
     f"order by f.ano_pesquisa; "  
 )
-with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/iot_porte.sql", "w", encoding="utf-8") as arquivo:
-    arquivo.write(sql)
+#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/iot_porte.sql", "w", encoding="utf-8") as arquivo:
+ #   arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 dfP = pd.read_sql(sql, bd)
