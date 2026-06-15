@@ -83,8 +83,8 @@ sql = (
     f'group by f.id_dm_mercado '
     f'order by valor desc;  '
 )
-with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/robo_mercado_data.sql", "w", encoding="utf-8") as arquivo:
-    arquivo.write(sql)
+#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/robo_mercado_data.sql", "w", encoding="utf-8") as arquivo:
+#    arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 dfM1 = pd.read_sql(sql, bd)
@@ -102,8 +102,8 @@ sql = (
     f'group by f.id_dm_porte '
     f'order by valor desc; '  
 )
-with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/robo_porte_data.sql", "w", encoding="utf-8") as arquivo:
-    arquivo.write(sql)
+#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/robo_porte_data.sql", "w", encoding="utf-8") as arquivo:
+#    arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 dfP1 = pd.read_sql(sql, bd)
