@@ -42,7 +42,9 @@ col3.write(' ')
 ##########################  GRÁFICO 1
 
 sql = (
-    f'SELECT cd_variavel, ano_pesquisa "Ano pesquisa", contexto "Serviço", qtd_resposta_sim "% de Empresas que utilizam" ' 
+    f'SELECT cd_variavel, ano_pesquisa "Ano pesquisa", contexto "Serviço", ' 
+    f'qtd_resposta_sim "% de Empresas que utilizam", ' 
+    f'qtd_resposta_sim || " %" as "Proporção"  '
     f'FROM ft_ceticbr_totais '
     f'WHERE  (cd_variavel like "b18%" ) ' 
     f'order by 1, 2; '
@@ -52,10 +54,26 @@ sql = (
 
 bd = f_ConectaBD.conn
 dfl = pd.read_sql(sql, bd)
+dfl.set_index("Ano pesquisa", inplace=True)
 
-col1.line_chart(dfl, x="Ano pesquisa", y="% de Empresas que utilizam", color="Serviço", height=450)
+fig_L = px.line(dfl, y="Proporção", color="Serviço", text='Proporção', height=600, markers=True)
+fig_L.update_layout(
+    legend=dict(
+        orientation="h",
+        x=0.5,
+        xanchor="center",
+        y=-0.2,
+        yanchor="top"
+    )
+)
+fig_L.update_layout(margin=dict(t=20, b=240))
+col1.plotly_chart(fig_L)
 col2.write(' ')
 col3.write(' ')
+
+#col1.line_chart(dfl, x="Ano pesquisa", y="% de Empresas que utilizam", color="Serviço", height=450)
+#col2.write(' ')
+#col3.write(' ')
 
 
 ############################################   BLOCO 2  #############################################
@@ -135,7 +153,8 @@ col3.write(' ')
 # Utilizando o filtro acima
 sql = (
     f"SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_porte_empresa 'Porte da empresa', " 
-    f"f.qtd_resposta_sim '% de Empresas que utilizam', dic.nm_questao_variavel 'Tipo de serviço' "
+    f"f.qtd_resposta_sim '% de Empresas que utilizam', dic.nm_questao_variavel 'Tipo de serviço', "
+    f"f.qtd_resposta_sim || ' %' as 'Proporção'  "
     f"from ft_ceticbr_porte f, dm_porte_empresa d, dm_dicionario_questoes_ceticbr dic "
     f"where f.id_dm_porte = d.id_porte_empresa "  
     f"and f.cd_variavel = dic.cd_questao_ceticbr "
@@ -152,7 +171,7 @@ col1.markdown(f"**Proporção de empresas que utilizam :yellow-background[Nuvem 
 col3.write(' ')
 
 
-fig_L = px.line(dfP, y="% de Empresas que utilizam", color="Porte da empresa", height=640, markers=True)
+fig_L = px.line(dfP, y="% de Empresas que utilizam", color="Porte da empresa", text='Proporção', height=640, markers=True)
 fig_L.update_layout(
     legend=dict(
         orientation="h",
@@ -198,12 +217,12 @@ col1, col2, col3 = st.columns([0.49, 0.02, 0.49])
 sql = (
     f"SELECT f.ano_pesquisa 'Ano pesquisa', SUBSTR(d.ds_merc_atuacao_abrev, 1, 40) 'Mercado de atuação', " 
     f"f.qtd_resposta_sim '% de Empresas que utilizam', "
-    f"f.qtd_resposta_sim || ' %' as 'valor'  "
+    f"f.qtd_resposta_sim || ' %' as 'Proporção'  "
     f"from ft_ceticbr_mercado f, dm_mercado_atuacao d "
     f"where f.id_dm_mercado = d.id_merc_atuacao "  
     f"and f.ano_pesquisa = {cbox_AnoPesq} "
     f'and f.cd_variavel = "b18d" '
-    f"order by f.qtd_resposta_sim desc; "  
+    f"order by f.qtd_resposta_sim; "  
 )
 #with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/nuvem_mercado_data.sql", "w", encoding="utf-8") as arquivo:
 #    arquivo.write(sql)
@@ -216,12 +235,12 @@ dfM1.set_index("Mercado de atuação", inplace=True)
 sql = (
     f"SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_porte_empresa 'Porte empresa', "
     f"f.qtd_resposta_sim '% de Empresas que utilizam', "
-    f"f.qtd_resposta_sim || ' %' as 'valor'  "
+    f"f.qtd_resposta_sim || ' %' as 'Proporção'  "
     f"from ft_ceticbr_porte f, dm_porte_empresa d "
     f"where f.id_dm_porte = d.id_porte_empresa "
     f"and f.ano_pesquisa = {cbox_AnoPesq} "
-    f'and f.cd_variavel = "b18d" '
-    f"order by f.ano_pesquisa ; "
+    f'and f.cd_variavel = "b18b" '
+    f"order by f.qtd_resposta_sim ; "
 )
 #with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/nuvem_porte_data.sql", "w", encoding="utf-8") as arquivo:
 #    arquivo.write(sql)
@@ -233,12 +252,12 @@ dfP1.set_index("Porte empresa", inplace=True)
 
 col1, col2, col3 = st.columns([0.98, 0.02, 0.02])
 
-col1.markdown('**% de utilização de :yellow-background[Nuvem pública para desenvolvimento] por MERCADO de atuação, no ano selecionado**')
+col1.markdown('**% de utilização de :yellow-background[Nuvem pública para Banco de Dados] por MERCADO de atuação, no ano selecionado**')
 col2.write(' ')
 col3.write(' ')
 
 # %% Exibe os gráficos segmentados
-fig_m = px.bar(dfM1, y="% de Empresas que utilizam", text="valor", height=640)
+fig_m = px.bar(dfM1, y="% de Empresas que utilizam", text="Proporção", height=640)
 col1.plotly_chart(fig_m)
 col2.write(' ')
 col3.write(' ')
@@ -252,11 +271,11 @@ col3.write(' ')
 
 col1, col2, col3 = st.columns([0.98, 0.02, 0.02])
 
-col1.markdown('**% de utilização de :yellow-background[Nuvem pública para desenvolvimento] por PORTE de empresa, no ano selecionado**')
+col1.markdown('**% de utilização de :yellow-background[Nuvem pública para Banco de Dados ] por PORTE de empresa, no ano selecionado**')
 col2.write(' ')
 col3.write(' ')
 
-fig_p = px.bar(dfP1, y="% de Empresas que utilizam", text="valor", height=500, color_discrete_sequence=['#3282F6', '#FF33A1', '#33FF57'])
+fig_p = px.bar(dfP1, y="% de Empresas que utilizam", text="Proporção", height=500, color_discrete_sequence=['#3282F6', '#FF33A1', '#33FF57'])
 col1.plotly_chart(fig_p)
 col2.write(' ')
 col3.write(' ')

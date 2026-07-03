@@ -44,7 +44,8 @@ col3.write(' ')
 ##################################################
 sql = (
     f'SELECT cd_variavel, ano_pesquisa "Ano pesquisa", contexto "Análise", '
-    f'qtd_resposta_sim "% de Empresas que utilizam" ' 
+    f'qtd_resposta_sim "% de Empresas que utilizam",  ' 
+    f'qtd_resposta_sim || " %" as "Proporção"  '
     f'FROM ft_ceticbr_totais '
     F'WHERE cd_variavel like "h1a%" '  
     f'order by 1, 2;'
@@ -56,7 +57,7 @@ bd = f_ConectaBD.conn
 dfl = pd.read_sql(sql, bd)
 dfl.set_index("Ano pesquisa", inplace=True)
 
-fig_L = px.line(dfl, y="% de Empresas que utilizam", color="Análise", height=600, markers=True)
+fig_L = px.line(dfl, y="% de Empresas que utilizam", color="Análise", text="Proporção", height=600, markers=True)
 fig_L.update_layout(
     legend=dict(
         orientation="h",

@@ -96,16 +96,6 @@ fig_L.update_layout(margin=dict(t=20, b=240))
 col1.plotly_chart(fig_L)
 
 
-
-
-
-
-
-
-
-
-
-
 ############################################   BLOCO 2  #############################################
 
 ### GRÁFICOS AUXILIARES
@@ -134,7 +124,8 @@ cbox_mercado = col1.selectbox('Selecione o Mercado de atuação a pesquisar', v_
 
 sql = (
     f"SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_merc_atuacao 'Mercado de atuação', " 
-    f"f.qtd_resposta_sim '% Compraram pela internet' "
+    f"f.qtd_resposta_sim '% Compraram pela internet', "
+    f"f.qtd_resposta_sim || ' %' as 'Proporção'  "
     f"FROM ft_ceticbr_mercado f, dm_mercado_atuacao d "
     f"where f.id_dm_mercado = d.id_merc_atuacao "  
     f"AND f.cd_variavel = 'e1' "
@@ -166,7 +157,8 @@ cbox_porte = col3.selectbox('Selecione o porte das empresas', v_porte)
 
 sql = (
     f"SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_porte_empresa 'Porte empresa', "
-    f"f.qtd_resposta_sim '% Compraram pela internet' "
+    f"f.qtd_resposta_sim '% Compraram pela internet', "
+    f"f.qtd_resposta_sim || ' %' as 'Proporção'  "
     f"from ft_ceticbr_porte f, dm_porte_empresa d "
     f"where f.id_dm_porte = d.id_porte_empresa "
     f"AND f.cd_variavel = 'e1' "
@@ -179,8 +171,8 @@ dfP.set_index("Ano pesquisa", inplace=True)
 dfP = dfP[dfP["Porte empresa"] == cbox_porte]
 
 # %% Exibe os gráficos segmentados
+
 col1.bar_chart(dfM["% Compraram pela internet"].astype(int), color='#CF181F')
-col2.write(' ')
 col3.bar_chart(dfP["% Compraram pela internet"].astype(int), color='#3282F6')
 
 
