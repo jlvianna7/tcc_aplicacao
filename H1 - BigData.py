@@ -108,8 +108,8 @@ sql = (
     f"and f.cd_variavel = dic.cd_questao_ceticbr "
     f"order by f.ano_pesquisa; "  
 )
-with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/big_data_mercado.sql", "w", encoding="utf-8") as arquivo:
-    arquivo.write(sql)
+#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/big_data_mercado.sql", "w", encoding="utf-8") as arquivo:
+#    arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 dfM = pd.read_sql(sql, bd)
@@ -155,8 +155,8 @@ sql = (
     f"and f.cd_variavel = dic.cd_questao_ceticbr "
     f"order by f.ano_pesquisa; "  
 )
-with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/big_data_porte.sql", "w", encoding="utf-8") as arquivo:
-    arquivo.write(sql)
+#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/big_data_porte.sql", "w", encoding="utf-8") as arquivo:
+#    arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 dfP = pd.read_sql(sql, bd)
@@ -237,8 +237,8 @@ sql = (
     f'and f.cd_variavel = "h1aa" '
     f"order by f.ano_pesquisa ; "
 )
-with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/big_data_porte_data.sql", "w", encoding="utf-8") as arquivo:
-    arquivo.write(sql)
+#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/big_data_porte_data.sql", "w", encoding="utf-8") as arquivo:
+#    arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 dfP1 = pd.read_sql(sql, bd)
