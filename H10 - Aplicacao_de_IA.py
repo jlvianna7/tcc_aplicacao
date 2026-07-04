@@ -203,7 +203,8 @@ col1, col2, col3 = st.columns([0.49, 0.02, 0.49])
 
 sql = (
     f"SELECT f.ano_pesquisa 'Ano pesquisa', SUBSTR(d.ds_merc_atuacao_abrev, 1, 40) 'Mercado de atuação', " 
-    f"f.qtd_resposta_sim '% de Empresas que utilizam' "
+    f"f.qtd_resposta_sim '% de Empresas que utilizam', "
+    f"f.qtd_resposta_sim || ' %' as 'valor'  "
     f"from ft_ceticbr_mercado f, dm_mercado_atuacao d "
     f"where f.id_dm_mercado = d.id_merc_atuacao "  
     f"and f.ano_pesquisa = {cbox_AnoPesq} "
@@ -225,7 +226,7 @@ col2.write(' ')
 col3.write(' ')
 
 # %% Exibe os gráficos segmentados
-fig_m = px.bar(dfM1, y="% de Empresas que utilizam", text="% de Empresas que utilizam", height=640)
+fig_m = px.bar(dfM1, y="% de Empresas que utilizam", text="valor", color="% de Empresas que utilizam", height=640, color_continuous_scale='Portland')
 col1.plotly_chart(fig_m)
 col2.write(' ')
 col3.write(' ')
@@ -240,7 +241,8 @@ col3.write(' ')
 ########  PORTE
 sql = (
     f"SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_porte_empresa 'Porte empresa', "
-    f"f.qtd_resposta_sim '% de Empresas que utilizam' "
+    f"f.qtd_resposta_sim '% de Empresas que utilizam', "
+    f"f.qtd_resposta_sim || ' %' as 'valor'  "
     f"from ft_ceticbr_porte f, dm_porte_empresa d "
     f"where f.id_dm_porte = d.id_porte_empresa "
     f"and f.ano_pesquisa = {cbox_AnoPesq} "
@@ -262,15 +264,9 @@ col1.write(f'**% de utilização de :yellow-background[Plataformas de Inteligên
 col2.write(' ')
 col3.write(' ')
 
-fig_p = px.bar(dfP1, y="% de Empresas que utilizam", text="% de Empresas que utilizam", height=500, color_discrete_sequence=['#3282F6', '#FF33A1', '#33FF57'])
+fig_p = px.bar(dfP1, y="% de Empresas que utilizam", text="valor", color="% de Empresas que utilizam", height=500, color_continuous_scale='Portland')
 col1.plotly_chart(fig_p)
 col2.write(' ')
 col3.write(' ')
-
-
-
-
-
-
 
 # %% FIM!

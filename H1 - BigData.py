@@ -50,8 +50,8 @@ sql = (
     F'WHERE cd_variavel like "h1a%" '  
     f'order by 1, 2;'
 )
-with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/big_data_totais.sql", "w", encoding="utf-8") as arquivo:
-    arquivo.write(sql)
+#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/big_data_totais.sql", "w", encoding="utf-8") as arquivo:
+#    arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 dfl = pd.read_sql(sql, bd)

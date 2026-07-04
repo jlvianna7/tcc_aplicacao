@@ -68,7 +68,7 @@ col2.write(' ')
 # %% Demonstra a prticipação percentual por Mercado de atuação
 
 st.write('')
-#col1 = st.columns([0.99])
+col1, col2 = st.columns([0.98, 0.02])
 st.write(' \n')
 
 ########  MERCADO
@@ -90,6 +90,14 @@ bd = f_ConectaBD.conn
 dfM1 = pd.read_sql(sql, bd)
 dfM1.set_index("Mercado de atuação", inplace=True)
 
+col1.markdown('**% :yellow-background[médio] de utilização de :yellow-background[Robôs de serviços], por MERCADO de atuação**')
+col2.write(' ')
+
+fig_m = px.bar(dfM1, y="% de Empresas que utilizam", text="valor", color="% de Empresas que utilizam", height=640)
+col1.plotly_chart(fig_m)
+
+col2.write(' ')
+
 
 ########  PORTE
 sql = (
@@ -109,28 +117,11 @@ bd = f_ConectaBD.conn
 dfP1 = pd.read_sql(sql, bd)
 dfP1.set_index("Porte empresa", inplace=True)
 
-
-# col3.markdown(f"**Peso:** {dados_jogador['Weight(lbs.)']*0.453:0.2f}")
-
-#fig_p = px.bar(dfP1)
-
-col1, col2, col3 = st.columns([0.64, 0.02, 0.34])
-
-col1.markdown('**% :yellow-background[médio] de utilização de :yellow-background[Robôs de serviços], por MERCADO de atuação**')
-col2.write(' ')
-col3.markdown('**% :yellow-background[médio] de utilização de :yellow-background[Robôs de serviços], por PORTE de empresa**')
-
-fig_m = px.bar(dfM1, y="% de Empresas que utilizam", text="valor", color="% de Empresas que utilizam", height=640, color_continuous_scale='edge')
-col1.plotly_chart(fig_m)
-
-col2.write(' ')
+col1.write(' ')
+col1.markdown('**% :yellow-background[médio] de utilização de :yellow-background[Robôs de serviços], por PORTE de empresa**')
 
 fig_p = px.bar(dfP1, y="% de Empresas que utilizam", text="valor", color="% de Empresas que utilizam", height=640, color_continuous_scale='edge')
-col3.plotly_chart(fig_p)
-
-col1.write(' \n')
-col2.write(' \n')
-col3.write(' \n')
+col1.plotly_chart(fig_p)
 
 
 # %% FIM!

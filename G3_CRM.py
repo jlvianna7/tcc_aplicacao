@@ -47,7 +47,7 @@ df = pd.read_sql(sql, bd)
 
 col1, col2, col3 = st.columns([0.96, 0.02, 0.02])
 
-fig_L = px.line(df, x="Ano pesquisa", y="% Utilizam CRM", height=460)
+fig_L = px.line(df, x="Ano pesquisa", y="% Utilizam CRM", height=460, color_discrete_sequence=["#3357FF","#33FF57", "#FF5733", "purple"])
 fig_L.update_xaxes(dtick="M12",tickformat="%Y")
 col1.plotly_chart(fig_L)
 col1.write('\n')
