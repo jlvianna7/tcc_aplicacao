@@ -1,5 +1,9 @@
 import streamlit as st
 
+#from acs_anacor_ml import app
+#from acs_anacor_ml import ca_core
+
+
 pages = {
     "🏠 Início": [
         st.Page("Pesquisa Aplicada.py", title="Sobre a pesquisa"),
@@ -35,6 +39,10 @@ pages = {
         st.Page("cma_areaCMO.py", title="CMO nas organizações"),
         st.Page("cma_maiorDesafioTD.py", title="Maior desafio para a TD"),
     ],
+#    "🎇 Técnicas de Machine Learning": [
+#        st.Page("main_anacor", title="ANACOR - Análise de Correspondência Simples"),
+#        st.Page("app.py", title="Análise de Correspondência Simples"),
+#    ],
 }
 st.sidebar.markdown("Pesquisa acadêmica   \n DSA - USP/ESALQ")
 st.sidebar.write(" \n")
