@@ -34,18 +34,26 @@ st.write(' ')
           
 st.subheader('Resumo da pesquisa', divider='gray')
 
-
-
 #
 # %% importa pacotes
 
-col1, col2, col3, col4, col5 = st.columns([0.28, 0.02, 0.27, 0.02, 0.41])
+col1, col2, col3, col4, col5 = st.columns([0.20, 0.02, 0.35, 0.02, 0.41])
 
-col1.metric(label="Período da pesquisa", value=f"09/06/2025 a 10/10/2025", width='stretch')
-col1.metric(label="Respondentes", value=f"278", width='stretch')
-col1.metric(label="Representantes de empresas brasileiras", value=f"113", width='stretch')
-col1.metric(label="Participação de empresas brasileira", value=f"40%", width='stretch')
-
+col1.write("Período da pesquisa")
+col1.markdown("**09/06/2025 a 10/10/2025**")
+col1.write(" ")
+col1.write("Respondentes")
+col1.markdown("**278**")
+col1.write(" ")
+col1.write("Representantes de empresas brasileiras")
+col1.markdown("**113**")
+col1.write(" ")
+col1.write("Participação de empresas brasileira")
+col1.markdown("**40%**")
+#col1.metric(label="Período da pesquisa", value=f"09/06/2025 a 10/10/2025", height='stretch', width='stretch')
+#col1.metric(label="Respondentes", value=f"278", width='stretch')
+#col1.metric(label="Representantes de empresas brasileiras", value=f"113", width='stretch')
+#col1.metric(label="Participação de empresas brasileira", value=f"40%", width='stretch')
 
 col2.write(' ')
 
