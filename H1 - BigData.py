@@ -27,37 +27,61 @@ st.text('\n\n\n\n\n')
 #
 # TOTAL PARA O INDICADOR H1 –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE Big Data PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES
 #
-
 st.sidebar.color_picker = "#FF7F27"
 st.sidebar.write("H1 - Empresas que fazem análises de Big Data")
 
 # %% Evolução anual, geral do uso de Big Datas
 
-st.subheader("Evolução da utilização de :yellow-background[Big Data]")
+st.subheader("Evolução cronológica da utilização de :yellow-background[Big Data]")
 
-col1, col2, col3 = st.columns([0.96, 0.02, 0.02])
 
-col1.markdown("\n\n\n**Proporção de empresas que utilizam :yellow-background[Big Data]**")
+col1, col2, col3 = st.columns([0.98, 0.01, 0.01])
+
+
+col1.markdown("**Proporção :yellow-background[geral] de empresas que fizeram :yellow-background[análise de Big Data]**")
+
+sql = (
+    f'SELECT ano_pesquisa "Ano pesquisa", qtd_resposta_sim "% Fizeram análise de Big Data" '
+    f'FROM ft_ceticbr_totais '
+    f'WHERE cd_variavel = "h1" '
+    f'ORDER BY ano_pesquisa; '
+)
+
+bd = f_ConectaBD.conn
+df = pd.read_sql(sql, bd)
+
+fig_L = px.line(df, x="Ano pesquisa", y="% Fizeram análise de Big Data", height=460, markers=True)
+fig_L.update_xaxes(dtick="M12",tickformat="%Y")
+col1.plotly_chart(fig_L)
+col2.write(' ')
+
+###
+###   por origem dos dados
+
+col1, col2, col3 = st.columns([0.98, 0.01, 0.01])
+
+col1.markdown("\n\n\n**Das empresas que fizeram Análise de Big :yellow-background[% conforme origem dos dados]**")
 col2.write(' ')
 col3.write(' ')
 
 ##################################################
 sql = (
     f'SELECT cd_variavel, ano_pesquisa "Ano pesquisa", contexto "Análise", '
-    f'qtd_resposta_sim "% de Empresas que utilizam",  ' 
+    f'qtd_resposta_sim "% conforme origem dos dados",  ' 
     f'qtd_resposta_sim || " %" as "Proporção"  '
     f'FROM ft_ceticbr_totais '
     F'WHERE cd_variavel like "h1a%" '  
-    f'order by 1, 2;'
+    f'order by 2;'
 )
-#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/big_data_totais.sql", "w", encoding="utf-8") as arquivo:
+#with open("c:/Temp/big_data_totais.sql", "w", encoding="utf-8") as arquivo:
 #    arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 dfl = pd.read_sql(sql, bd)
 dfl.set_index("Ano pesquisa", inplace=True)
 
-fig_L = px.line(dfl, y="% de Empresas que utilizam", color="Análise", text="Proporção", height=600, markers=True)
+#fig_L = px.line(dfl, y="% de Empresas que utilizaram", color="Análise", text="Proporção", height=600, markers=True)
+fig_L = px.line(dfl, y="% conforme origem dos dados", color="Análise", height=500, markers=True)
 fig_L.update_layout(
     legend=dict(
         orientation="h",
@@ -67,7 +91,7 @@ fig_L.update_layout(
         yanchor="top"
     )
 )
-fig_L.update_layout(margin=dict(t=20, b=240))
+#fig_L.update_layout(margin=dict(t=20, b=240))
 col1.plotly_chart(fig_L)
 col2.write(' ')
 col3.write(' ')
@@ -102,7 +126,7 @@ cbox_origem = col1.selectbox('Selecione a Origem dos dados do Big Data a pesquis
 
 sql = (
     f"SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_merc_atuacao_abrev 'Mercado de atuação', " 
-    f"f.qtd_resposta_sim '% de Empresas que utilizam', dic.nm_questao_variavel 'Origem dos dados' "
+    f"f.qtd_resposta_sim '% de Empresas que utilizaram', dic.nm_questao_variavel 'Origem dos dados' "
     f"from ft_ceticbr_mercado f, dm_mercado_atuacao d, dm_dicionario_questoes_ceticbr dic "
     f"where f.id_dm_mercado = d.id_merc_atuacao "  
     f"and f.cd_variavel = dic.cd_questao_ceticbr "
@@ -118,11 +142,11 @@ dfM = dfM[dfM["Origem dos dados"] == cbox_origem]
 
 col1.write(' ')
 col1.write(' ')
-col1.markdown("**Proporção de empresas que utilizam :yellow-background[Big Data] por Mercado de atuação**")
+col1.markdown("**Proporção de empresas que utilizaram Big Data :yellow-background[por Mercado de atuação]**")
 col2.write(' ')
 col3.write(' ')
 
-fig_L = px.line(dfM, y="% de Empresas que utilizam", color="Mercado de atuação", height=640, markers=True)
+fig_L = px.line(dfM, y="% de Empresas que utilizaram", color="Mercado de atuação", height=640, markers=True)
 fig_L.update_layout(
     legend=dict(
         orientation="h",
@@ -149,7 +173,7 @@ col3.write(' ')
 # Utilizando o filtro acima
 sql = (
     f"SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_porte_empresa 'Porte da empresa', " 
-    f"f.qtd_resposta_sim '% de Empresas que utilizam', dic.nm_questao_variavel 'Origem dos dados' "
+    f"f.qtd_resposta_sim '% de Empresas que utilizaram', dic.nm_questao_variavel 'Origem dos dados' "
     f"from ft_ceticbr_porte f, dm_porte_empresa d, dm_dicionario_questoes_ceticbr dic "
     f"where f.id_dm_porte = d.id_porte_empresa "  
     f"and f.cd_variavel = dic.cd_questao_ceticbr "
@@ -162,11 +186,11 @@ bd = f_ConectaBD.conn
 dfP = pd.read_sql(sql, bd)
 dfP.set_index("Ano pesquisa", inplace=True)
 dfP = dfP[dfP["Origem dos dados"] == cbox_origem]
-col1.markdown("**Proporção de empresas que utilizam :yellow-background[Big Data] por Porte da empresa**")
+col1.markdown("**Proporção de empresas que utilizaram Big Data :yellow-background[por Porte da empresa]**")
 col3.write(' ')
 
 
-fig_L = px.line(dfP, y="% de Empresas que utilizam", color="Porte da empresa", height=640, markers=True)
+fig_L = px.line(dfP, y="% de Empresas que utilizaram", color="Porte da empresa", height=640, markers=True)
 fig_L.update_layout(
     legend=dict(
         orientation="h",
@@ -190,8 +214,8 @@ col3.write(' ')
 # Montando a ComboBox para o filtro
 
 
-col1, col2, col3 = st.columns([0.96, 0.02, 0.02])
-col1.subheader("Freqência de utilização de :yellow-background[Big Data] conforme Ano da Pesquisa")
+col1, col2, col3 = st.columns([0.96, 0.01, 0.01])
+col1.subheader("Freqência de utilização de :yellow-background[Big Data], conforme Ano da Pesquisa")
 col2.write(' ')
 col3.write(' ')
 
@@ -208,16 +232,22 @@ v_ano = dfAnoBox['Ano pesquisa'].value_counts().index
 cbox_AnoPesq = col1.selectbox('Selecione o ano da pesquisa a observar', v_ano)
 
 col1, col2, col3 = st.columns([0.49, 0.02, 0.49])
+col1, col2, col3 = st.columns([0.98, 0.01, 0.01])
+
+col1.markdown(f'**% de utilização de Plataformas de Big Data, com dados de dispositivos inteligentes por :yellow-background[MERCADO de atuação], no ano  de {cbox_AnoPesq} **')
+col2.write(' ')
+col3.write(' ')
+
 
 sql = (
     f"SELECT f.ano_pesquisa 'Ano pesquisa', SUBSTR(d.ds_merc_atuacao_abrev, 1, 40) 'Mercado de atuação', " 
-    f"f.qtd_resposta_sim '% de Empresas que utilizam', "
+    f"f.qtd_resposta_sim '% de Empresas que utilizaram', "
     f"f.qtd_resposta_sim || ' %' as 'valor'  "
     f"from ft_ceticbr_mercado f, dm_mercado_atuacao d "
     f"where f.id_dm_mercado = d.id_merc_atuacao "  
     f"and f.ano_pesquisa = {cbox_AnoPesq} "
-    f'and f.cd_variavel = "h1aa" '
-    f"order by f.ano_pesquisa; "  
+    f'and f.cd_variavel = "h1" '
+#    f"order by 3 ; "  
 )
 #with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/big_data_mercado_data.sql", "w", encoding="utf-8") as arquivo:
  #   arquivo.write(sql)
@@ -226,33 +256,9 @@ bd = f_ConectaBD.conn
 dfM1 = pd.read_sql(sql, bd)
 dfM1.set_index("Mercado de atuação", inplace=True)
 
-########  PORTE
-sql = (
-    f"SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_porte_empresa 'Porte empresa', "
-    f"f.qtd_resposta_sim '% de Empresas que utilizam',  "
-    f"f.qtd_resposta_sim || ' %' as 'valor'  "
-    f"from ft_ceticbr_porte f, dm_porte_empresa d "
-    f"where f.id_dm_porte = d.id_porte_empresa "
-    f"and f.ano_pesquisa = {cbox_AnoPesq} "
-    f'and f.cd_variavel = "h1aa" '
-    f"order by f.ano_pesquisa ; "
-)
-#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/big_data_porte_data.sql", "w", encoding="utf-8") as arquivo:
-#    arquivo.write(sql)
-
-bd = f_ConectaBD.conn
-dfP1 = pd.read_sql(sql, bd)
-dfP1.set_index("Porte empresa", inplace=True)
-
-
-col1, col2, col3 = st.columns([0.98, 0.02, 0.02])
-
-col1.markdown(f'**% de utilização de :yellow-background[Plataformas de Big Data] por MERCADO de atuação, no ano  de {cbox_AnoPesq} **')
-col2.write(' ')
-col3.write(' ')
 
 # %% Exibe os gráficos segmentados
-fig_m = px.bar(dfM1, y="% de Empresas que utilizam", text="valor", height=640)
+fig_m = px.bar(dfM1, y="% de Empresas que utilizaram", text="valor", height=500, color_discrete_sequence=["#FF8700"])
 col1.plotly_chart(fig_m)
 col2.write(' ')
 col3.write(' ')
@@ -264,13 +270,33 @@ col1.write(' ')
 col2.write(' ')
 col3.write(' ')
 
-col1, col2, col3 = st.columns([0.98, 0.02, 0.02])
+col1, col2, col3 = st.columns([0.98, 0.01, 0.01])
 
-col1.markdown('**% de utilização de :yellow-background[Plataformas de Big Data] por PORTE de empresa, no ano de {cbox_AnoPesq} **')
+col1.markdown(f'**% de utilização de :yellow-background[Plataformas de Big Data], com dados de dispositivos inteligentes por :yellow-background[PORTE de empresa], no ano de {cbox_AnoPesq} **')
 col2.write(' ')
 col3.write(' ')
 
-fig_p = px.bar(dfP1, y="% de Empresas que utilizam", text="valor", height=500, color_discrete_sequence=['#3282F6', '#FF33A1', '#33FF57'])
+########  PORTE
+sql = (
+    f"SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_porte_empresa 'Porte empresa', "
+    f"f.qtd_resposta_sim '% de Empresas que utilizaram',  "
+    f"f.qtd_resposta_sim || ' %' as 'valor'  "
+    f"from ft_ceticbr_porte f, dm_porte_empresa d "
+    f"where f.id_dm_porte = d.id_porte_empresa "
+    f"and f.ano_pesquisa = {cbox_AnoPesq} "
+    f"and f.cd_variavel = 'h1' "
+#    f"order by 3 ; "
+)
+with open("C:/Temp/big_data_porte_data.sql", "w", encoding="utf-8") as arquivo:
+    arquivo.write(sql)
+
+bd = f_ConectaBD.conn
+dfP1 = pd.read_sql(sql, bd)
+#dfP1.to_csv("c:/Temp/big_data.csv", index=False)
+dfP1.set_index("Porte empresa", inplace=True)
+
+
+fig_p = px.bar(dfP1, y="% de Empresas que utilizaram", text="valor", height=500, color_discrete_sequence=["#FF8700"])
 col1.plotly_chart(fig_p)
 col2.write(' ')
 col3.write(' ')

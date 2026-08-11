@@ -2,10 +2,10 @@
 
 # %% importa pacotes
 
-import numpy as np
+#import numpy as np
 import pandas as pd
 import streamlit as st
-import seaborn as sns
+#import seaborn as sns
 import plotly.express as px
 
 from backend import f_ConectaBD
@@ -36,20 +36,20 @@ st.subheader("Evolução da utilização de :yellow-background[Inteligência art
 col1, col2, col3 = st.columns([0.96, 0.02, 0.02])
 
 sql = (
-    f'SELECT ano_pesquisa "Ano pesquisa", contexto "Tipo de ferramenta", '
+    f'SELECT CAST(ano_pesquisa AS INTEGER) AS "Ano pesquisa", contexto "Tipo de ferramenta", '
     f'qtd_resposta_sim "% de Empresas que utilizam",  (qtd_resposta_sim || " %") as valor ' 
     f'FROM ft_ceticbr_totais '
     F'WHERE cd_variavel like "h9a%" '  
 #    f'order by 1, 2;'
 )
-#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/IA_totais.sql", "w", encoding="utf-8") as arquivo:
+#with open("c:/Temp/IA_totais.sql", "w", encoding="utf-8") as arquivo:
 #    arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 dfl = pd.read_sql(sql, bd)
 dfl.set_index("Ano pesquisa", inplace=True)
 
-fig_L = px.line(dfl, y="% de Empresas que utilizam", text='valor', color="Tipo de ferramenta", height=640, markers=True)
+fig_L = px.line(dfl, y="% de Empresas que utilizam", color="Tipo de ferramenta", height=640, markers=True)
 fig_L.update_layout(
     legend=dict(
         orientation="h",
@@ -210,7 +210,7 @@ sql = (
     f"where f.id_dm_mercado = d.id_merc_atuacao "  
     f"and f.ano_pesquisa = {cbox_AnoPesq} "
     f'and f.cd_variavel = "h9af" '
-    f"order by f.qtd_resposta_sim desc "  
+    f"order by f.qtd_resposta_sim ; "  
 )
 #with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/IA_mercado_2.sql", "w", encoding="utf-8") as arquivo:
  #   arquivo.write(sql)
@@ -248,7 +248,7 @@ sql = (
     f"where f.id_dm_porte = d.id_porte_empresa "
     f"and f.ano_pesquisa = {cbox_AnoPesq} "
     f'and f.cd_variavel = "h9af" '
-    f"order by f.qtd_resposta_sim desc ; "
+    f"order by f.qtd_resposta_sim ; "
 )
 #with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/IA_porte_2.sql", "w", encoding="utf-8") as arquivo:
  #   arquivo.write(sql)

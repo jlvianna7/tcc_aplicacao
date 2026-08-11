@@ -1,0 +1,10 @@
+
+
+
+
+
+INSERT INTO dsa_tcc.categoria_sn (idcategoria_sn, desc_resposta) VALUES (0 , 'Não');
+INSERT INTO dsa_tcc.categoria_sn (idcategoria_sn, desc_resposta) VALUES (1 , 'Sim');
+INSERT INTO dsa_tcc.categoria_sn (idcategoria_sn, desc_resposta) VALUES (97 , 'Não sabe');
+INSERT INTO dsa_tcc.categoria_sn (idcategoria_sn, desc_resposta) VALUES (98 , 'Não respondeu');
+INSERT INTO dsa_tcc.categoria_sn (idcategoria_sn, desc_resposta) VALUES (99 , 'Não se aplica');

@@ -63,7 +63,7 @@ col2.write(' ')
 #df_analise.set_index('Tipos de mudanças', inplace=True)
 
 
-fig = px.bar(df_analise, y="Frequência (%)", text="Frequência (%)", height=500, color_discrete_sequence=['#75FA8D', '#3282F6', '#FF33A1'])
+fig = px.bar(df_analise, y="Frequência (%)", text="Frequência (%)", height=500, csolor_dicrete_sequence=['#75FA8D', '#3282F6', '#FF33A1'])
 fig.update_traces(texttemplate='%{text:.1%:}')
 fig.update_yaxes(showticklabels=False)
 col3.plotly_chart(fig)

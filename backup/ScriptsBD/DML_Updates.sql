@@ -1,6 +1,6 @@
 
 
-/*****  AJUSTE NO CONTEUDO DAS TABELA DE H3B  *******/
+/*****  AJUSTE NO CONTECUDO DAS TABELA DE H3B  *******/
 
 UPDATE ft_ceticbr_otais SET contexto = 'Vigilância, segurança ou tarefas de inspeção' 
 where ano_pesquisa > '2000' and cd_variavel = 'h3ba';

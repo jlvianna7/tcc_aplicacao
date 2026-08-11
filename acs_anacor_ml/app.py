@@ -25,7 +25,7 @@ import prince
 import plotly.graph_objects as go
 import streamlit as st
 
-#from ca_core import CAError, CAResult, example_table, run_ca
+from ca_core import CAError, CAResult, example_table, run_ca
 
 from acs_anacor_ml.ca_core import CAError, CAResult, example_table, run_ca
 

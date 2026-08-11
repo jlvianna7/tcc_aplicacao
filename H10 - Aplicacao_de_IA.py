@@ -209,7 +209,7 @@ sql = (
     f"where f.id_dm_mercado = d.id_merc_atuacao "  
     f"and f.ano_pesquisa = {cbox_AnoPesq} "
     f'and f.cd_variavel = "h9af" '
-    f"order by f.ano_pesquisa; "  
+    f"order by f.qtd_resposta_sim; "  
 )
 #with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/IA_aplic_mercado_2.sql", "w", encoding="utf-8") as arquivo:
  #   arquivo.write(sql)
@@ -226,7 +226,7 @@ col2.write(' ')
 col3.write(' ')
 
 # %% Exibe os gráficos segmentados
-fig_m = px.bar(dfM1, y="% de Empresas que utilizam", text="valor", color="% de Empresas que utilizam", height=640, color_continuous_scale='Portland')
+fig_m = px.bar(dfM1, y="% de Empresas que utilizam", text="valor", color="% de Empresas que utilizam", height=640, color_continuous_scale='viridis')
 col1.plotly_chart(fig_m)
 col2.write(' ')
 col3.write(' ')
@@ -247,7 +247,7 @@ sql = (
     f"where f.id_dm_porte = d.id_porte_empresa "
     f"and f.ano_pesquisa = {cbox_AnoPesq} "
     f'and f.cd_variavel = "h9af" '
-    f"order by f.ano_pesquisa ; "
+    f"order by f.qtd_resposta_sim ; "
 )
 #with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/IA_aplic_porte_2.sql", "w", encoding="utf-8") as arquivo:
  #   arquivo.write(sql)
@@ -264,7 +264,7 @@ col1.write(f'**% de utilização de :yellow-background[Plataformas de Inteligên
 col2.write(' ')
 col3.write(' ')
 
-fig_p = px.bar(dfP1, y="% de Empresas que utilizam", text="valor", color="% de Empresas que utilizam", height=500, color_continuous_scale='Portland')
+fig_p = px.bar(dfP1, y="% de Empresas que utilizam", text="valor", color="% de Empresas que utilizam", height=500, color_continuous_scale='viridis')
 col1.plotly_chart(fig_p)
 col2.write(' ')
 col3.write(' ')

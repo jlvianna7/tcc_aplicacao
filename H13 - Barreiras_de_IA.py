@@ -42,11 +42,11 @@ sql = (
     f'qtd_resposta_sim || " %" as "valor"  '
     f'FROM ft_ceticbr_totais '
     f'WHERE  cd_variavel like "h13%"  ' 
-    f' and ano_pesquisa = 2024 '
-    f'order by 2 desc'
+    f' and ano_pesquisa = 2025 '
+    f'order by 2'
 )
-#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/IA_barreiras_totais.sql", "w", encoding="utf-8") as arquivo:
- #   arquivo.write(sql)
+with open("C:/Temp/IA_barreiras_totais.sql", "w", encoding="utf-8") as arquivo:
+    arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 dfl = pd.read_sql(sql, bd)
@@ -86,7 +86,7 @@ col3.write(' ')
 sql = (
     f'SELECT DISTINCT f.Ano_pesquisa "Ano pesquisa" '
     f'FROM ft_ceticbr_mercado f '
-    f'WHERE f.Ano_pesquisa = 2024 '
+    f'WHERE f.Ano_pesquisa = 2025 '
     f'and f.cd_variavel like "h13%" '
 )
 bd = f_ConectaBD.conn
@@ -102,12 +102,12 @@ sql = (
     f"f.qtd_resposta_sim '% de Empresas que utilizam', f.qtd_resposta_sim || ' %' as 'valor'  "
     f"from ft_ceticbr_mercado f, dm_mercado_atuacao d "
     f"where f.id_dm_mercado = d.id_merc_atuacao "  
-    f"and f.Ano_pesquisa = 2024 "
+    f"and f.Ano_pesquisa = 2025 "
     f'and f.cd_variavel = "h13c" '
-    f"order by f.ano_pesquisa; "  
+    f"order by f.qtd_resposta_sim; "  
 )
-#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/IA_barreira_mercado_2.sql", "w", encoding="utf-8") as arquivo:
- #   arquivo.write(sql)
+with open("C:/Temp/IA_barreira_mercado_2.sql", "w", encoding="utf-8") as arquivo:
+    arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 dfM1 = pd.read_sql(sql, bd)
@@ -141,7 +141,7 @@ sql = (
     f"f.qtd_resposta_sim '% de Empresas que utilizam', f.qtd_resposta_sim || ' %' as 'valor'  "
     f"from ft_ceticbr_porte f, dm_porte_empresa d "
     f"where f.id_dm_porte = d.id_porte_empresa "
-    f"and f.ano_pesquisa = 2024 "
+    f"and f.ano_pesquisa = 2025 "
     f"and f.cd_variavel = 'h13c' "
     f"order by 3 ; "
 )

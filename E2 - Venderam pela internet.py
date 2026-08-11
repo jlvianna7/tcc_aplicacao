@@ -27,28 +27,30 @@ st.text('\n\n\n\n\n')
 # TOTAL PARA O INDICADOR G2 –  EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP PARA INTEGRAR OS DADOS E PROCESSOS DE SEUS DEPARTAMENTOS EM UM SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES
 
 
-st.sidebar.color_picker = "#FF7F27"
+st.sidebar.color_picker = '#0F3A69'
 st.sidebar.write("E2 - Venderam pela internet")
 
 # %% Evolução anual, geral do uso de ERPs
 
-st.subheader("Evolução da proporção de empresas que :yellow-background[venderam pela internet]")
+st.subheader("Evolução cronológica da proporção de empresas que :yellow-background[venderam pela internet]")
 
 col1, col2, col3 = st.columns([0.96, 0.02, 0.02])
 
-col1.markdown("**Proporção de empresas que :yellow-background[venderam pela internet]**")
+col1.markdown("**Proporção :yellow-background[geral] de empresas que venderam pela internet**")
 
 sql = (
     f'SELECT ano_pesquisa "Ano pesquisa", qtd_resposta_sim "% Empresas" '
     f'FROM ft_ceticbr_totais '
-    f'WHERE cd_variavel = "e2" ' 
+    f'WHERE cd_variavel = "e2b" ' 
     f'ORDER BY ano_pesquisa; '
 )
+#with open("c:/Temp/venderam.sql", "w", encoding="utf-8") as arquivo:
+#    arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 df = pd.read_sql(sql, bd)
 
-fig_L = px.line(df, x="Ano pesquisa", y="% Empresas", height=460, color_discrete_sequence=["#FF5733", "#33FF57", "#3357FF", "purple"])
+fig_L = px.line(df, x="Ano pesquisa", y="% Empresas", height=460, markers=True, color_discrete_sequence=['#0161BC'])
 fig_L.update_xaxes(dtick="M12",tickformat="%Y")
 col1.plotly_chart(fig_L)
 col2.write(' ')
@@ -59,7 +61,7 @@ col2.write(' ')
 
 col1, col2, col3 = st.columns([0.98, 0.01, 0.01])
 
-col1.markdown('**Evolução cronológica da proporção de empresas que :yellow-background[venderam pela internet], por mercado de atuação**')
+col1.markdown('**Evolução cronológica da proporção de empresas que venderam pela internet, :yellow-background[por mercado de atuação]**')
 col2.write(' ')
 col3.write(' ')
 
@@ -69,7 +71,7 @@ sql = (
     f"f.qtd_resposta_sim '% Empresas' "
     f"from ft_ceticbr_mercado f, dm_mercado_atuacao d "
     f"where f.id_dm_mercado = d.id_merc_atuacao "  
-    f"AND f.cd_variavel = 'e2' "
+    f"AND f.cd_variavel = 'e2b' "
     f"order by 1, 2; "  
 )
 bd = f_ConectaBD.conn
@@ -98,9 +100,9 @@ col3.write(' ')
 
 col1, col2, col3 = st.columns([0.49, 0.02, 0.49])
 
-col1.markdown('**Evolução cronológica da proporção de empresas que :yellow-background[venderam pela internet], por mercado de atuação**')
+col1.markdown('**Evolução cronológica da proporção de empresas que venderam pela internet, :yellow-background[por mercado de atuação] selecionado**')
 col2.write(' ')
-col3.markdown('**Evolução cronológica da proporção de empresas que :yellow-background[venderam pela internet], por porte de empresa**')
+col3.markdown('**Evolução cronológica da proporção de empresas que venderam pela internet, :yellow-background[por porte de empresa] selecionado**')
 
 
 # %% Evuloção anual por POR MERCADO DE ATUAÇÃO
@@ -109,7 +111,7 @@ sql = (
     f'SELECT DISTINCT d.ds_merc_atuacao "Mercado de atuação" ' 
     f'FROM ft_ceticbr_mercado f, dm_mercado_atuacao d '
     f'WHERE f.id_dm_mercado = d.id_merc_atuacao '
-    f'AND f.cd_variavel = "e2" '
+    f'AND f.cd_variavel = "e2b" '
     f'ORDER BY d.ds_merc_atuacao ; '
 )
 bd = f_ConectaBD.conn
@@ -123,7 +125,7 @@ sql = (
     f"f.qtd_resposta_sim '% Empresas' "
     f"from ft_ceticbr_mercado f, dm_mercado_atuacao d "
     f"where f.id_dm_mercado = d.id_merc_atuacao "  
-    f'AND f.cd_variavel = "e2" '
+    f'AND f.cd_variavel = "e2b" '
     f"order by f.ano_pesquisa; "  
 )
 
@@ -154,7 +156,7 @@ sql = (
     f"f.qtd_resposta_sim '% Empresas' "
     f"from ft_ceticbr_porte f, dm_porte_empresa d "
     f"where f.id_dm_porte = d.id_porte_empresa "
-    f'AND f.cd_variavel = "e2" '
+    f'AND f.cd_variavel = "e2b" '
     f"order by f.ano_pesquisa ; "
 )
 bd = f_ConectaBD.conn
@@ -164,9 +166,15 @@ dfP.set_index("Ano pesquisa", inplace=True)
 dfP = dfP[dfP["Porte empresa"] == cbox_porte]
 
 # %% Exibe os gráficos segmentados
-col1.bar_chart(dfM["% Empresas"].astype(int), color='#0F3A69')
+#col1.bar_chart(dfM["% Empresas"].astype(int), color='#0F3A69')
+fig_p = px.line(dfM, y="% Empresas", height=460, color_discrete_sequence=['#0161BC'])
+col1.plotly_chart(fig_p)
+
+
 col2.write(' ')
-col3.bar_chart(dfP["% Empresas"].astype(int), color='#75FA8D')
+#col3.bar_chart(dfP["% Empresas"].astype(int), color='#75FA8D')
+fig_p = px.line(dfP, y="% Empresas", height=460, color_discrete_sequence=['#0161BC'])
+col3.plotly_chart(fig_p)
 
 
 ############################################   BLOCO 3  #############################################
@@ -191,16 +199,18 @@ dfAnoBox = pd.read_sql(sql, bd)
 v_ano = dfAnoBox['Ano pesquisa'].value_counts().index
 cbox_AnoPesq = col1.selectbox('Selecione o ano da pesquisa a observar', v_ano)
 
-col1, col2, col3 = st.columns([0.49, 0.02, 0.49])
+col1, col2, col3 = st.columns([0.98, 0.01, 0.01])
 
 sql = (
-    f"SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_merc_atuacao 'Mercado de atuação', " 
-    f"f.qtd_resposta_sim '% Empresas' "
+    f"SELECT f.ano_pesquisa 'Ano pesquisa', substr(d.ds_merc_atuacao_abrev, 1, 25) 'Mercado de atuação', " 
+    f"f.qtd_resposta_sim '% Empresas', "
+    f"f.qtd_resposta_sim || ' %' as 'valor',  "
+    f"d.ds_merc_atuacao  "
     f"from ft_ceticbr_mercado f, dm_mercado_atuacao d "
     f"where f.id_dm_mercado = d.id_merc_atuacao "  
-    f'and f.cd_variavel = "e2" '
+    f'and f.cd_variavel = "e2b" '
     f"and f.ano_pesquisa = {cbox_AnoPesq} "
-    f"order by f.ano_pesquisa; "  
+    f"order by 3; "  
 )
 
 bd = f_ConectaBD.conn
@@ -211,28 +221,35 @@ dfM1.set_index("Mercado de atuação", inplace=True)
 ########  PORTE
 sql = (
     f"SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_porte_empresa 'Porte empresa', "
-    f"f.qtd_resposta_sim '% Empresas' "
+    f"f.qtd_resposta_sim '% Empresas', "
+    f"f.qtd_resposta_sim || ' %' as 'valor'  "
     f"from ft_ceticbr_porte f, dm_porte_empresa d "
     f"where f.id_dm_porte = d.id_porte_empresa "
     f"and f.ano_pesquisa = {cbox_AnoPesq} "
-    f'and f.cd_variavel = "e2" '
-    f"order by f.ano_pesquisa ; "
+    f'and f.cd_variavel = "e2b" '
+    f"order by 3 ; "
 )
 bd = f_ConectaBD.conn
 dfP1 = pd.read_sql(sql, bd)
 dfP1.set_index("Porte empresa", inplace=True)
 
 
-col1.markdown('**% de empresas que :yellow-background[venderam pela internet], por MERCADO de atuação, no ano selecionado**')
+col1.markdown('**% de empresas que venderam pela internet, :yellow-background[por mercado de atuação], no ano selecionado**')
 col2.write(' ')
-col3.markdown('**% de empresas que :yellow-background[venderam pela internet], PORTE de empresa, no ano selecionado**')
 
 # col3.markdown(f"**Peso:** {dados_jogador['Weight(lbs.)']*0.453:0.2f}")
 
-col1.bar_chart(dfM1["% Empresas"].astype(int), color='#0F3A69')
-col2.write(' ')
-col3.bar_chart(dfP1["% Empresas"].astype(int), color='#75FA8D')
+#col1.bar_chart(dfM1["% Empresas"].astype(int), color='#0F3A69')
+fig_p = px.bar(dfM1, y="% Empresas", height=500, text="valor", color_discrete_sequence=['#0161BC'])
+col1.plotly_chart(fig_p)
 
+# Saltando 2 linhas para separar os gráficos
+col1.markdown(" <br> " * 2, unsafe_allow_html=True)
+
+col1.markdown('**% de empresas que venderam pela internet, :yellow-background[por porte de empresa], no ano selecionado**')
+#col1.bar_chart(dfP1["% Empresas"].astype(int), color='#75FA8D')
+fig_p = px.bar(dfP1, y="% Empresas", height=500, text="valor", color_discrete_sequence=['#0161BC'])
+col1.plotly_chart(fig_p)
 
 
 # %% FIM!

@@ -33,9 +33,9 @@ st.sidebar.markdown("**H9 - Utilização de tecnologias de Serviços de Nuvem**"
 
 st.subheader("Evolução da utilização de :yellow-background[Serviços de Nuvem]")
 
-col1, col2, col3 = st.columns([0.98, 0.02, 0.02])
+col1, col2, col3 = st.columns([0.98, 0.01, 0.01])
 
-col1.markdown("**Proporção de empresas que utilizam algum :yellow-background[Serviço de Nuvem] pública**")
+col1.markdown("**Das empresas que utilizaram serviços de Nuvem, proporção (%) :yellow-background[por tipo de serviço de Nuvem] pública**")
 col2.write(' ')
 col3.write(' ')
 
@@ -49,14 +49,13 @@ sql = (
     f'WHERE  (cd_variavel like "b18%" ) ' 
     f'order by 1, 2; '
 )
-#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/nuvem_totais.sql", "w", encoding="utf-8") as arquivo:
-#    arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 dfl = pd.read_sql(sql, bd)
+dfl.to_csv("c:/Temp/nuvem.csv", index=False)
 dfl.set_index("Ano pesquisa", inplace=True)
 
-fig_L = px.line(dfl, y="Proporção", color="Serviço", text='Proporção', height=600, markers=True)
+fig_L = px.line(dfl, y="Proporção", color="Serviço", height=600, markers=True)
 fig_L.update_layout(
     legend=dict(
         orientation="h",
@@ -171,7 +170,7 @@ col1.markdown(f"**Proporção de empresas que utilizam :yellow-background[Nuvem 
 col3.write(' ')
 
 
-fig_L = px.line(dfP, y="% de Empresas que utilizam", color="Porte da empresa", text='Proporção', height=640, markers=True)
+fig_L = px.line(dfP, y="% de Empresas que utilizam", color="Porte da empresa", height=640, markers=True)
 fig_L.update_layout(
     legend=dict(
         orientation="h",
@@ -240,10 +239,10 @@ sql = (
     f"where f.id_dm_porte = d.id_porte_empresa "
     f"and f.ano_pesquisa = {cbox_AnoPesq} "
     f'and f.cd_variavel = "b18b" '
-    f"order by f.qtd_resposta_sim ; "
+    f"order by 3 ; "
 )
-#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/nuvem_porte_data.sql", "w", encoding="utf-8") as arquivo:
-#    arquivo.write(sql)
+with open("C:/Temp/nuvem_porte_data.sql", "w", encoding="utf-8") as arquivo:
+    arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 dfP1 = pd.read_sql(sql, bd)
@@ -257,7 +256,7 @@ col2.write(' ')
 col3.write(' ')
 
 # %% Exibe os gráficos segmentados
-fig_m = px.bar(dfM1, y="% de Empresas que utilizam", text="Proporção", height=640)
+fig_m = px.bar(dfM1, y="% de Empresas que utilizam", text="Proporção", height=640, color_discrete_sequence=['#D90E39'])
 col1.plotly_chart(fig_m)
 col2.write(' ')
 col3.write(' ')
@@ -275,14 +274,10 @@ col1.markdown('**% de utilização de :yellow-background[Nuvem pública para Ban
 col2.write(' ')
 col3.write(' ')
 
-fig_p = px.bar(dfP1, y="% de Empresas que utilizam", text="Proporção", height=500, color_discrete_sequence=['#3282F6', '#FF33A1', '#33FF57'])
+fig_p = px.bar(dfP1, y="% de Empresas que utilizam", text="Proporção", height=500, color_discrete_sequence=['#D90E39'])
 col1.plotly_chart(fig_p)
 col2.write(' ')
 col3.write(' ')
-
-
-
-
 
 #col1.bar_chart(dfM1["% de Empresas que utilizam"].astype(int), color='#0F3A69')
 #col2.write(' ')

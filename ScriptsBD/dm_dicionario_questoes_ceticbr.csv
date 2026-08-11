@@ -1,0 +1,52 @@
+id_dicionario;cd_questao_ceticbr;ds_questao_ceticbr;nm_questao_variavel;nm_curto_variavel
+1;b18a;B18 - EMPRESAS QUE PAGARAM POR SERVIÇOS EM NUVEM;Software de escritório;Software de escritório
+2;b18b;B18 - EMPRESAS QUE PAGARAM POR SERVIÇOS EM NUVEM;Aramazenamento ou Banco de Dados;Aramazenamento ou Banco de Dados
+3;b18c;B18 - EMPRESAS QUE PAGARAM POR SERVIÇOS EM NUVEM;Capacidade de processamento;Capacidade de processamento
+4;b18d;B18 - EMPRESAS QUE PAGARAM POR SERVIÇOS EM NUVEM;Ambiente de desenvolvimento;Ambiente de desenvolvimento
+5;e1;E1 - EMPRESAS QUE COMPRARAM PELA INTERNET NOS ÚLTIMOS 12 MESES;Compraram pela internet;Compraram pela internet
+6;e2b;E2B - EMPRESAS QUE VENDERAM PELA INTERNET NOS ÚLTIMOS 12 MESES;Venderam pela internet;Venderam pela internet
+7;g2;G2 - EMPRESAS QUE UTILIZARAM PACOTES DE SOFTWARE ERP;Plataformas ERPs;Plataformas ERPs
+8;g3;G3 - EMPRESAS QUE UTILIZARAM ALGUM APLICATIVO DE CRM;Aplicação de CRM;Aplicação de CRM
+9;h10a;H10 - EMPRESAS QUE UTILIZARAM TECNOLOGIAS DE IA, POR TIPO DE APLICAÇÃO;Marketing ou vendas;Marketing ou vendas
+10;h10b;H10 - EMPRESAS QUE UTILIZARAM TECNOLOGIAS DE IA, POR TIPO DE APLICAÇÃO;Processos de produção;Processos de produção
+11;h10c;H10 - EMPRESAS QUE UTILIZARAM TECNOLOGIAS DE IA, POR TIPO DE APLICAÇÃO;Porcessos administrativos;Porcessos administrativos
+12;h10d;H10 - EMPRESAS QUE UTILIZARAM TECNOLOGIAS DE IA, POR TIPO DE APLICAÇÃO;Gestão de empresas;Gestão de empresas
+13;h10e;H10 - EMPRESAS QUE UTILIZARAM TECNOLOGIAS DE IA, POR TIPO DE APLICAÇÃO;Logística;Logística
+14;h10f;H10 - EMPRESAS QUE UTILIZARAM TECNOLOGIAS DE IA, POR TIPO DE APLICAÇÃO;Segurança digital;Segurança digital
+15;h10g;H10 - EMPRESAS QUE UTILIZARAM TECNOLOGIAS DE IA, POR TIPO DE APLICAÇÃO;Recursos humanos;Recursos humanos
+16;h13a;H13 - EMPRESAS QUE NÃO UTILIZARAM TECNOLOGIAS DE IA, POR TIPO DE OBSTÁCULO;Custos;Custos
+17;h13b;H13 - EMPRESAS QUE NÃO UTILIZARAM TECNOLOGIAS DE IA, POR TIPO DE OBSTÁCULO;Por falta de pessoas capacitadas;Por falta de pessoas capacitadas
+18;h13c;H13 - EMPRESAS QUE NÃO UTILIZARAM TECNOLOGIAS DE IA, POR TIPO DE OBSTÁCULO;Limitação tecnológica;Limitação tecnológica
+19;h13d;H13 - EMPRESAS QUE NÃO UTILIZARAM TECNOLOGIAS DE IA, POR TIPO DE OBSTÁCULO;Dificuldade com os dados;Dificuldade com os dados
+20;h13e;H13 - EMPRESAS QUE NÃO UTILIZARAM TECNOLOGIAS DE IA, POR TIPO DE OBSTÁCULO;Preocupação com LGPD;Preocupação com LGPD
+21;h13f;H13 - EMPRESAS QUE NÃO UTILIZARAM TECNOLOGIAS DE IA, POR TIPO DE OBSTÁCULO;Preocupação com consequências legais;Preocupação com consequências legais
+22;h13g;H13 - EMPRESAS QUE NÃO UTILIZARAM TECNOLOGIAS DE IA, POR TIPO DE OBSTÁCULO;Questões éticas;Questões éticas
+23;h13h;H13 - EMPRESAS QUE NÃO UTILIZARAM TECNOLOGIAS DE IA, POR TIPO DE OBSTÁCULO;Não enxergam utilidade;Não enxergam utilidade
+24;h13i;H13 - EMPRESAS QUE NÃO UTILIZARAM TECNOLOGIAS DE IA, POR TIPO DE OBSTÁCULO;Falta de conhecimento técnico;Falta de conhecimento técnico
+25;h1aa;H1A - EMPRESAS QUE FAZEM ANÁLISES DE BIG DATA;Dados próprios da empresa provenientes de dispositivos inteligentes;Dados de dispositivos inteligentes
+26;h1ab;H1A - EMPRESAS QUE FAZEM ANÁLISES DE BIG DATA;Dados de geolocalização e de diispositivos móveis;Dados de geolocalização e de diispositivos móveis
+27;h1ac;H1A - EMPRESAS QUE FAZEM ANÁLISES DE BIG DATA;Dados de mídias sociais;Dados de mídias sociais
+28;h3ba;H3A - EMPRESAS, POR USO DE ROBÔS DE SERVIÇO;Vigilância, segurança ou inspeção;Vigilância, segurança ou inspeção
+29;h3bb;H3A - EMPRESAS, POR USO DE ROBÔS DE SERVIÇO;Transporte de pessoas ou mercadorias;Transporte de pessoas ou mercadorias
+30;h3bc;H3A - EMPRESAS, POR USO DE ROBÔS DE SERVIÇO;Limpeza ou eliminação de resíduos;Limpeza ou eliminação de resíduos
+31;h3bd;H3A - EMPRESAS, POR USO DE ROBÔS DE SERVIÇO;Gerenciamento de estoque;Gerenciamento de estoque
+32;h3be;H3A - EMPRESAS, POR USO DE ROBÔS DE SERVIÇO;Trabalhos de montagem;Trabalhos de montagem
+33;h3bf;H3A - EMPRESAS, POR USO DE ROBÔS DE SERVIÇO;Atendimento ao cliente;Atendimento ao cliente
+34;h3bg;H3A - EMPRESAS, POR USO DE ROBÔS DE SERVIÇO;Construção e reparos;Construção e reparos
+35;h4;H4 - EMPRESAS, POR REALIZAÇÃO DE IMPRESSÃO 3D;Impressão 3D;Impressão 3D
+36;h8a;H8 - EMPRESAS QUE UTILIZARAM DISPOSITIVOS INTELIGENTES OU INTERNET DAS COISAS;Gerenciamentos de consumos, medidores inteligentes;Gerenciamentos de consumos, medidores inteligentes
+37;h8b;H8 - EMPRESAS QUE UTILIZARAM DISPOSITIVOS INTELIGENTES OU INTERNET DAS COISAS;Dispositivos de segurança;Dispositivos de segurança
+38;h8c;H8 - EMPRESAS QUE UTILIZARAM DISPOSITIVOS INTELIGENTES OU INTERNET DAS COISAS;Automatização de processos de produção;Automatização de processos de produção
+39;h8d;H8 - EMPRESAS QUE UTILIZARAM DISPOSITIVOS INTELIGENTES OU INTERNET DAS COISAS;Gestão de logística;Gestão de logística
+40;h8e;H8 - EMPRESAS QUE UTILIZARAM DISPOSITIVOS INTELIGENTES OU INTERNET DAS COISAS;Monitoramento e manutenção de equipamentos;Monitoramento e manutenção de equipamentos
+41;h8f;H8 - EMPRESAS QUE UTILIZARAM DISPOSITIVOS INTELIGENTES OU INTERNET DAS COISAS;Atendimento ao cliente;Atendimento ao cliente
+42;h9aa;H9A - EMPRESAS QUE UTILIZARAM TECNOLOGIAS DE IA, POR TIPO DE TECNOLOGIA;Análise de textos;Análise de textos
+43;h9ab;H9A - EMPRESAS QUE UTILIZARAM TECNOLOGIAS DE IA, POR TIPO DE TECNOLOGIA;Reconhecimento de fala;Reconhecimento de fala
+44;h9ac;H9A - EMPRESAS QUE UTILIZARAM TECNOLOGIAS DE IA, POR TIPO DE TECNOLOGIA;Geração de linguagem natural;Geração de linguagem natural
+45;h9ad;H9A - EMPRESAS QUE UTILIZARAM TECNOLOGIAS DE IA, POR TIPO DE TECNOLOGIA;Processamento de imagens;Processamento de imagens
+46;h9ae;H9A - EMPRESAS QUE UTILIZARAM TECNOLOGIAS DE IA, POR TIPO DE TECNOLOGIA;Machine learning;Machine learning
+47;h9af;H9A - EMPRESAS QUE UTILIZARAM TECNOLOGIAS DE IA, POR TIPO DE TECNOLOGIA;Automatização de processos;Automatização de processos
+48;h9ag;H9A - EMPRESAS QUE UTILIZARAM TECNOLOGIAS DE IA, POR TIPO DE TECNOLOGIA;Máquinas e veículos autônomos;Máquinas e veículos autônomos
+49;h1ad;"H1A - EMPRESAS QUE FAZEM ANÁLISES DE BIG DATA
+";Outras fontes;Outras fontes
+49;h1;H1 - EMPRESAS QUE FAZEM ANÁLISES DE BIG DATA;Análise de Big Data;Análise de Big Data

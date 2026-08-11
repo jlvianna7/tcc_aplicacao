@@ -45,8 +45,8 @@ sql = (
     f'WHERE cd_variavel like "h3b%" '  
     f'order by 1, 2;'
 )
-#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/robo_serviço_servico.sql", "w", encoding="utf-8") as arquivo:
- #   arquivo.write(sql)
+with open("c:/Temp/robo_serviço_servico.sql", "w", encoding="utf-8") as arquivo:
+   arquivo.write(sql)
 
 
 bd = f_ConectaBD.conn
@@ -81,9 +81,9 @@ sql = (
     f'where f.id_dm_mercado = d.id_merc_atuacao '  
     f'and f.cd_variavel like "h3b%" '  
     f'group by f.id_dm_mercado '
-    f'order by valor desc;  '
+    f'order by valor ;  '
 )
-#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/robo_mercado_data.sql", "w", encoding="utf-8") as arquivo:
+#with open("c:/Temp/robo_mercado_data.sql", "w", encoding="utf-8") as arquivo:
 #    arquivo.write(sql)
 
 bd = f_ConectaBD.conn
@@ -93,7 +93,8 @@ dfM1.set_index("Mercado de atuação", inplace=True)
 col1.markdown('**% :yellow-background[médio] de utilização de :yellow-background[Robôs de serviços], por MERCADO de atuação**')
 col2.write(' ')
 
-fig_m = px.bar(dfM1, y="% de Empresas que utilizam", text="valor", color="% de Empresas que utilizam", height=640)
+fig_m = px.bar(dfM1, y="% de Empresas que utilizam", text="valor", color="% de Empresas que utilizam", height=640, color_discrete_sequence=['#0161BC'])
+fig_m.update_coloraxes(showscale=False)
 col1.plotly_chart(fig_m)
 
 col2.write(' ')
@@ -108,7 +109,7 @@ sql = (
     f'where f.id_dm_porte = d.id_porte_empresa '
     f'and f.cd_variavel like "h3b%"   '
     f'group by f.id_dm_porte '
-    f'order by valor desc; '  
+    f'order by valor ; '  
 )
 #with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/robo_porte_data.sql", "w", encoding="utf-8") as arquivo:
 #    arquivo.write(sql)
@@ -120,7 +121,8 @@ dfP1.set_index("Porte empresa", inplace=True)
 col1.write(' ')
 col1.markdown('**% :yellow-background[médio] de utilização de :yellow-background[Robôs de serviços], por PORTE de empresa**')
 
-fig_p = px.bar(dfP1, y="% de Empresas que utilizam", text="valor", color="% de Empresas que utilizam", height=640, color_continuous_scale='edge')
+fig_p = px.bar(dfP1, y="% de Empresas que utilizam", text="valor", color="% de Empresas que utilizam", height=640, color_discrete_sequence=['#0161BC'])
+fig_p.update_coloraxes(showscale=False)
 col1.plotly_chart(fig_p)
 
 

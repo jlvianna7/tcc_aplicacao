@@ -1,13 +1,10 @@
 #
-# Função para montar a pesquisa conforme TAB SHEET das planilhas
+# Função para montar a pesquisa conforme TAB SHEE das planilhas
 #
-#import numpy as np
-#import seaborn as sns
+import numpy as np
+import seaborn as sns
 import pandas as pd
-#from openpyxl import Workbook
-
-#from backend import f_ConectaBD
-import f_ConectaBD
+from openpyxl import Workbook
 
 def tabelaCtic(vpath, ano_pesquisa, cod_tabela):
 
@@ -15,12 +12,8 @@ def tabelaCtic(vpath, ano_pesquisa, cod_tabela):
 
     df = pd.read_excel(tabela, sheet_name=cod_tabela, skiprows=2)
   
-    # Exclui a última(s) linha(s), que é nota de rodapé
-    if cod_tabela == 'H1' or cod_tabela == 'H7' or cod_tabela == 'H9':
-        df = df.iloc[:-2]
-    else:
-        df = df.iloc[:-1]
-#    print(df)
+    # Exclui a última linha, que é nota de rodapé
+    df = df.iloc[:-1]
     
     # Excluindo a primeira linha que é de Totais
     df = df.iloc[1:]
@@ -40,36 +33,31 @@ def tabelaCtic(vpath, ano_pesquisa, cod_tabela):
 
     return df
 
+
 def tabelaTOTAIS(vpath, ano_pesquisa, cod_tabela):
     tabela = vpath + '/tic_empresas_' + ano_pesquisa + '_tabela_proporcao_v1.0.xlsx'
 
     df = pd.read_excel(tabela, sheet_name=cod_tabela, skiprows=2)
 
- # Exclui a última linha, que é nota de rodapé
+    # Exclui a última linha, que é nota de rodapé
     if ano_pesquisa != '2014' and ano_pesquisa != '2015' and ano_pesquisa != '2017':
         df = df.iloc[1:]
 
-    # Exclui a última(s) linha(s), que é nota de rodapé
-    if cod_tabela == 'H1' or cod_tabela == 'H7' or cod_tabela == 'H9':
-        df = df.iloc[:-18]
-    else:
-        df = df.iloc[:-17]
-
     # Exclui a última linha, que é nota de rodapé
-    #df = df.iloc[:-17]
+    df = df.iloc[:-17]
 
     # Selecionao as colunas que vou utilizar, neste caso a partir da segunda
     df = df.iloc[:, 1:3]
-
+ 
     #if ano_pesquisa != '2015' and ano_pesquisa != '2017':
     #    df = df.drop(0).reset_index(drop=True)
-
+ 
     # Mudo o nome da coluna que ficou sem título
     df = df.rename(columns={'Unnamed: 1': 'Contexto'})
 
     # Mudo o nome da coluna que ficou sem título
     df = df.fillna('Valores totais')
-    if ano_pesquisa != '2014' and ano_pesquisa != '2015' and ano_pesquisa != '2017':
+    if ano_pesquisa != '2015' and ano_pesquisa != '2017':
         df = df.replace('Total', 'Valores totais')
 
     # Incluiíndo o ano da pesquisa
@@ -80,6 +68,8 @@ def tabelaTOTAIS(vpath, ano_pesquisa, cod_tabela):
     df = df[colunas_reorder]
 
     return df
+
+
 
 
 ###################  H3B USO DE ROBÔS DE SERVIÇOS  ##########################################################################
@@ -205,6 +195,7 @@ def tabelaTOTAIS_H3B(vpath, ano_pesquisa, cod_tabela):
     return df
 
 
+
 ####################################  B18 - SERVIÇOS DE NUVEM
 
 def tabelaCtic_B18(vpath, ano_pesquisa, cod_tabela):
@@ -275,11 +266,13 @@ def tabelaCtic_B18(vpath, ano_pesquisa, cod_tabela):
             df = df.rename(columns={'processamento': 'Sim'})
         elif cod_tabela == 'B18d':
             df = df.rename(columns={'desenvolvimento': 'Sim'})
+    #print('.....TOTAIS........' )
+    #print(df)
     colunas_reorder = ['Ano_pesquisa', 'Contexto', 'Sim']
     df = df[colunas_reorder]
 
     return df
- 
+
 
 def tabelaTOTAIS_B18(vpath, ano_pesquisa, cod_tabela):
 
@@ -360,10 +353,10 @@ def tabelaTOTAIS_B18(vpath, ano_pesquisa, cod_tabela):
         elif cod_tabela == 'B18d':
             df = df.rename(columns={'desenvolvimento': 'Sim'})
     #print('.....TOTAIS........' )
- 
+    #print(df)
     colunas_reorder = ['Ano_pesquisa', 'Contexto', 'Sim']
     df = df[colunas_reorder]
- 
+
     return df
 
 
@@ -472,6 +465,8 @@ def tabelaTOTAIS_H1A(vpath, ano_pesquisa, cod_tabela):
     df = df[colunas_reorder]
 
     return df
+
+
 
 
 ###################  H8 DISPOSITIVOS DE IOT  ############################################
@@ -631,19 +626,19 @@ def tabelaCtic_H9A(vpath, ano_pesquisa, cod_tabela):
 
     #print(df)
     # Reorganiza as colunas
-    if cod_tabela == "H9aa":
+    if cod_tabela == "H9Aa":
         df = df.rename(columns={'texto': 'Sim'})
-    elif cod_tabela == 'H9ab':
+    elif cod_tabela == 'H9Ab':
         df = df.rename(columns={'fala': 'Sim'})
-    elif cod_tabela == 'H9ac':
+    elif cod_tabela == 'H9Ac':
         df = df.rename(columns={'gnl': 'Sim'})
-    elif cod_tabela == 'H9ad':
+    elif cod_tabela == 'H9Ad':
         df = df.rename(columns={'imagem': 'Sim'})
-    elif cod_tabela == 'H9ae':
+    elif cod_tabela == 'H9Ae':
         df = df.rename(columns={'learning': 'Sim'})
-    elif cod_tabela == 'H9af':
+    elif cod_tabela == 'H9Af':
         df = df.rename(columns={'processos': 'Sim'})
-    elif cod_tabela == 'H9ag':
+    elif cod_tabela == 'H9Ag':
         df = df.rename(columns={'autonomos': 'Sim'})
     #print(df)
     colunas_reorder = ['Ano_pesquisa', 'Contexto', 'Sim']
@@ -696,19 +691,19 @@ def tabelaTOTAIS_H9A(vpath, ano_pesquisa, cod_tabela):
 
     #print(df)
     # Reorganiza as colunas
-    if cod_tabela == "H9aa":
+    if cod_tabela == "H9Aa":
         df = df.rename(columns={'texto': 'Sim'})
-    elif cod_tabela == 'H9ab':
+    elif cod_tabela == 'H9Ab':
         df = df.rename(columns={'fala': 'Sim'})
-    elif cod_tabela == 'H9ac':
+    elif cod_tabela == 'H9Ac':
         df = df.rename(columns={'gnl': 'Sim'})
-    elif cod_tabela == 'H9ad':
+    elif cod_tabela == 'H9Ad':
         df = df.rename(columns={'imagem': 'Sim'})
-    elif cod_tabela == 'H9ae':
+    elif cod_tabela == 'H9Ae':
         df = df.rename(columns={'learning': 'Sim'})
-    elif cod_tabela == 'H9af':
+    elif cod_tabela == 'H9Af':
         df = df.rename(columns={'processos': 'Sim'})
-    elif cod_tabela == 'H9ag':
+    elif cod_tabela == 'H9Ag':
         df = df.rename(columns={'autonomos': 'Sim'})
     #print(df)
     colunas_reorder = ['Ano_pesquisa', 'Contexto', 'Sim']
@@ -975,27 +970,3 @@ def tabelaTOTAIS_H13(vpath, ano_pesquisa, cod_tabela):
     df = df[colunas_reorder]
 
     return df
-
-############################################################
-def busca_contexto(variavel):
-    """Retorna o nome curto da variável (nm_curto_variavel) para o código fornecido.
-
-    Faz a consulta na tabela dm_dicionario_questoes_ceticbr e retorna a primeira
-    ocorrência como string ou None se não encontrado.
-    """
-    sql = (
-        f"select dic.nm_curto_variavel as nm_curto_variavel "
-        f"from dm_dicionario_questoes_ceticbr dic "
-        f"where dic.cd_questao_ceticbr = '{variavel}' "
-    )
-    bd = f_ConectaBD.conn
-    # Usar read_sql com parâmetros para evitar injeção
-    dfrelac = pd.read_sql(sql, bd)
-    if dfrelac.empty:
-        print(None)
-        return None
-    nome_curto = dfrelac.at[0, 'nm_curto_variavel']
-    print(nome_curto)
-    return str(nome_curto)
-
-# %% FIM!
