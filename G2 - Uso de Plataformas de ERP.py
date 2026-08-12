@@ -45,7 +45,7 @@ sql = (
 
 bd = f_ConectaBD.conn
 df = pd.read_sql(sql, bd)
-df.to_csv("c:/Temp/erp.csv", index=False)
+df.to_csv("./logs/erp.csv", index=False)
 
 
 col1, col2, col3 = st.columns([0.96, 0.02, 0.02])

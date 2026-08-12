@@ -45,8 +45,8 @@ sql = (
     f'WHERE cd_variavel like "h3b%" '  
     f'order by 1, 2;'
 )
-with open("c:/Temp/robo_serviço_servico.sql", "w", encoding="utf-8") as arquivo:
-   arquivo.write(sql)
+#with open("./logs/robo_serviço_servico.sql", "w", encoding="utf-8") as arquivo:
+#   arquivo.write(sql)
 
 
 bd = f_ConectaBD.conn
@@ -58,6 +58,16 @@ dfl = pd.read_sql(sql, bd)
 
 fig_L = px.line(dfl, x="Ano pesquisa", y="% de Empresas que utilizam", color="Tipo de serviço", height=460)
 fig_L.update_xaxes(dtick="M12",tickformat="%Y")
+fig_L.update_layout(
+    legend=dict(
+        orientation="h",
+        x=0.5,
+        xanchor="center",
+        y=-0.2,
+        yanchor="top"
+    )
+)
+fig_L.update_layout(margin=dict(t=20, b=240))
 col1.plotly_chart(fig_L)
 col2.write(' ')
 

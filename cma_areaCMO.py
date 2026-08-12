@@ -66,14 +66,17 @@ df_analise = df.groupby('Área de vínculo do CMO').size().reset_index(name='Men
 
 # 2. Calcula o percentual sobre o total da coluna 'Quantidade'
 df_analise['Frequência (%)'] = (df_analise['Menções'] / df_analise['Menções'].sum()) * 100
-df_analise['Frequência (%)'] = df_analise['Frequência (%)'].round(2)
+df_analise['Frequência (%)'] = df_analise['Frequência (%)'].round(1)
 # 3. Ordena do maior para o menor
-df_analise = df_analise.sort_values(by='Frequência (%)', ascending=False)
+df_analise = df_analise.sort_values(by='Frequência (%)', ascending=True)
 
 col2.write(' ')
 df_analise.set_index('Área de vínculo do CMO', inplace=True)
 col3.markdown('**Existindo, a qual área o CMO está vinculado**\n')
-col3.bar_chart(df_analise['Frequência (%)'], color='#3282F6', height=500, y_label="'Frequência (%)'")
+
+#col3.bar_chart(df_analise['Frequência (%)'], color='#3282F6', height=500, y_label="'Frequência (%)'")
+fig_p = px.bar(df_analise, y="Frequência (%)", text=df_analise["Frequência (%)"].astype(str) + " %", height=500, color_discrete_sequence=["#3282F6"])
+col3.plotly_chart(fig_p)
 
 
 ############## BLOCO 2 ###############
@@ -106,9 +109,10 @@ df_analise = df.groupby('Área responsável por gerir mudanças').size().reset_i
 
 # 2. Calcula o percentual sobre o total da coluna 'Quantidade'
 df_analise['Frequência (%)'] = (df_analise['Menções'] / df_analise['Menções'].sum()) * 100
-df_analise['Frequência (%)'] = df_analise['Frequência (%)'].round(2)
+df_analise['Frequência (%)'] = df_analise['Frequência (%)'].round(1)
+
 # 3. Ordena do maior para o menor
-df_analise = df_analise.sort_values(by='Frequência (%)', ascending=False)
+df_analise = df_analise.sort_values(by='Frequência (%)', ascending=True)
 
 df_analise.set_index('Área responsável por gerir mudanças', inplace=True)
 col1.markdown('**Área, __normalmente__, responsável por gerir mudanças**\n')
@@ -116,7 +120,8 @@ col1.markdown('**Área, __normalmente__, responsável por gerir mudanças**\n')
 #col1.bar_chart(df_analise['Frequência (%)'], color='#CF181F',horizontal=True, height=500, stack='layered')
 # Criando o gráfico com rótulos de dados
 #fig = px.bar(df_analise, x='Área responsável por gerir mudanças', y='Frequência (%)', text='Frequência (%)')
-fig = px.bar(df_analise, y='Frequência (%)', text='Frequência (%)', height=600)
+
+fig = px.bar(df_analise, y='Frequência (%)', text=df_analise["Frequência (%)"].astype(str) + " %", height=600, color_discrete_sequence=["#3282F6"])
 
 # Ajustando a posição do texto (opcional)
 #fig.update_traces(textposition='outside')

@@ -1,0 +1,1 @@
+SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_porte_empresa 'Porte empresa', f.qtd_resposta_sim '% de Empresas que utilizaram',  f.qtd_resposta_sim || ' %' as 'valor'  from ft_ceticbr_porte f, dm_porte_empresa d where f.id_dm_porte = d.id_porte_empresa and f.ano_pesquisa = 2019 and f.cd_variavel = 'h1' 

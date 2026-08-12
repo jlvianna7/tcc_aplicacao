@@ -52,7 +52,7 @@ sql = (
 
 bd = f_ConectaBD.conn
 dfl = pd.read_sql(sql, bd)
-dfl.to_csv("c:/Temp/nuvem.csv", index=False)
+#dfl.to_csv("./logs/nuvem.csv", index=False)
 dfl.set_index("Ano pesquisa", inplace=True)
 
 fig_L = px.line(dfl, y="Proporção", color="Serviço", height=600, markers=True)
@@ -110,7 +110,7 @@ sql = (
     f'AND f.cd_variavel like "b18%" '
     f"order by 1 "  
 )
-#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/nuvem_mercado.sql", "w", encoding="utf-8") as arquivo:
+#with open("./logs/nuvem_mercado.sql", "w", encoding="utf-8") as arquivo:
 #    arquivo.write(sql)
 
 bd = f_ConectaBD.conn
@@ -159,7 +159,7 @@ sql = (
     f"and f.cd_variavel = dic.cd_questao_ceticbr "
     f"order by f.ano_pesquisa; "  
 )
-#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/nuvem_porte.sql", "w", encoding="utf-8") as arquivo:
+#with open("./logs/nuvem_porte.sql", "w", encoding="utf-8") as arquivo:
 #    arquivo.write(sql)
 
 bd = f_ConectaBD.conn
@@ -223,7 +223,7 @@ sql = (
     f'and f.cd_variavel = "b18d" '
     f"order by f.qtd_resposta_sim; "  
 )
-#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/nuvem_mercado_data.sql", "w", encoding="utf-8") as arquivo:
+#with open("./logs/nuvem_mercado_data.sql", "w", encoding="utf-8") as arquivo:
 #    arquivo.write(sql)
 
 bd = f_ConectaBD.conn
@@ -241,7 +241,7 @@ sql = (
     f'and f.cd_variavel = "b18b" '
     f"order by 3 ; "
 )
-with open("C:/Temp/nuvem_porte_data.sql", "w", encoding="utf-8") as arquivo:
+with open("./logs/nuvem_porte_data.sql", "w", encoding="utf-8") as arquivo:
     arquivo.write(sql)
 
 bd = f_ConectaBD.conn

@@ -31,7 +31,7 @@ st.sidebar.markdown("**H13 - Barreiras para utilização de Inteligência artifi
 
 # %% Evolução anual, geral do uso de Inteligência artificial
 
-st.subheader(":yellow-background[Barreiras] enfrentadas por empresas no uso de :yellow-background[Inteligência artificial] em 2024")
+st.subheader(":yellow-background[Barreiras] enfrentadas por empresas no uso de :yellow-background[Inteligência artificial] em 2025")
 
 col1, col2, col3 = st.columns([0.96, 0.02, 0.02])
 
@@ -45,8 +45,8 @@ sql = (
     f' and ano_pesquisa = 2025 '
     f'order by 2'
 )
-with open("C:/Temp/IA_barreiras_totais.sql", "w", encoding="utf-8") as arquivo:
-    arquivo.write(sql)
+#with open("./logs/IA_barreiras_totais.sql", "w", encoding="utf-8") as arquivo:
+#    arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 dfl = pd.read_sql(sql, bd)
@@ -106,7 +106,7 @@ sql = (
     f'and f.cd_variavel = "h13c" '
     f"order by f.qtd_resposta_sim; "  
 )
-with open("C:/Temp/IA_barreira_mercado_2.sql", "w", encoding="utf-8") as arquivo:
+with open("./logs/IA_barreira_mercado_2.sql", "w", encoding="utf-8") as arquivo:
     arquivo.write(sql)
 
 bd = f_ConectaBD.conn
@@ -145,7 +145,7 @@ sql = (
     f"and f.cd_variavel = 'h13c' "
     f"order by 3 ; "
 )
-#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/IA_barreira_porte_2.sql", "w", encoding="utf-8") as arquivo:
+#with open("./logs/IA_barreira_porte_2.sql", "w", encoding="utf-8") as arquivo:
  #   arquivo.write(sql)
 
 bd = f_ConectaBD.conn

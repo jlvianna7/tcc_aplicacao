@@ -73,7 +73,7 @@ sql = (
     F'WHERE cd_variavel like "h1a%" '  
     f'order by 2;'
 )
-#with open("c:/Temp/big_data_totais.sql", "w", encoding="utf-8") as arquivo:
+#with open("./logs/big_data_totais.sql", "w", encoding="utf-8") as arquivo:
 #    arquivo.write(sql)
 
 bd = f_ConectaBD.conn
@@ -132,7 +132,7 @@ sql = (
     f"and f.cd_variavel = dic.cd_questao_ceticbr "
     f"order by f.ano_pesquisa; "  
 )
-#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/big_data_mercado.sql", "w", encoding="utf-8") as arquivo:
+#with open("./logs/big_data_mercado.sql", "w", encoding="utf-8") as arquivo:
 #    arquivo.write(sql)
 
 bd = f_ConectaBD.conn
@@ -179,7 +179,7 @@ sql = (
     f"and f.cd_variavel = dic.cd_questao_ceticbr "
     f"order by f.ano_pesquisa; "  
 )
-#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/big_data_porte.sql", "w", encoding="utf-8") as arquivo:
+#with open("./logs/big_data_porte.sql", "w", encoding="utf-8") as arquivo:
 #    arquivo.write(sql)
 
 bd = f_ConectaBD.conn
@@ -249,7 +249,7 @@ sql = (
     f'and f.cd_variavel = "h1" '
 #    f"order by 3 ; "  
 )
-#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/big_data_mercado_data.sql", "w", encoding="utf-8") as arquivo:
+#with open("./logs/big_data_mercado_data.sql", "w", encoding="utf-8") as arquivo:
  #   arquivo.write(sql)
 
 bd = f_ConectaBD.conn
@@ -287,12 +287,12 @@ sql = (
     f"and f.cd_variavel = 'h1' "
 #    f"order by 3 ; "
 )
-with open("C:/Temp/big_data_porte_data.sql", "w", encoding="utf-8") as arquivo:
+with open("./logs/big_data_porte_data.sql", "w", encoding="utf-8") as arquivo:
     arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 dfP1 = pd.read_sql(sql, bd)
-#dfP1.to_csv("c:/Temp/big_data.csv", index=False)
+#dfP1.to_csv("./logs/big_data.csv", index=False)
 dfP1.set_index("Porte empresa", inplace=True)
 
 

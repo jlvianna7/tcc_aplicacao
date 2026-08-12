@@ -52,7 +52,7 @@ df_analise = df_analise.sort_values(by='Frequência (%)', ascending=False)
 
 #df_analise = df['Tipos de mudanças'].value_counts(normalize=True) * 100
 
-col1, col2, col3 = st.columns([0.33, 0.02, 0.65])
+col1, col2, col3 = st.columns([0.70, 0.29, 0.01])
 
 col1.write(' \n')
 col1.write(' \n')
@@ -60,13 +60,15 @@ col1.write(' \n')
 col1.write(' \n')
 col1.table(df_analise)
 col2.write(' ')
-#df_analise.set_index('Tipos de mudanças', inplace=True)
+df_analise.set_index('Tipos de mudanças', inplace=True)
 
 
-fig = px.bar(df_analise, y="Frequência (%)", text="Frequência (%)", height=500, csolor_dicrete_sequence=['#75FA8D', '#3282F6', '#FF33A1'])
+col1, col2, col3 = st.columns([0.98, 0.01, 0.01])
+
+fig = px.bar(df_analise, y="Frequência (%)", text=df_analise["Frequência (%)"].astype(str) + " %", height=500, color_discrete_sequence=['#75FA8D', '#3282F6', '#FF33A1'])
 fig.update_traces(texttemplate='%{text:.1%:}')
 fig.update_yaxes(showticklabels=False)
-col3.plotly_chart(fig)
+col1.plotly_chart(fig)
 
 #col3.bar_chart(df_analise['Frequência (%)'], color='#75FA8D')
 

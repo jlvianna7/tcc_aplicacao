@@ -54,7 +54,7 @@ sql = (
 
 bd = f_ConectaBD.conn
 dfl = pd.read_sql(sql, bd)
-dfl.to_csv("c:/Temp/iot.csv", index=False)
+#dfl.to_csv("./logs/iot.csv", index=False)
 dfl.set_index("Ano pesquisa", inplace=True)
 
 
@@ -72,8 +72,6 @@ fig_L.update_layout(
 fig_L.update_layout(margin=dict(t=20, b=240))
 col1.plotly_chart(fig_L)
 col2.write(' ')
-
-
 
 
 #col1.line_chart(dfl, x="Ano pesquisa", y="% de Empresas que utilizaram", color="Aplicação", height=500)
@@ -118,7 +116,7 @@ sql = (
     f"and f.cd_variavel = dic.cd_questao_ceticbr "
     f"order by f.ano_pesquisa; "  
 )
-#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/iot_mercado.sql", "w", encoding="utf-8") as arquivo:
+#with open("./logs/iot_mercado.sql", "w", encoding="utf-8") as arquivo:
  #   arquivo.write(sql)
 
 bd = f_ConectaBD.conn
@@ -165,7 +163,7 @@ sql = (
     f"and f.cd_variavel = dic.cd_questao_ceticbr "
     f"order by f.ano_pesquisa; "  
 )
-#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/iot_porte.sql", "w", encoding="utf-8") as arquivo:
+#with open("./logs/iot_porte.sql", "w", encoding="utf-8") as arquivo:
  #   arquivo.write(sql)
 
 bd = f_ConectaBD.conn

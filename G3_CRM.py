@@ -44,7 +44,7 @@ sql = (
 
 bd = f_ConectaBD.conn
 df = pd.read_sql(sql, bd)
-df.to_csv("c:/Temp/crm.csv", index=False)
+df.to_csv("./logs/crm.csv", index=False)
 
 col1, col2, col3 = st.columns([0.96, 0.02, 0.02])
 
@@ -128,7 +128,7 @@ sql = (
 
 bd = f_ConectaBD.conn
 dfM = pd.read_sql(sql, bd)
-#dfM.to_excel("c:/Temp/crm.xlsx", index=False)
+#dfM.to_excel("./logs/crm.xlsx", index=False)
 
 
 dfM.set_index("Ano pesquisa", inplace=True)
