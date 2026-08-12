@@ -247,7 +247,7 @@ sql = (
     f"where f.id_dm_mercado = d.id_merc_atuacao "  
     f"and f.ano_pesquisa = {cbox_AnoPesq} "
     f'and f.cd_variavel = "h1" '
-#    f"order by 3 ; "  
+    f"order by 3 desc; "  
 )
 #with open("./logs/big_data_mercado_data.sql", "w", encoding="utf-8") as arquivo:
  #   arquivo.write(sql)
@@ -278,14 +278,14 @@ col3.write(' ')
 
 ########  PORTE
 sql = (
-    f"SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_porte_empresa 'Porte empresa', "
+    f"SELECT f.ano_pesquisa 'Ano pesquisa', f.id_dm_porte, d.ds_porte_empresa 'Porte empresa', "
     f"f.qtd_resposta_sim '% de Empresas que utilizaram',  "
     f"f.qtd_resposta_sim || ' %' as 'valor'  "
     f"from ft_ceticbr_porte f, dm_porte_empresa d "
     f"where f.id_dm_porte = d.id_porte_empresa "
     f"and f.ano_pesquisa = {cbox_AnoPesq} "
     f"and f.cd_variavel = 'h1' "
-#    f"order by 3 ; "
+    f"order by 2 ; "
 )
 with open("./logs/big_data_porte_data.sql", "w", encoding="utf-8") as arquivo:
     arquivo.write(sql)

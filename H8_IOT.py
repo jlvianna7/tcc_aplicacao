@@ -223,7 +223,7 @@ sql = (
     f"and f.ano_pesquisa = {cbox_AnoPesq} "
 #    f"and f.cd_variavel like 'h8%' "
     f"and f.cd_variavel = 'h8a' "
-    f"order by 3 ; "  
+    f"order by 3 desc; "  
 )
 
 bd = f_ConectaBD.conn
@@ -233,7 +233,7 @@ dfM1.set_index("Mercado de atuação", inplace=True)
 
 ########  PORTE
 sql = (
-    f"SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_porte_empresa 'Porte empresa', "
+    f"SELECT f.ano_pesquisa 'Ano pesquisa', f.id_dm_porte, d.ds_porte_empresa 'Porte empresa', "
     f"f.qtd_resposta_sim '% de Empresas que utilizaram',  "
     f"f.qtd_resposta_sim || ' %' as 'valor'  "
     f"from ft_ceticbr_porte f, dm_porte_empresa d "
@@ -241,7 +241,7 @@ sql = (
     f"and f.ano_pesquisa = {cbox_AnoPesq} "
 #    f"and f.cd_variavel like 'h8%' "
     f"and f.cd_variavel = 'h8a' "
-    f"order by 3 ; "
+    f"order by 2 ; "
 )
 bd = f_ConectaBD.conn
 dfP1 = pd.read_sql(sql, bd)

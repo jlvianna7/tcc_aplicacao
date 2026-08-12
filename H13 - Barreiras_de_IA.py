@@ -43,7 +43,7 @@ sql = (
     f'FROM ft_ceticbr_totais '
     f'WHERE  cd_variavel like "h13%"  ' 
     f' and ano_pesquisa = 2025 '
-    f'order by 2'
+    f'order by 2 desc'
 )
 #with open("./logs/IA_barreiras_totais.sql", "w", encoding="utf-8") as arquivo:
 #    arquivo.write(sql)
@@ -104,7 +104,7 @@ sql = (
     f"where f.id_dm_mercado = d.id_merc_atuacao "  
     f"and f.Ano_pesquisa = 2025 "
     f'and f.cd_variavel = "h13c" '
-    f"order by f.qtd_resposta_sim; "  
+    f"order by f.qtd_resposta_sim desc ; "  
 )
 with open("./logs/IA_barreira_mercado_2.sql", "w", encoding="utf-8") as arquivo:
     arquivo.write(sql)
@@ -137,13 +137,13 @@ col3.write(' ')
 
 ########  PORTE
 sql = (
-    f"SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_porte_empresa 'Porte empresa', "
+    f"SELECT f.ano_pesquisa 'Ano pesquisa', f.id_dm_porte, d.ds_porte_empresa 'Porte empresa', "
     f"f.qtd_resposta_sim '% de Empresas que utilizam', f.qtd_resposta_sim || ' %' as 'valor'  "
     f"from ft_ceticbr_porte f, dm_porte_empresa d "
     f"where f.id_dm_porte = d.id_porte_empresa "
     f"and f.ano_pesquisa = 2025 "
     f"and f.cd_variavel = 'h13c' "
-    f"order by 3 ; "
+    f"order by 2 ; "
 )
 #with open("./logs/IA_barreira_porte_2.sql", "w", encoding="utf-8") as arquivo:
  #   arquivo.write(sql)

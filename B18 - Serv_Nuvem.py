@@ -221,7 +221,7 @@ sql = (
     f"where f.id_dm_mercado = d.id_merc_atuacao "  
     f"and f.ano_pesquisa = {cbox_AnoPesq} "
     f'and f.cd_variavel = "b18d" '
-    f"order by f.qtd_resposta_sim; "  
+    f"order by f.qtd_resposta_sim desc; "  
 )
 #with open("./logs/nuvem_mercado_data.sql", "w", encoding="utf-8") as arquivo:
 #    arquivo.write(sql)
@@ -232,14 +232,14 @@ dfM1.set_index("Mercado de atuação", inplace=True)
 
 ########  PORTE
 sql = (
-    f"SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_porte_empresa 'Porte empresa', "
+    f"SELECT f.ano_pesquisa 'Ano pesquisa', f.id_dm_porte, d.ds_porte_empresa 'Porte empresa', "
     f"f.qtd_resposta_sim '% de Empresas que utilizam', "
     f"f.qtd_resposta_sim || ' %' as 'Proporção'  "
     f"from ft_ceticbr_porte f, dm_porte_empresa d "
     f"where f.id_dm_porte = d.id_porte_empresa "
     f"and f.ano_pesquisa = {cbox_AnoPesq} "
     f'and f.cd_variavel = "b18b" '
-    f"order by 3 ; "
+    f"order by 2 ; "
 )
 with open("./logs/nuvem_porte_data.sql", "w", encoding="utf-8") as arquivo:
     arquivo.write(sql)

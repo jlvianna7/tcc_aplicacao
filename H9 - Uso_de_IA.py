@@ -42,7 +42,7 @@ sql = (
     F'WHERE cd_variavel like "h9a%" '  
 #    f'order by 1, 2;'
 )
-#with open("c:/Temp/IA_totais.sql", "w", encoding="utf-8") as arquivo:
+#with open("./logs/IA_totais.sql", "w", encoding="utf-8") as arquivo:
 #    arquivo.write(sql)
 
 bd = f_ConectaBD.conn
@@ -102,7 +102,7 @@ sql = (
     f"and f.cd_variavel = dic.cd_questao_ceticbr "
     f"order by f.ano_pesquisa; "  
 )
-#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/IA_mercado.sql", "w", encoding="utf-8") as arquivo:
+#with open("./logs/IA_mercado.sql", "w", encoding="utf-8") as arquivo:
  #   arquivo.write(sql)
 
 bd = f_ConectaBD.conn
@@ -149,7 +149,7 @@ sql = (
     f"and f.cd_variavel = dic.cd_questao_ceticbr "
     f"order by f.ano_pesquisa; "  
 )
-#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/IA_porte.sql", "w", encoding="utf-8") as arquivo:
+#with open("./logs/IA_porte.sql", "w", encoding="utf-8") as arquivo:
  #   arquivo.write(sql)
 
 bd = f_ConectaBD.conn
@@ -210,9 +210,9 @@ sql = (
     f"where f.id_dm_mercado = d.id_merc_atuacao "  
     f"and f.ano_pesquisa = {cbox_AnoPesq} "
     f'and f.cd_variavel = "h9af" '
-    f"order by f.qtd_resposta_sim ; "  
+    f"order by f.qtd_resposta_sim desc; "  
 )
-#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/IA_mercado_2.sql", "w", encoding="utf-8") as arquivo:
+#with open("./logs/IA_mercado_2.sql", "w", encoding="utf-8") as arquivo:
  #   arquivo.write(sql)
 
 bd = f_ConectaBD.conn
@@ -241,16 +241,16 @@ col3.write(' ')
 
 ########  PORTE
 sql = (
-    f"SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_porte_empresa 'Porte empresa', "
+    f"SELECT f.ano_pesquisa 'Ano pesquisa', f.id_dm_porte, d.ds_porte_empresa 'Porte empresa', "
     f"f.qtd_resposta_sim '% de Empresas que utilizam', "
     f"f.qtd_resposta_sim || ' %' as 'valor'  "
     f"from ft_ceticbr_porte f, dm_porte_empresa d "
     f"where f.id_dm_porte = d.id_porte_empresa "
     f"and f.ano_pesquisa = {cbox_AnoPesq} "
     f'and f.cd_variavel = "h9af" '
-    f"order by f.qtd_resposta_sim ; "
+    f"order by f.id_dm_porte ; "
 )
-#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/IA_porte_2.sql", "w", encoding="utf-8") as arquivo:
+#with open("./logs/IA_porte_2.sql", "w", encoding="utf-8") as arquivo:
  #   arquivo.write(sql)
 
 bd = f_ConectaBD.conn

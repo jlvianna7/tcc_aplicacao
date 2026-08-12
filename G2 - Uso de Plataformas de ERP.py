@@ -213,7 +213,7 @@ sql = (
     f"where f.id_dm_mercado = d.id_merc_atuacao "  
     f"and f.ano_pesquisa = {cbox_AnoPesq} "
     f'and f.cd_variavel = "g2" '
-    f"order by 3; "  
+    f"order by 3 desc; "  
 )
 
 bd = f_ConectaBD.conn
@@ -223,14 +223,14 @@ dfM1.set_index("Mercado de atuação", inplace=True)
 
 ########  PORTE
 sql = (
-    f"SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_porte_empresa 'Porte empresa', "
+    f"SELECT f.ano_pesquisa 'Ano pesquisa', f.id_dm_porte, d.ds_porte_empresa 'Porte empresa', "
     f"f.qtd_resposta_sim '% Utiliza ERP', "
     f"f.qtd_resposta_sim || ' %' as 'valor'  "
     f"from ft_ceticbr_porte f, dm_porte_empresa d "
     f"where f.id_dm_porte = d.id_porte_empresa "
     f"and f.ano_pesquisa = {cbox_AnoPesq} "
     f'and f.cd_variavel = "g2" '
-    f"order by 3 ; "
+    f"order by 2 ; "
 )
 bd = f_ConectaBD.conn
 dfP1 = pd.read_sql(sql, bd)

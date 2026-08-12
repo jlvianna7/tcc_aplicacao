@@ -27,7 +27,7 @@ st.text('\n\n\n\n\n')
 # TOTAL PARA O INDICADOR e1 - EMPRESAS QUE COMPRARAM PELA INTERNET NOS ÚLTIMOS 12 MESES SISTEMA ÚNICO NOS ÚLTIMOS 12 MESES
 
 
-st.sidebar.color_picker = "#FF7F27"
+st.sidebar.color_picker = '#83C9FF'
 st.sidebar.write("E1 - Compraram pela internet")
 
 # %% Evolução anual, geral do uso de ERPs
@@ -59,7 +59,7 @@ sql = (
 bd = f_ConectaBD.conn
 df = pd.read_sql(sql, bd)
 
-fig_L = px.line(df, x="Ano pesquisa", y="% Compraram pela internet", height=460, markers=True)
+fig_L = px.line(df, x="Ano pesquisa", y="% Compraram pela internet", height=460, markers=True, color_discrete_sequence=['#83C9FF'])
 fig_L.update_xaxes(dtick="M12",tickformat="%Y")
 col1.plotly_chart(fig_L)
 col2.write(' ')
@@ -176,7 +176,7 @@ dfP = dfP[dfP["Porte empresa"] == cbox_porte]
 
 #col1.bar_chart(dfM["% Compraram pela internet"].astype(int), color='#CF181F')
 
-fig_p = px.line(dfM, y='% Compraram pela internet', height=500, markers=True)
+fig_p = px.line(dfM, y='% Compraram pela internet', height=500, markers=True, color_discrete_sequence=['#83C9FF'])
 #fig_p.update(layout_showlegend=False)
 #fig_p.update_coloraxes(showscale=False)
 col1.plotly_chart(fig_p)
@@ -184,7 +184,7 @@ col1.plotly_chart(fig_p)
 
 #col3.bar_chart(dfP["% Compraram pela internet"].astype(int), height=500, color='#3282F6')
 
-fig_p = px.line(dfP, y='% Compraram pela internet', height=500, markers=True)
+fig_p = px.line(dfP, y='% Compraram pela internet', height=500, markers=True, color_discrete_sequence=['#83C9FF'])
 #fig_p.update(layout_showlegend=False)
 #fig_p.update_coloraxes(showscale=False)
 col3.plotly_chart(fig_p)
@@ -222,7 +222,7 @@ sql = (
     f"where f.id_dm_mercado = d.id_merc_atuacao "  
     f"and f.ano_pesquisa = {cbox_AnoPesq} "
     f"and f.cd_variavel = 'e1' "
-    f"order by f.qtd_resposta_sim ; "  
+    f"order by f.qtd_resposta_sim desc; "  
 )
 
 bd = f_ConectaBD.conn
@@ -233,7 +233,7 @@ dfM1.set_index("Mercado de atuação", inplace=True)
 #col1.bar_chart(dfM1["% Compraram pela internet"].astype(int), color='#CF181F')
 col1.markdown('**% de empresas que compraram pela internet, :yellow-background[por mercado de atuação] no ano selecionado**')
 
-fig_p = px.bar(dfM1, y='% Compraram pela internet', text="valor", height=500)
+fig_p = px.bar(dfM1, y='% Compraram pela internet', text="valor", height=500, color_continuous_scale='#83C9FF')
 fig_p.update_coloraxes(showscale=False)
 col1.plotly_chart(fig_p)
 col2.write(' ')
@@ -242,14 +242,14 @@ col3.write(' ')
 
 ########  PORTE
 sql = (
-    f"SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_porte_empresa 'Porte empresa', "
+    f"SELECT f.ano_pesquisa 'Ano pesquisa', f.id_dm_porte, d.ds_porte_empresa 'Porte empresa', "
     f"f.qtd_resposta_sim '% Compraram pela internet', "
     f"f.qtd_resposta_sim || ' %' as 'valor'  "
     f"from ft_ceticbr_porte f, dm_porte_empresa d "
     f"where f.id_dm_porte = d.id_porte_empresa "
     f"and f.ano_pesquisa = {cbox_AnoPesq} "
     f"and f.cd_variavel = 'e1' "
-    f"order by f.qtd_resposta_sim ; "
+    f"order by 2; "
 )
 bd = f_ConectaBD.conn
 dfP1 = pd.read_sql(sql, bd)
@@ -262,7 +262,7 @@ col1.markdown('**% de empresas que compraram pela internet, :yellow-background[p
 
 #col3.bar_chart(dfP1["% Compraram pela internet"].astype(int), color='#3282F6')
 
-fig_p = px.bar(dfP1, y='% Compraram pela internet', text="valor", height=500, color_continuous_scale='armyrose')
+fig_p = px.bar(dfP1, y='% Compraram pela internet', text="valor", height=500, color_continuous_scale='#83C9FF')
 #fig_p.update(layout_showlegend=False)
 fig_p.update_coloraxes(showscale=False)
 col1.plotly_chart(fig_p)

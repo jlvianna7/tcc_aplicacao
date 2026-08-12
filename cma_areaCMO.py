@@ -68,7 +68,7 @@ df_analise = df.groupby('Área de vínculo do CMO').size().reset_index(name='Men
 df_analise['Frequência (%)'] = (df_analise['Menções'] / df_analise['Menções'].sum()) * 100
 df_analise['Frequência (%)'] = df_analise['Frequência (%)'].round(1)
 # 3. Ordena do maior para o menor
-df_analise = df_analise.sort_values(by='Frequência (%)', ascending=True)
+df_analise = df_analise.sort_values(by='Frequência (%)', ascending=False)
 
 col2.write(' ')
 df_analise.set_index('Área de vínculo do CMO', inplace=True)
@@ -112,7 +112,7 @@ df_analise['Frequência (%)'] = (df_analise['Menções'] / df_analise['Menções
 df_analise['Frequência (%)'] = df_analise['Frequência (%)'].round(1)
 
 # 3. Ordena do maior para o menor
-df_analise = df_analise.sort_values(by='Frequência (%)', ascending=True)
+df_analise = df_analise.sort_values(by='Frequência (%)', ascending=False)
 
 df_analise.set_index('Área responsável por gerir mudanças', inplace=True)
 col1.markdown('**Área, __normalmente__, responsável por gerir mudanças**\n')
