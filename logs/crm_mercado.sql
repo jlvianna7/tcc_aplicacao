@@ -1,0 +1,1 @@
+SELECT f.ano_pesquisa 'Ano pesquisa', substr(d.ds_merc_atuacao_abrev, 1, 25) 'Mercado de atuação', f.qtd_resposta_sim '% Utiliza CRM', f.qtd_resposta_sim || ' %' as 'valor'  from ft_ceticbr_mercado f, dm_mercado_atuacao d where f.id_dm_mercado = d.id_merc_atuacao and f.ano_pesquisa = 2014 and f.cd_variavel = "g3" order by 3 desc; 

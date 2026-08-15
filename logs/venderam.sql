@@ -1,0 +1,1 @@
+SELECT ano_pesquisa "Ano pesquisa", qtd_resposta_sim "% Empresas" FROM ft_ceticbr_totais WHERE cd_variavel = "e2b" ORDER BY ano_pesquisa; 

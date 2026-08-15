@@ -1,0 +1,1 @@
+SELECT cd_variavel, ano_pesquisa "Ano pesquisa", contexto "Tipo de serviço", qtd_resposta_sim "% de Empresas que utilizam" FROM ft_ceticbr_totais WHERE cd_variavel like "h3b%" order by 1, 2;

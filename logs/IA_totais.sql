@@ -1,0 +1,1 @@
+SELECT ano_pesquisa AS "Ano pesquisa", contexto "Tipo de ferramenta", qtd_resposta_sim "% de Empresas que utilizam",  (qtd_resposta_sim || " %") as valor FROM ft_ceticbr_totais WHERE cd_variavel like "h9a%" order by 1, 2;

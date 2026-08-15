@@ -36,20 +36,22 @@ st.subheader("Evolução da utilização de :yellow-background[Inteligência art
 col1, col2, col3 = st.columns([0.96, 0.02, 0.02])
 
 sql = (
-    f'SELECT CAST(ano_pesquisa AS INTEGER) AS "Ano pesquisa", contexto "Tipo de ferramenta", '
+#    f'SELECT CAST(ano_pesquisa AS INTEGER) AS "Ano pesquisa", contexto "Tipo de ferramenta", '
+    f'SELECT ano_pesquisa AS "Ano pesquisa", contexto "Tipo de ferramenta", '
     f'qtd_resposta_sim "% de Empresas que utilizam",  (qtd_resposta_sim || " %") as valor ' 
     f'FROM ft_ceticbr_totais '
     F'WHERE cd_variavel like "h9a%" '  
-#    f'order by 1, 2;'
+    f'order by 1, 2;'
 )
-#with open("./logs/IA_totais.sql", "w", encoding="utf-8") as arquivo:
-#    arquivo.write(sql)
+with open("./logs/IA_totais.sql", "w", encoding="utf-8") as arquivo:
+    arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 dfl = pd.read_sql(sql, bd)
 dfl.set_index("Ano pesquisa", inplace=True)
 
 fig_L = px.line(dfl, y="% de Empresas que utilizam", color="Tipo de ferramenta", height=640, markers=True)
+fig_L.update_xaxes(dtick="M12",tickformat="%Y")
 fig_L.update_layout(
     legend=dict(
         orientation="h",
@@ -117,6 +119,7 @@ col2.write(' ')
 col3.write(' ')
 
 fig_L = px.line(dfM, y="% de Empresas que utilizam", color="Mercado de atuação", height=640, markers=True)
+fig_L.update_xaxes(dtick="M12",tickformat="%Y")
 fig_L.update_layout(
     legend=dict(
         orientation="h",
@@ -161,6 +164,7 @@ col3.write(' ')
 
 
 fig_L = px.line(dfP, y="% de Empresas que utilizam", color="Porte da empresa", height=640, markers=True)
+fig_L.update_xaxes(dtick="M12",tickformat="%Y")
 fig_L.update_layout(
     legend=dict(
         orientation="h",

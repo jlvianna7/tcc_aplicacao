@@ -23,7 +23,7 @@ st.text('\n\n\n\n\n')
 
 
 st.subheader("Pesquisa CMA - Qual é o maior desafio para a transformação organizacional da sua organização nos próximos 2 anos?")
-st.markdown("Nos dias atuais, quando falamos em transformação nas organizações, estamos quase que de forma intrinseca falando transofmração digital. \n"
+st.markdown("Nos dias atuais, quando falamos em transformação nas organizações, estamos quase que de forma intrinseca falando de transformação digital. \n"
             "A pesquisa quis entender, das organizações que tem e das que não tem um CMO estruturado, para o contexto da Transformação Digital,"
             " quais sãos maiores os desafios, relacionados a mudanças, vislumbrados nos próximos dois anos.") 
 st.write(' \n')
@@ -50,6 +50,10 @@ df_analise = df_analise.sort_values(by='Frequência (%)', ascending=False)
 
 col1, col2 = st.columns([0.70, 0.30])
 
-col1.table(df_analise)
+
+#col1.table(df_analise, hide_index=True)
+
+col1.table(df_analise.style.format({"Maior desafio": None , "Menções": "{:.0f}", "Frequência (%)": "{:.1f}%"}), hide_index=True)
+
 col2.write(' ')
 #bd.close

@@ -46,7 +46,7 @@ df_analise = df.groupby('Tipos de mudanças').size().reset_index(name='Menções
 
 # 2. Calcula o percentual sobre o total da coluna 'Quantidade'
 df_analise['Frequência (%)'] = (df_analise['Menções'] / df_analise['Menções'].sum()) * 100
-df_analise['Frequência (%)'] = df_analise['Frequência (%)'].round(2)
+df_analise['Frequência (%)'] = df_analise['Frequência (%)'].round(1)
 # 3. Ordena do maior para o menor
 df_analise = df_analise.sort_values(by='Frequência (%)', ascending=False)
 
@@ -58,12 +58,15 @@ col1.write(' \n')
 col1.write(' \n')
 col1.write(' \n')
 col1.write(' \n')
-col1.table(df_analise)
+
+col1.table(df_analise.style.format({"Tipos de mudanças": None , "Menções": "{:.0f}", "Frequência (%)": "{:.1f}%"}), hide_index=True)
+
 col2.write(' ')
-df_analise.set_index('Tipos de mudanças', inplace=True)
 
 
 col1, col2, col3 = st.columns([0.98, 0.01, 0.01])
+
+df_analise.set_index('Tipos de mudanças', inplace=True)
 
 fig = px.bar(df_analise, y="Frequência (%)", text=df_analise["Frequência (%)"].astype(str) + " %", height=500, color_discrete_sequence=['#75FA8D', '#3282F6', '#FF33A1'])
 fig.update_traces(texttemplate='%{text:.1%:}')

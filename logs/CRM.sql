@@ -1,0 +1,1 @@
+SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_merc_atuacao 'Mercado de atuação', f.qtd_resposta_sim '% Utiliza CRM' from ft_ceticbr_mercado f, dm_mercado_atuacao d where f.id_dm_mercado = d.id_merc_atuacao and f.cd_variavel = "g3" order by f.ano_pesquisa; 

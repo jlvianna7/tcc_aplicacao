@@ -1,0 +1,23 @@
+cd_variavel,Ano pesquisa,Serviço,% de Empresas que utilizam,Proporção
+b18a,2017,Software de escritório,20,20 %
+b18a,2019,Software de escritório,27,27 %
+b18a,2021,Software de escritório,32,32 %
+b18a,2023,Software de escritório,34,34 %
+b18a,2024,Software de escritório,35,35 %
+b18a,2025,Software de escritório,38,38 %
+b18b,2017,Aramazenamento ou Banco de Dados,25,25 %
+b18b,2019,Aramazenamento ou Banco de Dados,38,38 %
+b18b,2021,Aramazenamento ou Banco de Dados,45,45 %
+b18b,2023,Aramazenamento ou Banco de Dados,48,48 %
+b18b,2024,Aramazenamento ou Banco de Dados,49,49 %
+b18b,2025,Aramazenamento ou Banco de Dados,54,54 %
+b18c,2017,Capacidade de processamento,16,16 %
+b18c,2019,Capacidade de processamento,23,23 %
+b18c,2021,Capacidade de processamento,29,29 %
+b18c,2023,Capacidade de processamento,33,33 %
+b18c,2024,Capacidade de processamento,33,33 %
+b18c,2025,Capacidade de processamento,36,36 %
+b18d,2021,Ambiente de desenvolvimento,22,22 %
+b18d,2023,Ambiente de desenvolvimento,24,24 %
+b18d,2024,Ambiente de desenvolvimento,22,22 %
+b18d,2025,Ambiente de desenvolvimento,26,26 %

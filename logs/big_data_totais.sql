@@ -1,0 +1,1 @@
+SELECT cd_variavel, ano_pesquisa "Ano pesquisa", contexto "Análise", qtd_resposta_sim "% de Empresas que utilizam",  qtd_resposta_sim || " %" as "Proporção"  FROM ft_ceticbr_totais WHERE cd_variavel = "h1" order by 2;

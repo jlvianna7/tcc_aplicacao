@@ -154,5 +154,8 @@ col1, col2 = st.columns([0.70, 0.30])
 col1.write(' ')
 col2.write(' ')
 col1.subheader("Principais desafios para a gestão de mudanças nestas organizações", divider='gray')
-col1.table(df_analise)
+
+#col1.table(df_analise)
+
+col1.table(df_analise.style.format({"Descrição": None , "Menções": "{:.0f}", "Frequência (%)": "{:.1f}%"}), hide_index=True)
 col2.write(' ')

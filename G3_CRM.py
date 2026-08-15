@@ -210,6 +210,8 @@ sql = (
 bd = f_ConectaBD.conn
 dfM1 = pd.read_sql(sql, bd)
 dfM1.set_index("Mercado de atuação", inplace=True)
+with open("./logs/crm_mercado.sql", "w", encoding="utf-8") as arquivo:
+    arquivo.write(sql)
 # dfM = dfM[dfM["Mercado de atuação"] == cbox_mercado]
 
 ########  PORTE

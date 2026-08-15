@@ -1,0 +1,1 @@
+SELECT SUBSTRING(d.ds_merc_atuacao, 1, 25) || "..." as "Mercado de atuação",  ROUND(AVG(f.qtd_resposta_sim),1) "% de Empresas que utilizam", ROUND(AVG(f.qtd_resposta_sim),1) || " %" as "valor" from ft_ceticbr_mercado f, dm_mercado_atuacao d where f.id_dm_mercado = d.id_merc_atuacao and f.cd_variavel like "h3b%" group by f.id_dm_mercado order by valor ;  

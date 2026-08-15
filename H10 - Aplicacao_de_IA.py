@@ -49,6 +49,7 @@ dfl = pd.read_sql(sql, bd)
 dfl.set_index("Ano pesquisa", inplace=True)
 
 fig_L = px.line(dfl, y="% de Empresas que utilizam", color="Aplicação", height=640, markers=True)
+fig_L.update_xaxes(dtick="M12",tickformat="%Y")
 fig_L.update_layout(
     legend=dict(
         orientation="h",
@@ -116,6 +117,7 @@ col2.write(' ')
 col3.write(' ')
 
 fig_L = px.line(dfM, y="% de Empresas que utilizam", color="Mercado de atuação", height=640, markers=True)
+fig_L.update_xaxes(dtick="M12",tickformat="%Y")
 fig_L.update_layout(
     legend=dict(
         orientation="h",
@@ -160,6 +162,7 @@ col3.write(' ')
 
 
 fig_L = px.line(dfP, y="% de Empresas que utilizam", color="Porte da empresa", height=640, markers=True)
+fig_L.update_xaxes(dtick="M12",tickformat="%Y")
 fig_L.update_layout(
     legend=dict(
         orientation="h",

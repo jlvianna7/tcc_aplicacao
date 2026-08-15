@@ -1,0 +1,1 @@
+SELECT ano_pesquisa "Ano pesquisa", qtd_resposta_sim "% Compraram pela internet" FROM ft_ceticbr_totais WHERE cd_variavel = "e1" ORDER BY ano_pesquisa; 
