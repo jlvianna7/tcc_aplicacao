@@ -1,3 +1,4 @@
+
 ### Programa principal  
 
 
@@ -5,7 +6,12 @@ import streamlit as st
 
 #from acs_anacor_ml import app
 #from acs_anacor_ml import ca_core
-
+#from acs_anacor_ml.ca_core import (
+#    CAError,
+#    CAResult,
+#    example_table,
+#    run_ca,
+#)
 
 pages = {
     "🏠 Início": [
@@ -20,8 +26,8 @@ pages = {
         st.Page("G3_CRM.py", title="Uso de sistemas CRM"),
     ],
     "📱 Novas Tecnologias": [
-        st.Page("H1 - BigData.py", title="Análises de Big Data"),
         st.Page("B18 - Serv_Nuvem.py", title="Serviços de Nuvem"),
+        st.Page("H1 - BigData.py", title="Análises de Big Data"),
 #        st.Page("H3 - Uso_de_Robos.py", title="Uso de robôs industriais"),
 #        st.Page("H4 - Impressao_3D.py", title="Impressão 3D"),
         st.Page("H3B - Uso_de_Robos_Servico.py", title="Uso de robôs de Serviços"),
@@ -43,17 +49,18 @@ pages = {
         st.Page("cma_maiorDesafioTD.py", title="Maior desafio para a TD"),
     ],
 #    "🎇 Técnicas de Machine Learning": [
-#        st.Page("main_anacor", title="ANACOR - Análise de Correspondência Simples"),
-#        st.Page("app.py", title="Análise de Correspondência Simples"),
+#        st.Page("acs_anacor_ml/main_anacor.py", title="ANACOR - Análise de Correspondência Simples"),
+#        st.Page("acs_anacor_ml/app.py", title="Análise de Correspondência Simples"),
 #    ],
 }
+
 st.sidebar.markdown("Pesquisa acadêmica   \n DSA - USP/ESALQ")
 st.sidebar.write(" \n")
 st.sidebar.markdown("Fonte de dados: [Cetic.br](https://cetic.br/pt/)")   
 st.sidebar.markdown("Fonte de dados: [CMA](https://www.change-management-alliance.network/spaces/22440777/page)")   
 st.sidebar.write("__________________________________________________________________________")
 st.sidebar.markdown(":books: Desenvolvido por: [Joao Luiz Vianna](mailto:vianna.joaoluiz@gmail.com)")
-st.sidebar.write("versão: 2.0.3")
+st.sidebar.write("versão: 2.0.4")
 st.sidebar.write("__________________________________________________________________________")
 st.sidebar.write(" \n")
 st.sidebar.write(" \n")

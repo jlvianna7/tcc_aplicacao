@@ -45,8 +45,8 @@ sql = (
     f' and ano_pesquisa = 2025 '
     f'order by 2 desc'
 )
-#with open("./logs/IA_barreiras_totais.sql", "w", encoding="utf-8") as arquivo:
-#    arquivo.write(sql)
+with open("./logs/IA_barreiras_totais.sql", "w", encoding="utf-8") as arquivo:
+    arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 dfl = pd.read_sql(sql, bd)

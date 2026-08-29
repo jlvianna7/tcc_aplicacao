@@ -1,0 +1,1 @@
+SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_porte_empresa 'Porte da empresa', f.qtd_resposta_sim '% de Empresas que utilizam', dic.nm_questao_variavel 'área de aplicação' from ft_ceticbr_porte f, dm_porte_empresa d, dm_dicionario_questoes_ceticbr dic where f.id_dm_porte = d.id_porte_empresa and f.cd_variavel = dic.cd_questao_ceticbr order by f.ano_pesquisa; 

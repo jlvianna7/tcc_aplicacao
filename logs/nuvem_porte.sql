@@ -1,0 +1,1 @@
+SELECT f.ano_pesquisa 'Ano pesquisa', f.id_dm_porte, d.ds_porte_empresa 'Porte empresa', f.qtd_resposta_sim '% de Empresas que utilizam', f.qtd_resposta_sim || ' %' as 'Proporção'  from ft_ceticbr_porte f, dm_porte_empresa d where f.id_dm_porte = d.id_porte_empresa and f.ano_pesquisa = 2025 and f.cd_variavel = "b18b" order by 2 ; 

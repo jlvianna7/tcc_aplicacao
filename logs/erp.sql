@@ -1,0 +1,1 @@
+SELECT cd_variavel, ano_pesquisa "Ano pesquisa", qtd_resposta_sim "% Utilizam ERP" FROM ft_ceticbr_totais  WHERE cd_variavel = "g2" ORDER BY ano_pesquisa; 

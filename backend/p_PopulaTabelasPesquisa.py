@@ -19,12 +19,12 @@ warnings.filterwarnings("ignore", category=UserWarning, module="openpyxl")
 
 # %% seleciona qual tabela (aba excel) a ser lida
 
-#v_tabelaCetic = 'H7'  ###  <<<<<<--------  SELECIONAR A PESQUISA (SHEET)
+v_tabelaCetic = 'B18'  ###  <<<<<<--------  SELECIONAR A PESQUISA (SHEET)
 v_append_or_write = 'a'  ###  <<<<<<------ SE GERA NOVO SCRIPT OU SE INCLUI NO FINAL
 
 #variaveis = ['B18a','B18b','B18c','B18d','E1','E2B','G2','G3','H10a','H10b','H10c','H10d','H10e','H10f','H10g','H13a','H13b','H13c','H13d','H13e','H13f','H13g','H13h','H13i','H1aa','H1ab','H1ac','H1ad','H3ba','H3bb','H3bc','H3bd','H3be','H3bf','H3bg','H4','H8a','H8b','H8c','H8d','H8e','H8f','H9aa','H9ab','H9ac','H9ad','H9ae','H9af','H9ag']
-variaveis = ['E1','E2B','G2','G3','H1','H7','H9','B18a','B18b','B18c','B18d','H10a','H10b','H10c','H10d','H10e','H10f','H10g','H13a','H13b','H13c','H13d','H13e','H13f','H13g','H13h','H13i','H1aa','H1ab','H1ac','H3ba','H3bb','H3bc','H3bd','H3Be','H3Bf','H3Bg','H8a','H8b','H8c','H8d','H8e','H8f','H9aa','H9ab','H9ac','H9ad','H9ae','H9af','H9ag']
-#variaveis = ['H9','H1','H7']
+variaveis = ['E1','E2B','G2','G3','H1','H7','H9','B18','B18a','B18b','B18c','B18d','H10a','H10b','H10c','H10d','H10e','H10f','H10g','H13a','H13b','H13c','H13d','H13e','H13f','H13g','H13h','H13i','H1aa','H1ab','H1ac','H3ba','H3bb','H3bc','H3bd','H3Be','H3Bf','H3Bg','H8a','H8b','H8c','H8d','H8e','H8f','H9aa','H9ab','H9ac','H9ad','H9ae','H9af','H9ag']
+variaveis = ['B18']
 
 
 for v_tabelaCetic in variaveis: 
@@ -762,7 +762,7 @@ for v_tabelaCetic in variaveis:
     if v_tabelaCetic in ['E1', 'E2B', 'G2', 'G3']:
         df_tabTotais = pd.concat([df_TOTAIS2014, df_TOTAIS2015, df_TOTAIS2017, df_TOTAIS2019,
                                 df_TOTAIS2021, df_TOTAIS2023, df_TOTAIS2024, df_TOTAIS2025], ignore_index=True)
-    elif v_tabelaCetic in ['B18a','B18b','B18c']:
+    elif v_tabelaCetic in ['B18', 'B18a', 'B18b', 'B18c']:
         df_tabTotais = pd.concat([df_TOTAIS2017, df_TOTAIS2019, df_TOTAIS2021, df_TOTAIS2023, 
                                 df_TOTAIS2024, df_TOTAIS2025], ignore_index=True)
     elif v_tabelaCetic in ['H1','H1Aa', 'H1Ab', 'H1Ac', 'H3', 'H3A', 'H3B', 'H4']:
@@ -805,7 +805,7 @@ for v_tabelaCetic in variaveis:
     if v_tabelaCetic in ['E1', 'E2B', 'G2', 'G3']:
         df_tabporte = pd.concat([df_porte2014, df_porte2015, df_porte2017, df_porte2019,
                                 df_porte2021, df_porte2023, df_porte2024, df_porte2025], ignore_index=True)
-    elif v_tabelaCetic in ['B18a','B18b','B18c']:
+    elif v_tabelaCetic in ['B18', 'B18a', 'B18b', 'B18c']:
         df_tabporte = pd.concat([df_porte2017, df_porte2019,  df_porte2021, df_porte2023, df_porte2024, df_porte2025], ignore_index=True)
 
     elif v_tabelaCetic in ['H1','H1Aa', 'H1Ab', 'H1Ac', 'H3', 'H3A', 'H3B', 'H4']:
@@ -857,7 +857,7 @@ for v_tabelaCetic in variaveis:
     if v_tabelaCetic in ['E1', 'E2B', 'G2', 'G3']:
         df_tabmercado = pd.concat([df_mercado2014, df_mercado2015, df_mercado2017, df_mercado2019,
                                 df_mercado2021, df_mercado2023, df_mercado2024, df_mercado2025], ignore_index=True)
-    elif v_tabelaCetic in ['B18a','B18b','B18c']:
+    elif v_tabelaCetic in ['B18','B18a','B18b','B18c']:
         df_tabmercado = pd.concat([df_mercado2017, df_mercado2019, df_mercado2021, df_mercado2023, df_mercado2024, df_mercado2025], ignore_index=True)
     elif v_tabelaCetic in ['H1', 'H1Aa', 'H1Ab', 'H1Ac', 'H3', 'H3A', 'H3B', 'H4']:
         df_tabmercado = pd.concat([df_mercado2019, df_mercado2021, df_mercado2023, df_mercado2024, df_mercado2025], ignore_index=True)

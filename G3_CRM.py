@@ -41,6 +41,8 @@ sql = (
     f'WHERE cd_variavel = "g3" '
     f'ORDER BY ano_pesquisa; '
 )
+with open("logs/CRM.sql", "w", encoding="utf-8") as arquivo:
+    arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 df = pd.read_sql(sql, bd)
@@ -128,7 +130,7 @@ sql = (
 
 bd = f_ConectaBD.conn
 dfM = pd.read_sql(sql, bd)
-#dfM.to_excel("./logs/crm.xlsx", index=False)
+dfM.to_excel("./logs/crm.xlsx", index=False)
 
 
 dfM.set_index("Ano pesquisa", inplace=True)
@@ -185,7 +187,7 @@ st.write('')
 sql = (
     f'SELECT ano_pesquisa "Ano pesquisa" '
     f'FROM dm_resumo_pesquisa '
-    f'order by ano_pesquisa; '
+    f'order by ano_pesquisa desc; '
 )
 
 bd = f_ConectaBD.conn

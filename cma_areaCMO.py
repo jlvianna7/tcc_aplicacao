@@ -45,8 +45,12 @@ col1, col2, col3 = st.columns([0.33, 0.02, 0.65])
 df_pizza = df["Tem CMO estruturado"].value_counts().reset_index()
 df_pizza.columns = ["Tem CMO estruturado", "Quantidade"]
 
+#df_pizza.to_excel("./logs/TEM_cmo.xlsx", index=False)
+
 # Cria o gráfico de pizza
 fig = px.pie(df_pizza, values="Quantidade", names="Tem CMO estruturado", title="A organização possui um CMO estruturado")
+
+
 # Exibe no Streamlit
 col1.plotly_chart(fig)
 
@@ -61,14 +65,17 @@ bd = f_ConectaBD.conn
 df = pd.read_sql(sql, bd)
 #bd.close()
 
+
 # 1. Agrupa e conta os registros
 df_analise = df.groupby('Área de vínculo do CMO').size().reset_index(name='Menções')
 
 # 2. Calcula o percentual sobre o total da coluna 'Quantidade'
 df_analise['Frequência (%)'] = (df_analise['Menções'] / df_analise['Menções'].sum()) * 100
-df_analise['Frequência (%)'] = df_analise['Frequência (%)'].round(1)
+df_analise['Frequência (%)'] = df_analise['Frequência (%)'].round(0)
 # 3. Ordena do maior para o menor
 df_analise = df_analise.sort_values(by='Frequência (%)', ascending=False)
+
+#df_analise.to_excel("./logs/cma_area_cmo.xlsx", index=False)
 
 col2.write(' ')
 df_analise.set_index('Área de vínculo do CMO', inplace=True)

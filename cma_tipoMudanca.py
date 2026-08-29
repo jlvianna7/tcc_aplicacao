@@ -36,7 +36,6 @@ sql = (
     f'from ft_cma_tipomudanca '
 )
 
-
 bd = f_ConectaBD.conn
 df = pd.read_sql(sql, bd)
 
@@ -65,6 +64,7 @@ col2.write(' ')
 
 
 col1, col2, col3 = st.columns([0.98, 0.01, 0.01])
+#df_analise.to_excel("./logs/cma_tipo_mudanca.xlsx", index=False)
 
 df_analise.set_index('Tipos de mudanças', inplace=True)
 

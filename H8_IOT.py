@@ -54,7 +54,7 @@ sql = (
 
 bd = f_ConectaBD.conn
 dfl = pd.read_sql(sql, bd)
-#dfl.to_csv("./logs/iot.csv", index=False)
+dfl.to_excel("./logs/iot.xlsx", index=False)
 dfl.set_index("Ano pesquisa", inplace=True)
 
 
@@ -131,6 +131,7 @@ col2.write(' ')
 col3.write(' ')
 
 fig_L = px.line(dfM, y="% de Empresas que utilizaram", color="Mercado de atuação", height=640, markers=True)
+fig_L.update_xaxes(dtick="M12",tickformat="%Y")
 fig_L.update_layout(
     legend=dict(
         orientation="h",
@@ -175,6 +176,7 @@ col3.write(' ')
 
 
 fig_L = px.line(dfP, y="% de Empresas que utilizaram", color="Porte da empresa", height=640, markers=True)
+fig_L.update_xaxes(dtick="M12",tickformat="%Y")
 fig_L.update_layout(
     legend=dict(
         orientation="h",
@@ -203,7 +205,7 @@ sql = (
     f'SELECT DISTINCT ano_pesquisa "Ano pesquisa" '
     f'FROM ft_ceticbr_totais '
     f'WHERE cd_variavel like "h8%" '
-    f'order by ano_pesquisa; '
+    f'order by ano_pesquisa desc; '
 )
 
 bd = f_ConectaBD.conn

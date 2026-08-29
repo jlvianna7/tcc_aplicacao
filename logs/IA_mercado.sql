@@ -1,0 +1,1 @@
+SELECT f.ano_pesquisa 'Ano pesquisa', d.ds_merc_atuacao_abrev 'Mercado de atuação', f.qtd_resposta_sim '% de Empresas que utilizam', dic.nm_questao_variavel 'Tipo de ferramenta' from ft_ceticbr_mercado f, dm_mercado_atuacao d, dm_dicionario_questoes_ceticbr dic where f.id_dm_mercado = d.id_merc_atuacao and f.cd_variavel = dic.cd_questao_ceticbr order by f.ano_pesquisa; 

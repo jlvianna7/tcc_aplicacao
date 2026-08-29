@@ -1,0 +1,232 @@
+id_totais;ano_pesquisa;cd_variavel;contexto;qtd_resposta_sim
+260;2017;b18a;Software de escritório;20
+261;2019;b18a;Software de escritório;27
+262;2021;b18a;Software de escritório;32
+263;2023;b18a;Software de escritório;34
+264;2024;b18a;Software de escritório;35
+265;2025;b18a;Software de escritório;38
+266;2017;b18b;Aramazenamento ou Banco de Dados;25
+267;2019;b18b;Aramazenamento ou Banco de Dados;38
+268;2021;b18b;Aramazenamento ou Banco de Dados;45
+269;2023;b18b;Aramazenamento ou Banco de Dados;48
+270;2024;b18b;Aramazenamento ou Banco de Dados;49
+271;2025;b18b;Aramazenamento ou Banco de Dados;54
+272;2017;b18c;Capacidade de processamento;16
+273;2019;b18c;Capacidade de processamento;23
+274;2021;b18c;Capacidade de processamento;29
+275;2023;b18c;Capacidade de processamento;33
+276;2024;b18c;Capacidade de processamento;33
+277;2025;b18c;Capacidade de processamento;36
+278;2021;b18d;Ambiente de desenvolvimento;22
+279;2023;b18d;Ambiente de desenvolvimento;24
+280;2024;b18d;Ambiente de desenvolvimento;22
+281;2025;b18d;Ambiente de desenvolvimento;26
+228;2014;e1;Compraram pela internet;62
+229;2015;e1;Compraram pela internet;63
+230;2017;e1;Compraram pela internet;66
+231;2019;e1;Compraram pela internet;70
+232;2021;e1;Compraram pela internet;77
+233;2023;e1;Compraram pela internet;73
+234;2024;e1;Compraram pela internet;72
+235;2025;e1;Compraram pela internet;78
+236;2014;e2b;Venderam pela internet;21
+237;2015;e2b;Venderam pela internet;21
+238;2017;e2b;Venderam pela internet;22
+239;2019;e2b;Venderam pela internet;57
+240;2021;e2b;Venderam pela internet;73
+241;2023;e2b;Venderam pela internet;70
+242;2024;e2b;Venderam pela internet;61
+243;2025;e2b;Venderam pela internet;68
+244;2014;g2;Plataformas ERPs;29
+245;2015;g2;Plataformas ERPs;28
+246;2017;g2;Plataformas ERPs;27
+247;2019;g2;Plataformas ERPs;29
+248;2021;g2;Plataformas ERPs;33
+249;2023;g2;Plataformas ERPs;33
+250;2024;g2;Plataformas ERPs;34
+251;2025;g2;Plataformas ERPs;36
+252;2014;g3;Aplicação de CRM;23
+253;2015;g3;Aplicação de CRM;20
+254;2017;g3;Aplicação de CRM;21
+255;2019;g3;Aplicação de CRM;22
+256;2021;g3;Aplicação de CRM;27
+257;2023;g3;Aplicação de CRM;28
+258;2024;g3;Aplicação de CRM;25
+259;2025;g3;Aplicação de CRM;31
+459;2019;h1;Análise de Big Data;10
+460;2021;h1;Análise de Big Data;6
+461;2023;h1;Análise de Big Data;7
+462;2024;h1;Análise de Big Data;6
+463;2025;h1;Análise de Big Data;6
+464;2019;h1;Análise de Big Data;10
+465;2021;h1;Análise de Big Data;6
+466;2023;h1;Análise de Big Data;7
+467;2024;h1;Análise de Big Data;6
+468;2025;h1;Análise de Big Data;6
+282;2021;h10a;Marketing ou vendas;41
+283;2023;h10a;Marketing ou vendas;47
+284;2024;h10a;Marketing ou vendas;37
+285;2025;h10a;Marketing ou vendas;44
+286;2021;h10b;Processos de produção;29
+287;2023;h10b;Processos de produção;32
+288;2024;h10b;Processos de produção;24
+289;2025;h10b;Processos de produção;23
+290;2021;h10c;Porcessos administrativos;38
+291;2023;h10c;Porcessos administrativos;37
+292;2024;h10c;Porcessos administrativos;33
+293;2025;h10c;Porcessos administrativos;35
+294;2021;h10d;Gestão de empresas;39
+295;2023;h10d;Gestão de empresas;39
+296;2024;h10d;Gestão de empresas;35
+297;2025;h10d;Gestão de empresas;34
+298;2021;h10e;Logística;33
+299;2023;h10e;Logística;32
+300;2024;h10e;Logística;24
+301;2025;h10e;Logística;22
+302;2021;h10f;Segurança digital;47
+303;2023;h10f;Segurança digital;43
+304;2024;h10f;Segurança digital;36
+305;2025;h10f;Segurança digital;34
+306;2021;h10g;Recursos humanos;32
+307;2023;h10g;Recursos humanos;34
+308;2024;h10g;Recursos humanos;28
+309;2025;h10g;Recursos humanos;24
+310;2021;h13a;Custos;16
+311;2023;h13a;Custos;17
+312;2024;h13a;Custos;15
+313;2025;h13a;Custos;13
+314;2021;h13b;Por falta de pessoas capacitadas;14
+315;2023;h13b;Por falta de pessoas capacitadas;17
+316;2024;h13b;Por falta de pessoas capacitadas;14
+317;2025;h13b;Por falta de pessoas capacitadas;14
+318;2021;h13c;Limitação tecnológica;19
+319;2023;h13c;Limitação tecnológica;19
+320;2024;h13c;Limitação tecnológica;14
+321;2025;h13c;Limitação tecnológica;13
+322;2021;h13d;Dificuldade com os dados;14
+323;2023;h13d;Dificuldade com os dados;16
+324;2024;h13d;Dificuldade com os dados;11
+325;2025;h13d;Dificuldade com os dados;10
+326;2021;h13e;Preocupação com LGPD;11
+327;2023;h13e;Preocupação com LGPD;12
+328;2024;h13e;Preocupação com LGPD;10
+329;2025;h13e;Preocupação com LGPD;10
+330;2021;h13f;Preocupação com consequências legais;9
+331;2023;h13f;Preocupação com consequências legais;12
+332;2024;h13f;Preocupação com consequências legais;10
+333;2025;h13f;Preocupação com consequências legais;9
+334;2021;h13g;Questões éticas;7
+335;2023;h13g;Questões éticas;9
+336;2024;h13g;Questões éticas;6
+337;2025;h13g;Questões éticas;7
+338;2021;h13h;Não enxergam utilidade;18
+339;2023;h13h;Não enxergam utilidade;17
+340;2024;h13h;Não enxergam utilidade;15
+341;2025;h13h;Não enxergam utilidade;13
+342;2021;h13i;Falta de conhecimento técnico;16
+343;2023;h13i;Falta de conhecimento técnico;18
+344;2024;h13i;Falta de conhecimento técnico;14
+345;2025;h13i;Falta de conhecimento técnico;14
+346;2019;h1aa;Dados de dispositivos inteligentes;66
+347;2021;h1aa;Dados de dispositivos inteligentes;74
+348;2023;h1aa;Dados de dispositivos inteligentes;67
+349;2024;h1aa;Dados de dispositivos inteligentes;59
+350;2025;h1aa;Dados de dispositivos inteligentes;70
+351;2019;h1ab;Dados de geolocalização e de diispositivos móveis;60
+352;2021;h1ab;Dados de geolocalização e de diispositivos móveis;58
+353;2023;h1ab;Dados de geolocalização e de diispositivos móveis;59
+354;2024;h1ab;Dados de geolocalização e de diispositivos móveis;62
+355;2025;h1ab;Dados de geolocalização e de diispositivos móveis;64
+356;2019;h1ac;Dados de mídias sociais;57
+357;2021;h1ac;Dados de mídias sociais;58
+358;2023;h1ac;Dados de mídias sociais;64
+359;2024;h1ac;Dados de mídias sociais;65
+360;2025;h1ac;Dados de mídias sociais;66
+361;2021;h3ba;Vigilância, segurança ou inspeção;45
+362;2023;h3ba;Vigilância, segurança ou inspeção;34
+363;2024;h3ba;Vigilância, segurança ou inspeção;29
+364;2025;h3ba;Vigilância, segurança ou inspeção;38
+365;2021;h3bb;Transporte de pessoas ou mercadorias;27
+366;2023;h3bb;Transporte de pessoas ou mercadorias;8
+367;2024;h3bb;Transporte de pessoas ou mercadorias;17
+368;2025;h3bb;Transporte de pessoas ou mercadorias;14
+369;2021;h3bc;Limpeza ou eliminação de resíduos;25
+370;2023;h3bc;Limpeza ou eliminação de resíduos;42
+371;2024;h3bc;Limpeza ou eliminação de resíduos;48
+372;2025;h3bc;Limpeza ou eliminação de resíduos;22
+373;2021;h3bd;Gerenciamento de estoque;41
+374;2023;h3bd;Gerenciamento de estoque;38
+375;2024;h3bd;Gerenciamento de estoque;50
+376;2025;h3bd;Gerenciamento de estoque;37
+377;2021;h3be;Trabalhos de montagem;29
+378;2023;h3be;Trabalhos de montagem;26
+379;2024;h3be;Trabalhos de montagem;39
+380;2025;h3be;Trabalhos de montagem;30
+381;2021;h3bf;Atendimento ao cliente;3
+382;2023;h3bf;Atendimento ao cliente;3
+383;2024;h3bf;Atendimento ao cliente;6
+384;2025;h3bf;Atendimento ao cliente;7
+385;2021;h3bg;Construção e reparos;15
+386;2023;h3bg;Construção e reparos;31
+387;2024;h3bg;Construção e reparos;30
+388;2025;h3bg;Construção e reparos;29
+469;2021;h7;Internet das coisas;14
+470;2023;h7;Internet das coisas;14
+471;2024;h7;Internet das coisas;14
+472;2025;h7;Internet das coisas;14
+389;2021;h8a;Gerenciamentos de consumos, medidores inteligentes;44
+390;2023;h8a;Gerenciamentos de consumos, medidores inteligentes;46
+391;2024;h8a;Gerenciamentos de consumos, medidores inteligentes;50
+392;2025;h8a;Gerenciamentos de consumos, medidores inteligentes;48
+393;2021;h8b;Dispositivos de segurança;85
+394;2023;h8b;Dispositivos de segurança;84
+395;2024;h8b;Dispositivos de segurança;84
+396;2025;h8b;Dispositivos de segurança;90
+397;2021;h8c;Automatização de processos de produção;29
+398;2023;h8c;Automatização de processos de produção;27
+399;2024;h8c;Automatização de processos de produção;32
+400;2025;h8c;Automatização de processos de produção;28
+401;2021;h8d;Gestão de logística;39
+402;2023;h8d;Gestão de logística;39
+403;2024;h8d;Gestão de logística;43
+404;2025;h8d;Gestão de logística;37
+405;2021;h8e;Monitoramento e manutenção de equipamentos;38
+406;2023;h8e;Monitoramento e manutenção de equipamentos;38
+407;2024;h8e;Monitoramento e manutenção de equipamentos;44
+408;2025;h8e;Monitoramento e manutenção de equipamentos;28
+409;2021;h8f;Atendimento ao cliente;31
+410;2023;h8f;Atendimento ao cliente;33
+411;2024;h8f;Atendimento ao cliente;40
+412;2025;h8f;Atendimento ao cliente;32
+473;2021;h9;Inteligência artificial;13
+474;2023;h9;Inteligência artificial;13
+475;2024;h9;Inteligência artificial;13
+476;2025;h9;Inteligência artificial;17
+413;2021;h9aa;Análise de textos;20
+414;2023;h9aa;Análise de textos;15
+415;2024;h9aa;Análise de textos;22
+416;2025;h9aa;Análise de textos;38
+417;2021;h9ab;Reconhecimento de fala;13
+418;2023;h9ab;Reconhecimento de fala;11
+419;2024;h9ab;Reconhecimento de fala;16
+420;2025;h9ab;Reconhecimento de fala;17
+421;2021;h9ac;Geração de linguagem natural;15
+422;2023;h9ac;Geração de linguagem natural;13
+423;2024;h9ac;Geração de linguagem natural;20
+424;2025;h9ac;Geração de linguagem natural;30
+425;2021;h9ad;Processamento de imagens;33
+426;2023;h9ad;Processamento de imagens;32
+427;2024;h9ad;Processamento de imagens;33
+428;2025;h9ad;Processamento de imagens;31
+429;2021;h9ae;Machine learning;19
+430;2023;h9ae;Machine learning;16
+431;2024;h9ae;Machine learning;20
+432;2025;h9ae;Machine learning;25
+433;2021;h9af;Automatização de processos;73
+434;2023;h9af;Automatização de processos;66
+435;2024;h9af;Automatização de processos;63
+436;2025;h9af;Automatização de processos;68
+437;2021;h9ag;Máquinas e veículos autônomos;10
+438;2023;h9ag;Máquinas e veículos autônomos;6
+439;2024;h9ag;Máquinas e veículos autônomos;9
+440;2025;h9ag;Máquinas e veículos autônomos;7

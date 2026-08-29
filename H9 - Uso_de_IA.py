@@ -46,8 +46,10 @@ sql = (
 with open("./logs/IA_totais.sql", "w", encoding="utf-8") as arquivo:
     arquivo.write(sql)
 
+
 bd = f_ConectaBD.conn
 dfl = pd.read_sql(sql, bd)
+dfl.to_excel("./logs/ia_totais.xlsx", index=False)
 dfl.set_index("Ano pesquisa", inplace=True)
 
 fig_L = px.line(dfl, y="% de Empresas que utilizam", color="Tipo de ferramenta", height=640, markers=True)
@@ -104,8 +106,8 @@ sql = (
     f"and f.cd_variavel = dic.cd_questao_ceticbr "
     f"order by f.ano_pesquisa; "  
 )
-#with open("./logs/IA_mercado.sql", "w", encoding="utf-8") as arquivo:
- #   arquivo.write(sql)
+with open("./logs/IA_mercado.sql", "w", encoding="utf-8") as arquivo:
+   arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 dfM = pd.read_sql(sql, bd)
@@ -197,6 +199,7 @@ sql = (
     f'SELECT DISTINCT f.Ano_pesquisa "Ano pesquisa" '
     f'FROM ft_ceticbr_mercado f '
     f'WHERE f.cd_variavel like "h9a%" '
+    f'ORDER BY 1 DESC '
 )
 bd = f_ConectaBD.conn
 dfAnoBox = pd.read_sql(sql, bd)

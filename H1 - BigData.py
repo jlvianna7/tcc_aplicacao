@@ -49,6 +49,8 @@ sql = (
 
 bd = f_ConectaBD.conn
 df = pd.read_sql(sql, bd)
+df.to_excel("./logs/bigdata.xlsx", index=False)
+
 
 fig_L = px.line(df, x="Ano pesquisa", y="% Fizeram análise de Big Data", height=460, markers=True)
 fig_L.update_xaxes(dtick="M12",tickformat="%Y")
@@ -78,6 +80,7 @@ sql = (
 
 bd = f_ConectaBD.conn
 dfl = pd.read_sql(sql, bd)
+dfl.to_excel("./logs/bigdata_origem_dados.xlsx", index=False)
 dfl.set_index("Ano pesquisa", inplace=True)
 
 #fig_L = px.line(dfl, y="% de Empresas que utilizaram", color="Análise", text="Proporção", height=600, markers=True)
@@ -223,6 +226,7 @@ sql = (
     f'SELECT DISTINCT f.Ano_pesquisa "Ano pesquisa" '
     f'FROM ft_ceticbr_mercado f '
     f'WHERE f.cd_variavel like "h1a%" '
+    f'ORDER BY f.Ano_pesquisa DESC '
 )
 
 bd = f_ConectaBD.conn

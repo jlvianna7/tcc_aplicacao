@@ -53,8 +53,8 @@ sql = (
     f'WHERE cd_variavel = "e1" '
     f'ORDER BY ano_pesquisa; '
 )
-#with open("c:/Temp/comprara.sql", "w", encoding="utf-8") as arquivo:
-#    arquivo.write(sql)
+with open("logs/compraram.sql", "w", encoding="utf-8") as arquivo:
+    arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 df = pd.read_sql(sql, bd)
@@ -205,7 +205,7 @@ col1, col2, col3 = st.columns([0.98, 0.01, 0.01])
 sql = (
     f'SELECT ano_pesquisa "Ano pesquisa" '
     f'FROM dm_resumo_pesquisa '
-    f'order by ano_pesquisa; '
+    f'order by ano_pesquisa desc; '
 )
 
 bd = f_ConectaBD.conn

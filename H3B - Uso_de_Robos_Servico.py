@@ -51,6 +51,7 @@ with open("./logs/robo_serviço_servico.sql", "w", encoding="utf-8") as arquivo:
 
 bd = f_ConectaBD.conn
 dfl = pd.read_sql(sql, bd)
+dfl.to_excel("./logs/robo_servico.xlsx", index=False)
 
 
 #col1.line_chart(dfl, x="Ano pesquisa", y="% de Empresas que utilizam", color="Tipo de serviço", height=460)

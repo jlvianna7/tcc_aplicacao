@@ -1,9 +1,9 @@
-Ano pesquisa;id_dm_mercado;Mercado de atuação;% Utiliza CRM;valor
-2014;7;Atividades administrativa;52;52 %
-2014;6;Informação e Comunicação;31;31 %
-2014;3;Comércio e reparação de v;26;26 %
-2014;8;Artes, cultura, esportes,;25;25 %
-2014;1;Indústria de Transformaçã;20;20 %
-2014;4;Transporte, Armazenagem e;20;20 %
-2014;2;Construção;15;15 %
-2014;5;Alojamento e Alimentação;13;13 %
+Ano pesquisa,% Utilizam CRM
+2014,23
+2015,20
+2017,21
+2019,22
+2021,27
+2023,28
+2024,25
+2025,31

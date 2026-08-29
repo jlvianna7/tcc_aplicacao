@@ -52,7 +52,7 @@ sql = (
 
 bd = f_ConectaBD.conn
 dfl = pd.read_sql(sql, bd)
-#dfl.to_csv("./logs/nuvem.csv", index=False)
+dfl.to_excel("./logs/nuvem.xlsx", index=False)
 dfl.set_index("Ano pesquisa", inplace=True)
 
 fig_L = px.line(dfl, y="Proporção", color="Serviço", height=600, markers=True)
@@ -159,11 +159,13 @@ sql = (
     f"and f.cd_variavel = dic.cd_questao_ceticbr "
     f"order by f.ano_pesquisa; "  
 )
-#with open("./logs/nuvem_porte.sql", "w", encoding="utf-8") as arquivo:
-#    arquivo.write(sql)
+with open("./logs/nuvem_porte.sql", "w", encoding="utf-8") as arquivo:
+    arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 dfP = pd.read_sql(sql, bd)
+dfP.to_excel("./logs/nuvem_tipo_port.xlsx", index=False)
+
 dfP.set_index("Ano pesquisa", inplace=True)
 dfP = dfP[dfP["Tipo de serviço"] == cbox_origem]
 col1.markdown(f"**Proporção de empresas que utilizam :yellow-background[Nuvem pública para {cbox_origem}] por Porte da empresa**")
@@ -247,6 +249,8 @@ with open("./logs/nuvem_porte_data.sql", "w", encoding="utf-8") as arquivo:
 bd = f_ConectaBD.conn
 dfP1 = pd.read_sql(sql, bd)
 dfP1.set_index("Porte empresa", inplace=True)
+with open("./logs/nuvem_porte.sql", "w", encoding="utf-8") as arquivo:
+    arquivo.write(sql)
 
 
 col1, col2, col3 = st.columns([0.98, 0.02, 0.02])

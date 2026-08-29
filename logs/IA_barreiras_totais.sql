@@ -1,1 +1,1 @@
-SELECT contexto "Obstáculo", qtd_resposta_sim "% de Empresas que utilizam", qtd_resposta_sim || " %" as "valor"  FROM ft_ceticbr_totais WHERE  cd_variavel like "h13%"   and ano_pesquisa = 2025 order by 2
+SELECT contexto "Obstáculo", qtd_resposta_sim "% de Empresas que utilizam", qtd_resposta_sim || " %" as "valor"  FROM ft_ceticbr_totais WHERE  cd_variavel like "h13%"   and ano_pesquisa = 2025 order by 2 desc

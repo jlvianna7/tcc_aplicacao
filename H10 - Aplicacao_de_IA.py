@@ -46,6 +46,7 @@ sql = (
 
 bd = f_ConectaBD.conn
 dfl = pd.read_sql(sql, bd)
+#dfl.to_excel("./logs/ia_area_apicacao.xlsx", index=False)
 dfl.set_index("Ano pesquisa", inplace=True)
 
 fig_L = px.line(dfl, y="% de Empresas que utilizam", color="Aplicação", height=640, markers=True)
@@ -102,11 +103,12 @@ sql = (
     f"and f.cd_variavel = dic.cd_questao_ceticbr "
     f"order by f.ano_pesquisa; "  
 )
-#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/IA_aplic_mercado.sql", "w", encoding="utf-8") as arquivo:
- #   arquivo.write(sql)
+with open("./logs/IA_aplic_mercado.sql", "w", encoding="utf-8") as arquivo:
+    arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 dfM = pd.read_sql(sql, bd)
+dfM.to_excel("./logs/ia_mercado.xlsx", index=False)
 dfM.set_index("Ano pesquisa", inplace=True)
 dfM = dfM[dfM["área de aplicação"] == cbox_origem]
 
@@ -150,13 +152,15 @@ sql = (
     f"and f.cd_variavel = dic.cd_questao_ceticbr "
     f"order by f.ano_pesquisa; "  
 )
-#with open("G:/Meu Drive/MBA - USP/TCC/Resultados preliminares/Novos dados/IA_aplic_porte.sql", "w", encoding="utf-8") as arquivo:
- #   arquivo.write(sql)
+with open("logs/IA_aplic_porte.sql", "w", encoding="utf-8") as arquivo:
+    arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 dfP = pd.read_sql(sql, bd)
+#dfP.to_excel("./logs/ia_porte.xlsx", index=False)
 dfP.set_index("Ano pesquisa", inplace=True)
 dfP = dfP[dfP["área de aplicação"] == cbox_origem]
+
 col1.markdown(f"**Proporção de empresas que utilizam :yellow-background[Inteligência artificial], para {cbox_origem}  por Porte da empresa**")
 col3.write(' ')
 
@@ -195,6 +199,7 @@ sql = (
     f'SELECT DISTINCT f.Ano_pesquisa "Ano pesquisa" '
     f'FROM ft_ceticbr_mercado f '
     f'WHERE f.cd_variavel like "h9a%" '
+    f'ORDER BY 1 DESC '
 )
 bd = f_ConectaBD.conn
 dfAnoBox = pd.read_sql(sql, bd)

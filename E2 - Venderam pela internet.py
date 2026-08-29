@@ -30,7 +30,7 @@ st.text('\n\n\n\n\n')
 st.sidebar.color_picker = '#0F3A69'
 st.sidebar.write("E2 - Venderam pela internet")
 
-# %% Evolução anual, geral do uso de ERPs
+# %% Evolução anual, geral de empresas que Compraram pela Internet
 
 st.subheader("Evolução cronológica da proporção de empresas que :yellow-background[venderam pela internet]")
 
@@ -44,8 +44,8 @@ sql = (
     f'WHERE cd_variavel = "e2b" ' 
     f'ORDER BY ano_pesquisa; '
 )
-#with open("c:/Temp/venderam.sql", "w", encoding="utf-8") as arquivo:
-#    arquivo.write(sql)
+with open("logs/venderam.sql", "w", encoding="utf-8") as arquivo:
+    arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 df = pd.read_sql(sql, bd)
@@ -190,7 +190,7 @@ st.write('')
 sql = (
     f'SELECT ano_pesquisa "Ano pesquisa" '
     f'FROM dm_resumo_pesquisa '
-    f'order by ano_pesquisa; '
+    f'order by ano_pesquisa desc; '
 )
 
 bd = f_ConectaBD.conn

@@ -40,8 +40,8 @@ sql = (
     f'WHERE cd_variavel = "g2" '
     f'ORDER BY ano_pesquisa; '
 )
-#with open("c:/Temp/erp.sql", "w", encoding="utf-8") as arquivo:
-#    arquivo.write(sql)
+with open("logs/erp.sql", "w", encoding="utf-8") as arquivo:
+    arquivo.write(sql)
 
 bd = f_ConectaBD.conn
 df = pd.read_sql(sql, bd)
@@ -194,7 +194,7 @@ st.write('')
 sql = (
     f'SELECT ano_pesquisa "Ano pesquisa" '
     f'FROM dm_resumo_pesquisa '
-    f'order by ano_pesquisa; '
+    f'order by ano_pesquisa desc; '
 )
 
 bd = f_ConectaBD.conn
