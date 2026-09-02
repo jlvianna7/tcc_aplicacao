@@ -53,7 +53,8 @@ col1, col2 = st.columns([0.70, 0.30])
 
 #col1.table(df_analise, hide_index=True)
 
-col1.table(df_analise.style.format({"Maior desafio": None , "Menções": "{:.0f}", "Frequência (%)": "{:.1f}%"}), hide_index=True)
+#col1.table(df_analise.style.format({"Maior desafio": None , "Menções": "{:.0f}", "Frequência (%)": "{:.1f}%"}), hide_index=True)
+col1.table(df_analise.style.format({"Maior desafio": None , "Menções": "{:.0f}", "Frequência (%)": "{:.1f}%"}))
 
 col2.write(' ')
 #bd.close
