@@ -41,7 +41,7 @@ df = pd.read_sql(sql, bd)
 
 
 # 1. Agrupa e conta os registros
-st.dataframe(df, hide_index=True, use_container_width=True)
+st.dataframe(df, hide_index=True)
 df_analise = df.groupby('Tipos de mudanças').size().reset_index(name='Menções')
 
 # 2. Calcula o percentual sobre o total da coluna 'Quantidade'
