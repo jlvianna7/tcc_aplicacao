@@ -60,7 +60,7 @@ col1.write(' \n')
 
 #col1.table(df_analise.style.format({"Tipos de mudanças": None , "Menções": "{:.0f}", "Frequência (%)": "{:.1f}%"}), hide_index=True)
 
-#col1.table(df_analise.style.format({"Tipos de mudanças": None , "Menções": "{:.0f}", "Frequência (%)": "{:.1f}%"}))
+col1.table(df_analise.style.format({"Tipos de mudanças": None , "Menções": "{:.0f}", "Frequência (%)": "{:.1f}%"}))
 col2.write(' ')
 
 
