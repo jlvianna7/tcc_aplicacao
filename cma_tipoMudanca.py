@@ -41,6 +41,7 @@ df = pd.read_sql(sql, bd)
 
 
 # 1. Agrupa e conta os registros
+st.dataframe(df, hide_index=True, use_container_width=True)
 df_analise = df.groupby('Tipos de mudanças').size().reset_index(name='Menções')
 
 # 2. Calcula o percentual sobre o total da coluna 'Quantidade'
@@ -48,7 +49,6 @@ df_analise['Frequência (%)'] = (df_analise['Menções'] / df_analise['Menções
 df_analise['Frequência (%)'] = df_analise['Frequência (%)'].round(1)
 # 3. Ordena do maior para o menor
 df_analise = df_analise.sort_values(by='Frequência (%)', ascending=False)
-df_analise.reset_index(drop=True, inplace=True)
 #df_analise = df['Tipos de mudanças'].value_counts(normalize=True) * 100
 
 col1, col2, col3 = st.columns([0.70, 0.29, 0.01])
@@ -60,8 +60,7 @@ col1.write(' \n')
 
 #col1.table(df_analise.style.format({"Tipos de mudanças": None , "Menções": "{:.0f}", "Frequência (%)": "{:.1f}%"}), hide_index=True)
 
-col1.table(df_analise.style.format({"Tipos de mudanças": None , "Menções": "{:.0f}", "Frequência (%)": "{:.1f}%"}))
-
+#col1.table(df_analise.style.format({"Tipos de mudanças": None , "Menções": "{:.0f}", "Frequência (%)": "{:.1f}%"}))
 col2.write(' ')
 
 
